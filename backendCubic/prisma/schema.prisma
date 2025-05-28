@@ -1,0 +1,398 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  user_id String   @id @default(auto()) @map("_id") @db.ObjectId
+  email String   @unique
+  name String
+  telephone String
+  password String
+  document String @db.ObjectId
+  document_type Document_type @relation(fields: [document], references: [document_type_id])
+  document_number String
+  role_id String @db.ObjectId
+  role Role @relation(fields: [role_id], references: [role_id])
+  salary Float
+  posts Post[]
+  photos Photos[]
+  service_categories Service_categories[]
+  product_categories Product_categories[]
+  campaigns Campaign[]
+  products Products[]
+  services Services[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model Role {
+  role_id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  permissions String
+  description String
+  base_salary Float
+  created_at DateTime @default(now())
+  dev_id String @db.ObjectId
+  developer Developer @relation(fields: [dev_id], references: [dev_id])
+  users User[]
+}
+
+model Developer {
+  dev_id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String 
+  email String @unique
+  telephone String
+  password String
+  roles Role[]
+  document_type Document_type[]
+  pages Pages[]
+  payment_methods Payment_method[]
+  states States[]
+}
+
+model Post{
+  post_id String @id @default(auto()) @map("_id") @db.ObjectId
+  added_by String @db.ObjectId
+  user User @relation(fields: [added_by], references: [user_id])
+  title String
+  text String
+  photo_ids String[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  likes String[]
+}
+
+model Photos{
+  photo_id String @id @default(auto()) @map("_id") @db.ObjectId
+  source String
+  added_by String @db.ObjectId
+  user User @relation(fields: [added_by], references: [user_id])
+  description String
+  created_at DateTime @default(now())
+  product Products[]
+  services Services[]
+}
+
+model Service_categories {
+  service_category_id String @id @default(auto()) @map("_id") @db.ObjectId
+  added_by String @db.ObjectId
+  user User @relation(fields: [added_by], references: [user_id])
+  name String
+  description String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  services Services[]
+}
+
+model Product_categories {
+  product_category_id String @id @default(auto()) @map("_id") @db.ObjectId
+  added_by String @db.ObjectId
+  user User @relation(fields: [added_by], references: [user_id])
+  name String
+  description String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  products Products[]
+}
+
+model Campaign{
+  campaign_id String @id @default(auto()) @map("_id") @db.ObjectId
+  added_by String @db.ObjectId
+  user User @relation(fields: [added_by], references: [user_id])
+  name String
+  start_date DateTime
+  end_date DateTime
+  action String
+  products Products[]
+  services Services[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  description String
+}
+
+
+model Products{
+  product_id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  added_by String @db.ObjectId
+  user User @relation(fields: [added_by], references: [user_id])
+  category String @db.ObjectId
+  product_category Product_categories @relation(fields: [category], references: [product_category_id])
+  created_at DateTime @default(now())
+  price Float
+  campaign_id String @db.ObjectId
+  campaign Campaign @relation(fields: [campaign_id], references: [campaign_id])
+  call_to_action String
+  description String
+  main_photo_id String @db.ObjectId
+  main_photo Photos @relation(fields: [main_photo_id], references: [photo_id])
+  photos_ids String
+  views Int
+  selling_numbers Int
+  product_score Float
+  updated_at DateTime @updatedAt
+  product_comments Product_comments[]
+  quantity Int
+  shopping_cart_product Shopping_cart_product[]
+  wishlist Wishlist[]
+  product_sales Product_sales[]
+  product_viewed Product_viewed[]
+}
+//as fotos gerais são uma string pois o prisma não suporta arrays de strings 
+
+model Services{
+  service_id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  added_by String @db.ObjectId
+  user User @relation(fields: [added_by], references: [user_id])
+  category String @db.ObjectId
+  service_category Service_categories @relation(fields: [category], references: [service_category_id])
+  created_at DateTime @default(now())
+  price Float
+  campaign_id String @db.ObjectId
+  campaign Campaign @relation(fields: [campaign_id], references: [campaign_id])
+  call_to_action String
+  description String
+  main_photo_id String @db.ObjectId
+  main_photo Photos @relation(fields: [main_photo_id], references: [photo_id])
+  photos_ids String
+  views Int
+  selling_numbers Int
+  service_score Float
+  time_to_completion Float
+  updated_at DateTime @updatedAt
+  service_comments Service_comments[]
+  appointments Appointments[]
+  service_viewed Service_viewed[]
+}
+//as fotos gerais são uma string pois o prisma não suporta arrays de strings 
+
+model Document_type{
+  document_type_id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  description String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  dev_id String @db.ObjectId
+  developer Developer @relation(fields: [dev_id], references: [dev_id])
+  users User[]
+  consumer Consumer[]
+}
+
+model Pages{
+  page_id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  description String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  dev_id String @db.ObjectId
+  developer Developer @relation(fields: [dev_id], references: [dev_id])
+  breadcrumbs Consumer_breadcrums[]
+}
+
+model Payment_method{
+  payment_method_id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  description String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  dev_id String @db.ObjectId
+  developer Developer @relation(fields: [dev_id], references: [dev_id])
+  products Product_sales[]
+  receipt Product_receipt[]
+  service_receipt Service_receipt[]
+}
+
+model States{
+  state_id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  dev_id String @db.ObjectId
+  developer Developer @relation(fields: [dev_id], references: [dev_id])
+  appointments Appointments[]
+}
+
+model Consumer {
+  consumer_id String   @id @default(auto()) @map("_id") @db.ObjectId
+  email String   @unique
+  name String
+  password String
+  telephone String
+  document String @db.ObjectId
+  document_type Document_type @relation(fields: [document], references: [document_type_id])
+  document_number String
+  adress String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  service_comments Service_comments[]
+  product_comments Product_comments[]
+  shopping_cart Shopping_cart[]
+  breadcrumbs Consumer_breadcrums[]
+  wishlist Wishlist[]
+  product_sales Product_sales[]
+  receipt Product_receipt[]
+  apointments Appointments[]
+  service_receipt Service_receipt[]
+}
+
+model Service_comments{
+  service_comment_id String @id @default(auto()) @map("_id") @db.ObjectId
+  consumer_id String @db.ObjectId
+  consumer Consumer @relation(fields: [consumer_id], references: [consumer_id])
+  service_id String @db.ObjectId
+  service Services @relation(fields: [service_id], references: [service_id])
+  title String
+  text String
+  score Int
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  likes String[]
+  has_brought Boolean
+}
+
+model Product_comments{
+  service_comment_id String @id @default(auto()) @map("_id") @db.ObjectId
+  consumer_id String @db.ObjectId
+  consumer Consumer @relation(fields: [consumer_id], references: [consumer_id])
+  product_id String @db.ObjectId
+  product Products @relation(fields: [product_id], references: [product_id])
+  title String
+  text String
+  score Int
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  likes String[]
+  has_brought Boolean
+}
+
+model Shopping_cart{
+  shopping_cart_id String @id @default(auto()) @map("_id") @db.ObjectId
+  consumer_id String @db.ObjectId
+  consumer Consumer @relation(fields: [consumer_id], references: [consumer_id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  purchased Boolean
+  items Shopping_cart_product[]
+  product_receipt Product_receipt[]
+}
+
+model Shopping_cart_product{
+  shopping_cart_product_id String @id @default(auto()) @map("_id") @db.ObjectId
+  shopping_cart_id String @db.ObjectId
+  shopping_cart Shopping_cart @relation(fields: [shopping_cart_id], references: [shopping_cart_id])
+  product_id String @db.ObjectId
+  product Products @relation(fields: [product_id], references: [product_id])
+  quantity Int
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model Consumer_breadcrums{
+  breadcrumb_id String @id @default(auto()) @map("_id") @db.ObjectId
+  consumer_id String @db.ObjectId
+  consumer Consumer @relation(fields: [consumer_id], references: [consumer_id])
+  page_id String @db.ObjectId
+  page Pages @relation(fields: [page_id], references: [page_id])
+  created_at DateTime @default(now())
+  time_spent Float
+  service_vieded Service_viewed[]
+  product_viewed Product_viewed[]
+}
+
+model Wishlist{
+  wishlist_id String @id @default(auto()) @map("_id") @db.ObjectId
+  consumer_id String @db.ObjectId
+  consumer Consumer @relation(fields: [consumer_id], references: [consumer_id])
+  product_id String @db.ObjectId
+  product Products @relation(fields: [product_id], references: [product_id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  excluded Boolean
+  product_sales Product_sales[]
+}
+
+model Product_sales{
+  product_sales_id String @id @default(auto()) @map("_id") @db.ObjectId
+  product_id String @db.ObjectId
+  product Products @relation(fields: [product_id], references: [product_id])
+  consumer_id String @db.ObjectId
+  consumer Consumer @relation(fields: [consumer_id], references: [consumer_id])
+  price Float
+  receipt_id String
+  payment_method_id String @db.ObjectId
+  payment_method Payment_method @relation(fields: [payment_method_id], references: [payment_method_id])
+  wishlist_id String @db.ObjectId
+  wishlist Wishlist @relation(fields: [wishlist_id], references: [wishlist_id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model Product_receipt{
+  product_receipt_id String @id @default(auto()) @map("_id") @db.ObjectId
+  shopping_cart_id String @db.ObjectId
+  shopping_cart Shopping_cart @relation(fields: [shopping_cart_id], references: [shopping_cart_id])
+  consumer_id String @db.ObjectId
+  consumer Consumer @relation(fields: [consumer_id], references: [consumer_id])
+  total_value Float
+  payment_method_id String @db.ObjectId
+  payment_method Payment_method @relation(fields: [payment_method_id], references: [payment_method_id])
+  created_at DateTime @default(now())
+}
+
+model Appointments{
+  appointment_id String @id @default(auto()) @map("_id") @db.ObjectId
+  service_id String @db.ObjectId
+  service Services @relation(fields: [service_id], references: [service_id])
+  consumer_id String @db.ObjectId
+  consumer Consumer @relation(fields: [consumer_id], references: [consumer_id])
+  value Float
+  text String
+  execution_date DateTime
+  end_date DateTime
+  state_id String @db.ObjectId
+  state States @relation(fields: [state_id], references: [state_id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  service_receipt Service_receipt[]
+}
+
+model Service_receipt{
+  appointment_receipt_id String @id @default(auto()) @map("_id") @db.ObjectId
+  appointment_id String @db.ObjectId
+  appointment Appointments @relation(fields: [appointment_id], references: [appointment_id])
+  consumer_id String @db.ObjectId
+  consumer Consumer @relation(fields: [consumer_id], references: [consumer_id])
+  total_value Float
+  payment_method_id String @db.ObjectId
+  payment_method Payment_method @relation(fields: [payment_method_id], references: [payment_method_id])
+  created_at DateTime @default(now())
+}
+
+model Service_viewed{
+  service_viewed_id String @id @default(auto()) @map("_id") @db.ObjectId
+  breadcrum_id String @db.ObjectId
+  breadcrum Consumer_breadcrums @relation(fields: [breadcrum_id], references: [breadcrumb_id])
+  service_id String @db.ObjectId
+  service Services @relation(fields: [service_id], references: [service_id])
+  visit_date DateTime @default(now())
+}
+
+model Product_viewed{
+  service_viewed_id String @id @default(auto()) @map("_id") @db.ObjectId
+  breadcrum_id String @db.ObjectId
+  breadcrum Consumer_breadcrums @relation(fields: [breadcrum_id], references: [breadcrumb_id])
+  product_id String @db.ObjectId
+  product Products @relation(fields: [product_id], references: [product_id])
+  visit_date DateTime @default(now())
+}

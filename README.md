@@ -1,1 +1,1 @@
-This is the readme file
+This is the Cubic wesite repository, here you can see the latest developments in my company

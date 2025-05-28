@@ -1,0 +1,19 @@
+import type {Metadata} from "next"
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'site base para e-commerces',
+  description: 'projeto nextjs para e-commerces de pequeno e médio porte',
+};
+
+export default function  Rootlayout({children,}: Readonly<{children: React.ReactNode;}>) {
+  return(
+    <html lang="pt-BR">
+      <body>
+        <header className= "bg-orange-500">Header geral do app</header>
+        {children}
+        <footer className="bg-orange-500"> conteúdo do footer</footer>
+      </body>
+    </html>
+  )
+}
