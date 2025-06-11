@@ -9,7 +9,6 @@ export const registerUser = async (req, res) => {
 
     try{
         const {email, name, telephone, document_type, document_number, password, role, salary} = req.body;
-
         if (!email || !name || !telephone || !document_type || !document_number || !password || !role || !salary) {
             return res.status(400).json({message: 'Preencha todos os campos obrigatórios'});
         }
@@ -22,10 +21,8 @@ export const registerUser = async (req, res) => {
         if (existingUser) {
             return res.status(400).json({message: 'Usuário já existe'});
         }
-
         const salt = await bcrypt.genSalt(10);
         const hashpassword = await bcrypt.hash(password, salt);
-
         const newUser = await prisma.user.create({
             data: {
                 email: email,
@@ -38,10 +35,8 @@ export const registerUser = async (req, res) => {
                 salary: salary
             }
         });
-
         res.status(201).json(newUser);
     }
-
     catch(err){
         console.error('erro do servidor', err);
         res.status(500).json({message: 'Erro no servidor, tente novamente mais tarde'});
