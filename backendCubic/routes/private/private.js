@@ -1,26 +1,19 @@
-import express from 'express'
-import {PrismaClient } from '@prisma/client'
+import express from "express";
 
-// Initialize Express Router and Prisma Client
-const router = express.Router()
-const prisma = new PrismaClient()
+import { registerDeveloper } from "../../controllers/Developer/developerRegister.js";
+import { updateDeveloper } from "../../controllers/Developer/updateDeveloper.js";
+import { findDeveloper } from "../../controllers/Developer/findDeveloper.js";
+import { deleteDeveloper } from "../../controllers/Developer/deleteDeveloper.js";
+import { registerDocType } from "../../controllers/DocType/registerDocumentType.js";
 
-/**
- * GET /listar-usuarios
- * Lists all users from the database
- * @route GET /listar-usuarios
- * @returns {Object} 200 - Success response with users array
- * @returns {Object} 500 - Server error
- */
-router.get('/listar-usuarios', async (req, res) => {
-    try{
-        const users = await prisma.user.findMany()
-        res.status(200).json({message: 'Usuários listados com sucesso', users})
-    }
-    catch(err) {
-        console.log(err)
-        res.status(500).json({message: 'Erro no servidor, tente novamente mais tarde'})
-    }
-})
+const router = express.Router();
 
-export default router
+//developer actions
+router.post("/achar-developer", findDeveloper);
+router.put("/atualizar-developer", updateDeveloper);
+router.delete("/deletar-developer", deleteDeveloper);
+
+//document type actions
+router.post("/registerDocType", registerDocType);
+
+export default router;
