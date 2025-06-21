@@ -7,19 +7,7 @@ const prisma = new PrismaClient();
 
 export const updateDeveloper = async (req, res) => {
   try {
-    const { email } = req.body;
-    // Check if the developer already exists
-    if (!email) {
-      return res
-        .status(404)
-        .json({ message: "Por favor insira um e-mail para atualizar um dev" });
-    }
-    const existingDeveloper = await prisma.developer.findUnique({
-      where: { email },
-    });
-    if (!existingDeveloper) {
-      return res.status(404).json({ message: "Desenvolvedor não encontrado" });
-    }
+    const { dev_id } = req.body;
     const allowedFields = ["name", "email", "telephone", "password"];
     const updateFields = {};
     for (const field of allowedFields) {
@@ -38,7 +26,7 @@ export const updateDeveloper = async (req, res) => {
     }
     // Atualiza o desenvolvedor com os campos permitidos
     const updatedDeveloper = await prisma.developer.update({
-      where: { email },
+      where: { dev_id },
       data: updateFields,
     });
     // Retorna o desenvolvedor atualizado
