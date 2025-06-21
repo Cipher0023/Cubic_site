@@ -15,6 +15,6 @@ app.use("/public", publicRoutes);
 
 //rotas privadas
 app.use("/private", auth, privateRoutes);
-app.use("/private", auth, uploader);
+//app.use("/private", auth, uploader);
 
 app.listen(3001, () => console.log("Server running on port 3001"));

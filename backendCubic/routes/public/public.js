@@ -1,11 +1,11 @@
 import express from "express";
-import { registerDeveloper } from "../../controllers/Developer/developerRegister.js";
-import { loginDev } from "../../controllers/Developer/loginDeveloper.js";
+import { logDevCnt } from "../../controllers/Developer/logDevCnt.js";
+import { regDevCnt } from "../../controllers/Developer/regDevCnt.js";
 
 const router = express.Router();
 
 //parte de ações de developer
-router.post("login-developer", loginDev);
-router.post("/cadastro-developer", registerDeveloper);
+router.post("/logDev", logDevCnt);
+router.post("/regDev", regDevCnt);
 
 export default router;

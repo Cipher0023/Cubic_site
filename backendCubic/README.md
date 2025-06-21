@@ -1,1 +1,31 @@
-this site backend was made using node express
+Backend padrão da CUBIC
+para que testar este backend serão necessárias chaves para um banco de dados mongo DB
+caso deseje testar com o mongodb de testes da cubic, solicite as chaves para (17)98106-1023
+
+Para intalar este backend, digite o comando no ternial quando dentro da pasta backend:
+
+-npm install
+
+Para rodar o backend:
+
+npm run dev
+
+---
+
+Para covencionar o nomde de arquivos, escrevo aqui as abreviações usadas ao redor do projeto
+
+Register = Reg
+Delete = Del
+Find = Fin
+Update = Upd
+
+Controller = Cnt
+Service = Srv
+Route = Rte
+Middleware = Mdl
+
+Private = Prv
+Public = Pbl
+
+Login = Log
+Developer = Dev
