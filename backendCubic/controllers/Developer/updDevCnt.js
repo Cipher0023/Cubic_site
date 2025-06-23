@@ -1,16 +1,16 @@
-import { findDev } from "../../services/Developer/fndDevSrv.js";
+import { fndDev } from "../../services/Developer/fndDevSrv.js";
 import { updateDeveloper } from "../../services/Developer/updDevSrv.js";
 
 export const updDevCnt = async (req, res) => {
-  const { currentEmail, updateData } = req.body;
+  const { dev_id, updateData } = req.body;
   // ou req.params, depende da rota
 
   try {
-    if (!currentEmail) {
-      return res.status(400).json({ message: "Email obrigatório." });
+    if (!dev_id) {
+      return res.status(400).json({ message: "id obrigatório." });
     }
 
-    const existingDeveloper = await findDev(currentEmail);
+    const existingDeveloper = await fndDev(dev_id);
     if (!existingDeveloper) {
       return res.status(404).json({ message: "Desenvolvedor não encontrado." });
     }

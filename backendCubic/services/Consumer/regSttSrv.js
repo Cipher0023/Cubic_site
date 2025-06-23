@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const regPmt = async (name, dev_id, description) => {
-  const existing = await prisma.payment_method.findFirst({
+export const regStt = async (name, dev_id) => {
+  const existing = await prisma.states.findFirst({
     where: {
       name: name,
     },
@@ -13,20 +13,15 @@ export const regPmt = async (name, dev_id, description) => {
   if (existing) {
     throw new Error("Já cadastrado");
   }
-  const validator = findDev(updateData.dev_id);
-  if (!validator) {
-    throw new Error("Dev_id inválido ou não encontrado");
-  }
   // Criando novo registro
-  const newRecord = await prisma.payment_method.create({
+  const newRecord = await prisma.states.create({
     data: {
       name: name,
       dev_id: dev_id,
-      description: description,
     },
   });
   if (!newRecord) {
-    throw new Error("Erro ao criar");
+    throw new Error("Erro ao criar registro");
   }
   return newRecord;
 };

@@ -1,10 +1,10 @@
-import { findDev } from "../../services/Developer/fndDevSrv.js";
+import { fndDev } from "../../services/Developer/fndDevSrv.js";
 
 export const fndDevCnt = async (req, res) => {
   try {
-    const { email } = req.query;
+    const { dev_id } = req.query;
 
-    const developer = await findDev(email);
+    const developer = await fndDev(dev_id);
 
     if (!developer) {
       return res.status(404).json({ message: "Desenvolvedor não encontrado." });

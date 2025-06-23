@@ -1,12 +1,12 @@
-import { fndPgs } from "../../services/Pages/fndPgsSrv.js";
+import { fndPmt } from "../../services/PaymentMethods/fndPmtSrv.js";
 
-export const fndPgsCnt = async (req, res) => {
+export const fndPmtCnt = async (req, res) => {
   try {
-    const { page_id } = req.query;
-    if (!page_id) {
-      return res.status(400).json({ message: "Nome é obrigatório." });
+    const { payment_method_id } = req.query;
+    if (!payment_method_id) {
+      return res.status(400).json({ message: "Id é obrigatório." });
     }
-    const result = await fndPgs(page_id);
+    const result = await fndPmt(payment_method_id);
     if (!result) {
       return res.status(404).json({ message: "Não encontrada." });
     }
@@ -20,4 +20,3 @@ export const fndPgsCnt = async (req, res) => {
     return res.status(500).json({ message: "Erro interno do servidor." });
   }
 };
-//aaaa

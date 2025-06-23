@@ -4,13 +4,13 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const findDev = async (email) => {
-  if (!email) {
-    throw new Error("E-mail não fornecido.");
+export const fndDev = async (dev_id) => {
+  if (!dev_id) {
+    throw new Error("id não fornecido.");
   }
 
   const existingDeveloper = await prisma.developer.findUnique({
-    where: { email },
+    where: { dev_id },
   });
 
   return existingDeveloper;

@@ -33,3 +33,6 @@ Developer = Dev
 DocumentType = Dct
 Pages = Pgs
 Payment Methods = Pmt
+States = Stt
+Role = Rol
+Consumer = Cns

@@ -1,12 +1,12 @@
-import { delDev } from "../../services/Developer/delDevSrv.js";
+import { delStt } from "../../services/States/delSttSrv.js";
 
-export const delDevCnt = async (req, res) => {
-  const { dev_id } = req.body;
+export const delSttCnt = async (req, res) => {
+  const { state_id } = req.body;
   try {
-    if (!dev_id) {
+    if (!state_id) {
       return res.status(400).json({ message: "id obrigatório" });
     }
-    const result = await delDev(dev_id);
+    const result = await delStt(state_id);
     return res.status(200).json(result);
   } catch (error) {
     console.error("Erro ao deletar:", error.message);

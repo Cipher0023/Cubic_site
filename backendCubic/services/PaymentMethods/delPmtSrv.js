@@ -4,16 +4,16 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const delDev = async (dev_id) => {
+export const delPmt = async (payment_method_id) => {
   try {
-    const existing = await prisma.developer.findUnique({
-      where: { dev_id },
+    const existing = await prisma.payment_method.findUnique({
+      where: { payment_method_id },
     });
     if (!existing) {
       throw new Error("Não encontrado");
     }
-    await prisma.developer.delete({
-      where: { dev_id },
+    await prisma.payment_method.delete({
+      where: { payment_method_id },
     });
     return { success: true, message: "Deletado com sucesso." };
   } catch (error) {
