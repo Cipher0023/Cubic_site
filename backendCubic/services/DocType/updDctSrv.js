@@ -1,13 +1,12 @@
-import bcrypt from "bcrypt"; // For password hashing
 import { PrismaClient } from "@prisma/client"; // Database ORM
 import dotenv from "dotenv";
 
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const updateDeveloper = async (dev_id, updateData) => {
+export const updDct = async (document_type_id, updateData) => {
   try {
-    const allowedFields = ["name", "email", "telephone", "password"];
+    const allowedFields = ["name", "dev_id", "description"];
     const updateFields = {};
     //faz um loop nos campos permitidos e verifica quais foram enviados
     for (const field of allowedFields) {
@@ -15,24 +14,19 @@ export const updateDeveloper = async (dev_id, updateData) => {
         updateFields[field] = updateData[field];
       }
     }
-    //se atualizar a senha, esta parte faz o hash da senha
-    if (updateFields.password) {
-      const salt = await bcrypt.genSalt(10);
-      updateFields.password = await bcrypt.hash(updateFields.password, salt);
-    }
     //verifica se ao menos um campo válido foi enviado para update
     if (Object.keys(updateFields).length === 0) {
       throw new Error("nenhum dado para atualizar");
     }
     // Atualiza o desenvolvedor com os campos permitidos
-    const updatedDeveloper = await prisma.developer.update({
-      where: { dev_id },
+    const updateDocType = await prisma.document_type.update({
+      where: { document_type_id },
       data: updateFields,
     });
     // Retorna o desenvolvedor atualizado
     return {
-      message: "Desenvolvedor atualizado com sucesso",
-      developer: updatedDeveloper,
+      message: "Atualizado com sucesso",
+      newData: updateDocType,
     };
   } catch (err) {
     console.error("Erro no serviço de update", err);

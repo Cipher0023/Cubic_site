@@ -10,14 +10,15 @@ Para rodar o backend:
 
 npm run dev
 
----
+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
 Para covencionar o nomde de arquivos, escrevo aqui as abreviações usadas ao redor do projeto
 
-Register = Reg
-Delete = Del
-Find = Fin
-Update = Upd
+Register = reg
+Delete = del
+Find = fnd
+Update = upd
+list = lst
 
 Controller = Cnt
 Service = Srv
@@ -29,3 +30,6 @@ Public = Pbl
 
 Login = Log
 Developer = Dev
+DocumentType = Dct
+Pages = Pgs
+Payment Methods = Pmt
