@@ -10,29 +10,36 @@ Para rodar o backend:
 
 npm run dev
 
-oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-
 Para covencionar o nomde de arquivos, escrevo aqui as abreviações usadas ao redor do projeto
 
+AÇÕES
 Register = reg
 Delete = del
 Find = fnd
 Update = upd
 list = lst
 
+TIPOS DE ARQUIVOS
 Controller = Cnt
 Service = Srv
 Route = Rte
 Middleware = Mdl
 
+ROTAS
 Private = Prv
 Public = Pbl
 
+TABELAS
 Login = Log
 Developer = Dev
 DocumentType = Dct
 Pages = Pgs
-Payment Methods = Pmt
+PaymentMethods = Pmt
 States = Stt
 Role = Rol
 Consumer = Cns
+User = Usr
+ProductCategory = Prc
+ServiceCategory = Svc (são serviços dos negócios não serviços do backend)
+Photos = Pht
+Post = Pst

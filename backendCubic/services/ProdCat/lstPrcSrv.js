@@ -4,9 +4,9 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const lstStt = async () => {
+export const lstPrc = async () => {
   try {
-    const result = await prisma.states.findMany();
+    const result = await prisma.product_categories.findMany();
     return result;
   } catch (error) {
     console.error("Erro ao listar:", error.message);

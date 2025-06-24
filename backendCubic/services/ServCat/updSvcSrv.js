@@ -4,9 +4,9 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const updStt = async (state_id, updateData) => {
+export const updSvc = async (service_category_id, updateData) => {
   try {
-    const allowedFields = ["name", "dev_id"];
+    const allowedFields = ["name", "added_by", "description"];
     const updateFields = {};
     //faz um loop nos campos permitidos e verifica quais foram enviados
     for (const field of allowedFields) {
@@ -19,8 +19,8 @@ export const updStt = async (state_id, updateData) => {
       throw new Error("nenhum dado para atualizar");
     }
     // Atualiza com os campos permitidos
-    const update = await prisma.states.update({
-      where: { state_id },
+    const update = await prisma.service_categories.update({
+      where: { service_category_id },
       data: updateFields,
     });
     // Retorna valor atualizado

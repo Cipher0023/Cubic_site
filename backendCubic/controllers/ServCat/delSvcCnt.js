@@ -1,12 +1,12 @@
-import { delRol } from "../../services/Role/delRolSrv.js";
+import { delSvc } from "../../services/ServCat/delSvcSrv.js";
 
-export const delRolCnt = async (req, res) => {
-  const { role_id } = req.body;
+export const delSvcCnt = async (req, res) => {
+  const { service_category_id } = req.body;
   try {
-    if (!role_id) {
+    if (!service_category_id) {
       return res.status(400).json({ message: "id obrigatório" });
     }
-    const result = await delRol(role_id);
+    const result = await delSvc(service_category_id);
     return res.status(200).json(result);
   } catch (error) {
     console.error("Erro ao deletar:", error.message);

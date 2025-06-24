@@ -4,16 +4,16 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const delRol = async (role_id) => {
+export const delUsr = async (user_id) => {
   try {
-    const existing = await prisma.role.findUnique({
-      where: { role_id },
+    const existing = await prisma.user.findUnique({
+      where: { user_id },
     });
     if (!existing) {
       throw new Error("Não encontrado");
     }
-    await prisma.role.delete({
-      where: { role_id },
+    await prisma.user.delete({
+      where: { user_id },
     });
     return { success: true, message: "Deletado com sucesso." };
   } catch (error) {

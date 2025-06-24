@@ -1,12 +1,12 @@
-import { delRol } from "../../services/Role/delRolSrv.js";
+import { delPht } from "../../services/Photos/delPhtSrv.js";
 
-export const delRolCnt = async (req, res) => {
-  const { role_id } = req.body;
+export const delPhtCnt = async (req, res) => {
+  const { photo_id } = req.body;
   try {
-    if (!role_id) {
+    if (!photo_id) {
       return res.status(400).json({ message: "id obrigatório" });
     }
-    const result = await delRol(role_id);
+    const result = await delPht(photo_id);
     return res.status(200).json(result);
   } catch (error) {
     console.error("Erro ao deletar:", error.message);

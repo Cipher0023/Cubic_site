@@ -4,16 +4,16 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const delCns = async (consumer_id) => {
+export const delPht = async (photo_id) => {
   try {
-    const existing = await prisma.consumer.findUnique({
-      where: { consumer_id },
+    const existing = await prisma.photos.findUnique({
+      where: { photo_id },
     });
     if (!existing) {
       throw new Error("Não encontrado");
     }
-    await prisma.consumer.delete({
-      where: { consumer_id },
+    await prisma.photos.delete({
+      where: { photo_id },
     });
     return { success: true, message: "Deletado com sucesso." };
   } catch (error) {

@@ -4,20 +4,21 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const regStt = async (name, dev_id) => {
-  const existing = await prisma.states.findFirst({
+export const regPht = async (source, added_by, description) => {
+  const existing = await prisma.photos.findFirst({
     where: {
-      name: name,
+      source: source,
     },
   });
   if (existing) {
     throw new Error("Já cadastrado");
   }
   // Criando novo registro
-  const newRecord = await prisma.states.create({
+  const newRecord = await prisma.photos.create({
     data: {
-      name: name,
-      dev_id: dev_id,
+      source: source,
+      added_by: added_by,
+      description: description,
     },
   });
   if (!newRecord) {
