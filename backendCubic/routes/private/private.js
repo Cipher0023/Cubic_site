@@ -70,11 +70,18 @@ import { updPhtCnt } from "../../controllers/Photos/updPhtCnt.js";
 import { delPhtCnt } from "../../controllers/Photos/delPhtCnt.js";
 
 //imports Photos
-//import { regPstCnt } from "../../controllers/Post/regPstCnt.js";
-//import { fndPstCnt } from "../../controllers/Post/fndPstCnt.js";
-//import { lstPstCnt } from "../../controllers/Post/lstPstCnt.js";
-//import { updPstCnt } from "../../controllers/Post/updPstCnt.js";
-//import { delPstCnt } from "../../controllers/Post/delPstCnt.js";
+import { regPstCnt } from "../../controllers/Post/regPstCnt.js";
+import { fndPstCnt } from "../../controllers/Post/fndPstCnt.js";
+import { lstPstCnt } from "../../controllers/Post/lstPstCnt.js";
+import { updPstCnt } from "../../controllers/Post/updPstCnt.js";
+import { delPstCnt } from "../../controllers/Post/delPstCnt.js";
+
+//imports Capaign
+//import { regCpgCnt } from "../../controllers/Campaign/regCpgCnt.js";
+//import { fndCpgCnt } from "../../controllers/Campaign/fndCpgCnt.js";
+//import { lstCpgCnt } from "../../controllers/Campaign/lstCpgCnt.js";
+//import { updCpgCnt } from "../../controllers/Campaign/updCpgCnt.js";
+//import { delCpgCnt } from "../../controllers/Campaign/delCpgCnt.js";
 
 const router = express.Router();
 
@@ -148,10 +155,17 @@ router.put("/updPht", updPhtCnt);
 router.delete("/delPht", delPhtCnt);
 
 //post actions
-//router.post("/regPst", regPstCnt);
-//router.get("/fndPst", fndPstCnt);
-//router.get("/lstPst", lstPstCnt);
-//router.put("/updPst", updPstCnt);
-//router.delete("/delPst", delPstCnt);
+router.post("/regPst", regPstCnt);
+router.get("/fndPst", fndPstCnt);
+router.get("/lstPst", lstPstCnt);
+router.put("/updPst", updPstCnt);
+router.delete("/delPst", delPstCnt);
+
+//campaign actions
+//router.post("/regCpg", regCpgCnt);
+//router.get("/fndCpg", fndCpgCnt);
+//router.get("/lstCpg", lstCpgCnt);
+//router.put("/updCpg", updCpgCnt);
+//router.delete("/delCpg", delCpgCnt);
 
 export default router;

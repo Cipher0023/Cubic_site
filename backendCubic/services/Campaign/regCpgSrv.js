@@ -4,10 +4,17 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const regPst = async (title, added_by, text) => {
-  const existing = await prisma.post.findFirst({
+export const regCpg = async (
+  added_by,
+  name,
+  start_date,
+  end_date,
+  action,
+  description
+) => {
+  const existing = await prisma.campaign.findFirst({
     where: {
-      title: title,
+      name: name,
     },
   });
   if (existing) {
@@ -16,9 +23,12 @@ export const regPst = async (title, added_by, text) => {
   // Criando novo registro
   const newRecord = await prisma.post.create({
     data: {
-      title: title,
       added_by: added_by,
-      text: text,
+      name: name,
+      start_date: start_date,
+      end_date: end_date,
+      action: action,
+      description: description,
     },
   });
   if (!newRecord) {

@@ -43,3 +43,4 @@ ProductCategory = Prc
 ServiceCategory = Svc (são serviços dos negócios não serviços do backend)
 Photos = Pht
 Post = Pst
+Campaign = Cpg
