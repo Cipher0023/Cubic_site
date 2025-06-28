@@ -83,6 +83,13 @@ import { delPstCnt } from "../../controllers/Post/delPstCnt.js";
 //import { updCpgCnt } from "../../controllers/Campaign/updCpgCnt.js";
 //import { delCpgCnt } from "../../controllers/Campaign/delCpgCnt.js";
 
+//imports Consumer
+import { regCsmCnt } from "../../controllers/Consumer/regCsmCnt.js";
+import { fndCsmCnt } from "../../controllers/Consumer/fndCsmCnt.js";
+import { lstCsmCnt } from "../../controllers/Consumer/lstCsmCnt.js";
+import { updCsmCnt } from "../../controllers/Consumer/updCsmCnt.js";
+import { delCsmCnt } from "../../controllers/Consumer/delCsmCnt.js";
+
 const router = express.Router();
 
 //developer actions
@@ -160,6 +167,13 @@ router.get("/fndPst", fndPstCnt);
 router.get("/lstPst", lstPstCnt);
 router.put("/updPst", updPstCnt);
 router.delete("/delPst", delPstCnt);
+
+//consumer actions
+router.post("/regCsm", regCsmCnt);
+router.get("/fndCsm", fndCsmCnt);
+router.get("/lstCsm", lstCsmCnt);
+router.put("/updCsm", updCsmCnt);
+router.delete("/delCsm", delCsmCnt);
 
 //campaign actions
 //router.post("/regCpg", regCpgCnt);

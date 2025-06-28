@@ -246,6 +246,7 @@ model Consumer {
   service_receipt Service_receipt[]
 }
 
+
 model Service_comments{
   service_comment_id String @id @default(auto()) @map("_id") @db.ObjectId
   consumer_id String @db.ObjectId
