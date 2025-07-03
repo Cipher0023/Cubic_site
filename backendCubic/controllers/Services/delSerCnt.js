@@ -1,17 +1,17 @@
-import { delPrd } from "../../services/Products/delPrdSrv.js";
-import { fndPrd } from "../../services/Products/fndPrdSrv.js";
+import { delSer } from "../../services/Services/delSerSrv.js";
+import { fndSer } from "../../services/Services/fndSerSrv.js";
 
-export const delPrdCnt = async (req, res) => {
-  const { product_id } = req.body;
+export const delSerCnt = async (req, res) => {
+  const { service_id } = req.body;
   try {
-    if (!product_id) {
+    if (!service_id) {
       return res.status(400).json({ message: "id obrigatório" });
     }
-    const existing = fndPrd(product_id);
+    const existing = fndSer(service_id);
     if (!existing) {
       return res.status(404).json({ message: "Product não encontrade." });
     }
-    const result = await delPrd(product_id);
+    const result = await delSer(service_id);
     return res.status(200).json(result);
   } catch (error) {
     console.error("Erro ao deletar:", error.message);

@@ -1,11 +1,11 @@
 meta {
-  name: delPrd
+  name: delPrc
   type: http
   seq: 5
 }
 
 delete {
-  url: http://localhost:3001/private/delPrd
+  url: http://localhost:3001/private/delCpg
   body: json
   auth: bearer
 }
@@ -16,6 +16,6 @@ auth:bearer {
 
 body:json {
   {
-    "product_id":"6866af1fd772aa92779c1c9e"
+    "campaign_id":"6865773477fad041e4bf1aff"
   }
 }

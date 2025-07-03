@@ -1,11 +1,11 @@
 meta {
-  name: delPrd
+  name: regPrc
   type: http
-  seq: 5
+  seq: 1
 }
 
-delete {
-  url: http://localhost:3001/private/delPrd
+post {
+  url: http://localhost:3001/private/regCpg
   body: json
   auth: bearer
 }
@@ -16,6 +16,11 @@ auth:bearer {
 
 body:json {
   {
-    "product_id":"6866af1fd772aa92779c1c9e"
+    "added_by":"685a2e7c54b99577711875a4",
+    "name":"Campanha teste delete",
+    "start_date":"1000",
+    "end_date":"1000",
+    "action":"teste delete",
+    "description":"teste"
   }
 }

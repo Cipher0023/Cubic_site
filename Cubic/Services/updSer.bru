@@ -1,11 +1,11 @@
 meta {
-  name: updPrd
+  name: updSer
   type: http
   seq: 4
 }
 
 put {
-  url: http://localhost:3001/private/updPrd
+  url: http://localhost:3001/private/updSer
   body: json
   auth: bearer
 }
@@ -16,9 +16,9 @@ auth:bearer {
 
 body:json {
   {
-    "product_id":"6866af1fd772aa92779c1c9e",
+    "service_id":"6866bf0cb2219b17b2a38fb5",
     "updateData":{
-      "name":"produto teste2 delete",
+      "name":"teste delete",
       "added_by":"685a2e7c54b99577711875a4",
       "category":"685ac8a3d9d6ca7f5c77e3e1",
       "price":"1000",
@@ -29,8 +29,8 @@ body:json {
       "photos_ids":"teste",
       "views":"0",
       "selling_numbers":"0",
-      "product_score":"0",
-      "quantity":"100"
+      "service_score":"0",
+      "time_to_completion":"100"
     }
   }
 }

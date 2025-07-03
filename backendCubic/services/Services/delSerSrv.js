@@ -4,10 +4,10 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const delPrd = async (product_id) => {
+export const delSer = async (service_id) => {
   try {
-    await prisma.products.delete({
-      where: { product_id },
+    await prisma.services.delete({
+      where: { service_id },
     });
     return { success: true, message: "Product Deletado com sucesso." };
   } catch (error) {

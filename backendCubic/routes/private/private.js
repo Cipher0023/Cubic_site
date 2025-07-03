@@ -94,8 +94,22 @@ import { delCpgCnt } from "../../controllers/Campaign/delCpgCnt.js";
 import { regPrdCnt } from "../../controllers/Products/regPrdCnt.js";
 import { fndPrdCnt } from "../../controllers/Products/fndPrdCnt.js";
 import { lstPrdCnt } from "../../controllers/Products/lstPrdCnt.js";
-//import { updPrdCnt } from "../../controllers/Products/updPrdCnt.js";
-//import { delPrdCnt } from "../../controllers/Products/delPrdCnt.js";
+import { updPrdCnt } from "../../controllers/Products/updPrdCnt.js";
+import { delPrdCnt } from "../../controllers/Products/delPrdCnt.js";
+
+//imports Services
+import { regSerCnt } from "../../controllers/Services/regSerCnt.js";
+import { fndSerCnt } from "../../controllers/Services/fndSerCnt.js";
+import { lstSerCnt } from "../../controllers/Services/lstSerCnt.js";
+import { updSerCnt } from "../../controllers/Services/updSerCnt.js";
+import { delSerCnt } from "../../controllers/Services/delSerCnt.js";
+
+//imports Service_comments
+import { regScoCnt } from "../../controllers/Service_comments/regScoCnt.js";
+//import { fndScoCnt } from "../../controllers/Service_comments/fndScoCnt.js";
+//import { lstScoCnt } from "../../controllers/Service_comments/lstScoCnt.js";
+//import { updScoCnt } from "../../controllers/Service_comments/updScoCnt.js";
+//import { delScoCnt } from "../../controllers/Service_comments/delScoCnt.js";
 
 //imports Example
 //import { regExmCnt } from "../../controllers/Example/regExmCnt.js";
@@ -103,7 +117,6 @@ import { lstPrdCnt } from "../../controllers/Products/lstPrdCnt.js";
 //import { lstExmCnt } from "../../controllers/Example/lstExmCnt.js";
 //import { updExmCnt } from "../../controllers/Example/updExmCnt.js";
 //import { delExmCnt } from "../../controllers/Example/delExmCnt.js";
-
 const router = express.Router();
 
 //developer actions
@@ -200,8 +213,22 @@ router.delete("/delCpg", delCpgCnt);
 router.post("/regPrd", regPrdCnt);
 router.get("/fndPrd", fndPrdCnt);
 router.get("/lstPrd", lstPrdCnt);
-//router.put("/updPrd", updPrdCnt);
-//router.delete("/delPrd", delPrdCnt);
+router.put("/updPrd", updPrdCnt);
+router.delete("/delPrd", delPrdCnt);
+
+//Services actions
+router.post("/regSer", regSerCnt);
+router.get("/fndSer", fndSerCnt);
+router.get("/lstSer", lstSerCnt);
+router.put("/updSer", updSerCnt);
+router.delete("/delSer", delSerCnt);
+
+//Service_comments actions
+router.post("/regSco", regScoCnt);
+//router.get("/fndSco", fndScoCnt);
+//router.get("/lstSco", lstScoCnt);
+//router.put("/updSco", updScoCnt);
+//router.delete("/delSco", delScoCnt);
 
 //Example actions
 //router.post("/regExm", regExmCnt);

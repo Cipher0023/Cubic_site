@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const updPrd = async (product_id, updateData) => {
+export const updSer = async (service_id, updateData) => {
   try {
     const allowedFields = [
       "name",
@@ -18,8 +18,8 @@ export const updPrd = async (product_id, updateData) => {
       "photos_ids", // Agora no PLURAL (array de strings)
       "views",
       "selling_numbers",
-      "product_score",
-      "quantity",
+      "service_score",
+      "time_to_completion",
     ];
     const updateFields = {};
     // popula updateFields com a updateData
@@ -27,7 +27,8 @@ export const updPrd = async (product_id, updateData) => {
       const value = updateData[field];
       switch (field) {
         case "price":
-        case "product_score":
+        case "service_score":
+        case "time_to_completion":
           const floatVal = parseFloat(value);
           if (isNaN(floatVal))
             throw new Error(`Campo "&{field}" deve ser um número valido`);
@@ -35,7 +36,6 @@ export const updPrd = async (product_id, updateData) => {
           break;
         case "views":
         case "selling_numbers":
-        case "quantity":
           const intVal = parseInt(value);
           if (isNaN(intVal))
             throw new Error(`Campo "&{field}" deve ser um número valido`);
@@ -51,8 +51,8 @@ export const updPrd = async (product_id, updateData) => {
       throw new Error("Nenhum dado para atualizar");
     }
     // realiza o update tendo como base no updateFields
-    const update = await prisma.products.update({
-      where: { product_id },
+    const update = await prisma.services.update({
+      where: { service_id },
       data: updateFields,
     });
     return {

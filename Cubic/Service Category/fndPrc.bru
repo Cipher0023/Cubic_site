@@ -1,13 +1,17 @@
 meta {
-  name: delPrd
+  name: fndPrc
   type: http
-  seq: 5
+  seq: 2
 }
 
-delete {
-  url: http://localhost:3001/private/delPrd
-  body: json
+get {
+  url: http://localhost:3001/private/fndCpg?campaign_id=68655ea4bef777258aff10f5
+  body: none
   auth: bearer
+}
+
+params:query {
+  campaign_id: 68655ea4bef777258aff10f5
 }
 
 auth:bearer {
@@ -16,6 +20,6 @@ auth:bearer {
 
 body:json {
   {
-    "product_id":"6866af1fd772aa92779c1c9e"
+    "campaign_id":"68655ea4bef777258aff10f5"
   }
 }

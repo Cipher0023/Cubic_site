@@ -1,21 +1,15 @@
 meta {
-  name: delPrd
+  name: lstUsr
   type: http
-  seq: 5
+  seq: 1
 }
 
-delete {
-  url: http://localhost:3001/private/delPrd
-  body: json
+get {
+  url: http://localhost:3001/private/lstCsm
+  body: none
   auth: bearer
 }
 
 auth:bearer {
   token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTE0NTA3OSwiZXhwIjoxNzUxNzQ5ODc5fQ.OYD0Vr-1panf9sth1bh6_EDW8rdsgX0XMoDcOkZYUeU
-}
-
-body:json {
-  {
-    "product_id":"6866af1fd772aa92779c1c9e"
-  }
 }
