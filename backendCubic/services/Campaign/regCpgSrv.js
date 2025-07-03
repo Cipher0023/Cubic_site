@@ -21,12 +21,12 @@ export const regCpg = async (
     throw new Error("Já cadastrado");
   }
   // Criando novo registro
-  const newRecord = await prisma.post.create({
+  const newRecord = await prisma.campaign.create({
     data: {
       added_by: added_by,
       name: name,
-      start_date: start_date,
-      end_date: end_date,
+      start_date: new Date(start_date),
+      end_date: new Date(end_date),
       action: action,
       description: description,
     },

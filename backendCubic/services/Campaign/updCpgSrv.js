@@ -3,27 +3,43 @@ import dotenv from "dotenv";
 
 dotenv.config();
 const prisma = new PrismaClient();
-
-export const updPst = async (post_id, updateData) => {
+export const updCpg = async (campaign_id, updateData) => {
   try {
-    const allowedFields = ["title", "added_by", "text"];
+    const allowedFields = [
+      "added_by",
+      "name",
+      "start_date",
+      "end_date",
+      "action",
+      "description",
+    ];
+
     const updateFields = {};
-    //faz um loop nos campos permitidos e verifica quais foram enviados
+
     for (const field of allowedFields) {
-      if (updateData[field] !== undefined && updateData[field] !== "") {
-        updateFields[field] = updateData[field];
+      const value = updateData[field];
+
+      if (value !== undefined && value !== "") {
+        // Se o campo for de data, converte para Date
+        if (field === "start_date" || field === "end_date") {
+          const date = new Date(value);
+          if (isNaN(date)) throw new Error(`Data inválida em ${field}`);
+          updateFields[field] = date;
+        } else {
+          updateFields[field] = value;
+        }
       }
     }
-    //verifica se ao menos um campo válido foi enviado para update
+
     if (Object.keys(updateFields).length === 0) {
-      throw new Error("nenhum dado para atualizar");
+      throw new Error("Nenhum dado válido para atualizar");
     }
-    // Atualiza com os campos permitidos
-    const update = await prisma.post.update({
-      where: { post_id },
+
+    const update = await prisma.campaign.update({
+      where: { campaign_id },
       data: updateFields,
     });
-    // Retorna valor atualizado
+
     return {
       message: "Atualizado com sucesso",
       newData: update,

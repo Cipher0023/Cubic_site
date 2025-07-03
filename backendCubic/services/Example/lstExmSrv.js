@@ -4,12 +4,12 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const lstCpg = async () => {
+export const lstExm = async () => {
   try {
-    const result = await prisma.campaign.findMany();
+    const result = await prisma.example.findMany();
     return result;
   } catch (error) {
-    console.error("Erro ao listar:", error.message);
-    throw new Error("Erro ao listar.");
+    console.error("Erro ao listar example:", error.message);
+    throw new Error("Erro ao listar example.");
   }
 };

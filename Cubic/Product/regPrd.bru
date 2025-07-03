@@ -1,0 +1,33 @@
+meta {
+  name: regPrd
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3001/private/regPrd
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTE0NTA3OSwiZXhwIjoxNzUxNzQ5ODc5fQ.OYD0Vr-1panf9sth1bh6_EDW8rdsgX0XMoDcOkZYUeU
+}
+
+body:json {
+  {
+    "name":"produto teste",
+    "added_by":"685a2e7c54b99577711875a4",
+    "category":"685ac8a3d9d6ca7f5c77e3e1",
+    "price":"1000",
+    "campaign_id":"68655ea4bef777258aff10f5",
+    "call_to_action":"teste de produto",
+    "description":"teste",
+    "main_photo_id":"685aef739d06365f47624d13",
+    "photos_ids":"teste",
+    "views":"0",
+    "selling_numbers":"0",
+    "product_score":"0",
+    "quantity":"100"
+  }
+}

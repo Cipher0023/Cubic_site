@@ -4,16 +4,16 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const delPst = async (post_id) => {
+export const delCpg = async (campaign_id) => {
   try {
-    const existing = await prisma.post.findUnique({
-      where: { post_id },
+    const existing = await prisma.campaign.findUnique({
+      where: { campaign_id },
     });
     if (!existing) {
       throw new Error("Não encontrado");
     }
-    await prisma.post.delete({
-      where: { post_id },
+    await prisma.campaign.delete({
+      where: { campaign_id },
     });
     return { success: true, message: "Deletado com sucesso." };
   } catch (error) {

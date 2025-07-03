@@ -1,0 +1,29 @@
+meta {
+  name: updPrc
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3001/private/updCpg
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTE0NTA3OSwiZXhwIjoxNzUxNzQ5ODc5fQ.OYD0Vr-1panf9sth1bh6_EDW8rdsgX0XMoDcOkZYUeU
+}
+
+body:json {
+  {
+    "campaign_id":"6865773477fad041e4bf1aff",
+    "updateData":{
+      "added_by":"685a2e7c54b99577711875a4",
+      "name":"Campanha delete",
+      "start_date":"2025-07-10T00:00:00",
+      "end_date":"1000",
+      "action":"teste",
+      "description":"teste"
+    }
+  }
+}

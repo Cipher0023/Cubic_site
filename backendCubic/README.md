@@ -30,6 +30,7 @@ Private = Prv
 Public = Pbl
 
 TABELAS
+Example = Exm
 Login = Log
 Developer = Dev
 DocumentType = Dct
@@ -44,3 +45,4 @@ ServiceCategory = Svc (são serviços dos negócios não serviços do backend)
 Photos = Pht
 Post = Pst
 Campaign = Cpg
+Product = Prd
