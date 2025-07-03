@@ -9,24 +9,44 @@ const prisma = new PrismaClient();
 export const updCsm = async (example_id, updateData) => {
   try {
     const allowedFields = [
-      "key",
-      "password",
-      "data1",
-      "data2",
-      "data3",
-      "data4",
-      "data5",
-      "data6",
-      "dataLink",
+      "name",
+      "added_by",
+      "category", // ObjectId string
+      "price",
+      "campaign_id", // ObjectId string
+      "call_to_action",
+      "description", // NOVO CAMPO OBRIGATÓRIO
+      "main_photo_id", // ObjectId string
+      "photos_ids", // Agora no PLURAL (array de strings)
+      "views",
+      "selling_numbers",
+      "product_score",
+      "quantity",
     ];
     const updateFields = {};
 
     // popula updateFields com a updateData
     for (const field of allowedFields) {
-      if (updateData[field] !== undefined && updateData[field] !== "") {
-        updateFields[field] = updateData[field];
+      const value = updateData[field];
+      if (value !== undefined && value !== "") {
+        // Se o campo for de price , converte para float
+        if (field === "price") {
+          const priceFlt = parseFloat(value);
+          if (isNaN(priceFlt)) throw new Error(`Data inválida em ${field}`);
+          updateFields[field] = priceFlt;
+        } else {
+          updateFields[field] = value;
+        }
+        if (field === "views") {
+          const priceFlt = parseFloat(value);
+          if (isNaN(priceFlt)) throw new Error(`Data inválida em ${field}`);
+          updateFields[field] = priceFlt;
+        } else {
+          updateFields[field] = value;
+        }
       }
     }
+
     // verifica se pelo menos um dado vai ser atualizado
     if (Object.keys(updateFields).length === 0) {
       throw new Error("Nenhum dado para atualizar");

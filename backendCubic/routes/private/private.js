@@ -92,8 +92,8 @@ import { delCpgCnt } from "../../controllers/Campaign/delCpgCnt.js";
 
 //imports Products
 import { regPrdCnt } from "../../controllers/Products/regPrdCnt.js";
-//import { fndPrdCnt } from "../../controllers/Products/fndPrdCnt.js";
-//import { lstPrdCnt } from "../../controllers/Products/lstPrdCnt.js";
+import { fndPrdCnt } from "../../controllers/Products/fndPrdCnt.js";
+import { lstPrdCnt } from "../../controllers/Products/lstPrdCnt.js";
 //import { updPrdCnt } from "../../controllers/Products/updPrdCnt.js";
 //import { delPrdCnt } from "../../controllers/Products/delPrdCnt.js";
 
@@ -198,8 +198,8 @@ router.delete("/delCpg", delCpgCnt);
 
 //Products actions
 router.post("/regPrd", regPrdCnt);
-//router.get("/fndPrd", fndPrdCnt);
-//router.get("/lstPrd", lstPrdCnt);
+router.get("/fndPrd", fndPrdCnt);
+router.get("/lstPrd", lstPrdCnt);
 //router.put("/updPrd", updPrdCnt);
 //router.delete("/delPrd", delPrdCnt);
 

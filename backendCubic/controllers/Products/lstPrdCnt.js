@@ -1,10 +1,10 @@
-import { lstExm } from "../../services/Example/lstExmSrv.js";
+import { lstPrd } from "../../services/Products/lstPrdSrv.js";
 
-export const lstExmCnt = async (req, res) => {
+export const lstPrdCnt = async (req, res) => {
   try {
-    const Example = await lstExm();
-    return res.status(200).json(Example);
+    const Product = await lstPrd();
+    return res.status(200).json(Product);
   } catch (error) {
-    console.error("Erro ao listar Example");
+    console.error("Erro ao listar Products");
   }
 };

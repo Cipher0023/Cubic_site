@@ -1,14 +1,14 @@
-import { fndExm } from "../../services/Example/fndExmSrv.js";
+import { fndPrd } from "../../services/Products/fndPrdSrv.js";
 
-export const fndExmCnt = async (req, res) => {
+export const fndPrdCnt = async (req, res) => {
   try {
-    const { example_id } = req.query;
-    if (!example_id) {
+    const { product_id } = req.query;
+    if (!product_id) {
       return res.status(400).json({ message: "Insira dados" });
     }
-    const result = await fndExm(example_id);
+    const result = await fndPrd(product_id);
     if (!result) {
-      return res.status(404).json({ message: "Example não encontrade." });
+      return res.status(404).json({ message: "Products não encontrade." });
     }
 
     return res.status(200).json({

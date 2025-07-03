@@ -47,11 +47,7 @@ export const regExm = async (
       data4: data4,
       data5: data5,
       data6: data6,
-      dataLink: {
-        connect: {
-          dataLink_id: dataLink,
-        },
-      },
+      dataLink: dataLink,
     },
   });
   return newRegister;

@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-export const fndExm = async (example_id) => {
-  return await prisma.example.findUnique({
-    where: { example_id },
+export const fndPrd = async (product_id) => {
+  return await prisma.products.findUnique({
+    where: { product_id },
   });
 };
