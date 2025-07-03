@@ -111,6 +111,13 @@ import { regScoCnt } from "../../controllers/Service_comments/regScoCnt.js";
 //import { updScoCnt } from "../../controllers/Service_comments/updScoCnt.js";
 //import { delScoCnt } from "../../controllers/Service_comments/delScoCnt.js";
 
+//imports Product_comments
+import { regPcoCnt } from "../../controllers/Product_comments/regPcoCnt.js";
+import { fndPcoCnt } from "../../controllers/Product_comments/fndPcoCnt.js";
+import { lstPcoCnt } from "../../controllers/Product_comments/lstPcoCnt.js";
+import { updPcoCnt } from "../../controllers/Product_comments/updPcoCnt.js";
+import { delPcoCnt } from "../../controllers/Product_comments/delPcoCnt.js";
+
 //imports Example
 //import { regExmCnt } from "../../controllers/Example/regExmCnt.js";
 //import { fndExmCnt } from "../../controllers/Example/fndExmCnt.js";
@@ -230,11 +237,18 @@ router.post("/regSco", regScoCnt);
 //router.put("/updSco", updScoCnt);
 //router.delete("/delSco", delScoCnt);
 
+//Product_comments actions
+router.post("/regPco", regPcoCnt);
+router.get("/fndPco", fndPcoCnt);
+router.get("/lstPco", lstPcoCnt);
+router.put("/updPco", updPcoCnt);
+router.delete("/delPco", delPcoCnt);
+//
+
 //Example actions
 //router.post("/regExm", regExmCnt);
 //router.get("/fndExm", fndExmCnt);
 //router.get("/lstExm", lstExmCnt);
 //router.put("/updExm", updExmCnt);
 //router.delete("/delExm", delExmCnt);
-
 export default router;

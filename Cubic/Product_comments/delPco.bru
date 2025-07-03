@@ -1,0 +1,21 @@
+meta {
+  name: delPco
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:3001/private/delPco
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTE0NTA3OSwiZXhwIjoxNzUxNzQ5ODc5fQ.OYD0Vr-1panf9sth1bh6_EDW8rdsgX0XMoDcOkZYUeU
+}
+
+body:json {
+  {
+    "product_comments_id":"6866e72f7f71162766d3af91"
+  }
+}

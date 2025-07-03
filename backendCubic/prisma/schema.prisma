@@ -263,7 +263,7 @@ model Service_comments{
 }
 
 model Product_comments{
-  service_comment_id String @id @default(auto()) @map("_id") @db.ObjectId
+  product_comments_id String @id @default(auto()) @map("_id") @db.ObjectId
   consumer_id String @db.ObjectId
   consumer Consumer @relation(fields: [consumer_id], references: [consumer_id])
   product_id String @db.ObjectId
