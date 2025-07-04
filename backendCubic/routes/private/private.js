@@ -106,10 +106,10 @@ import { delSerCnt } from "../../controllers/Services/delSerCnt.js";
 
 //imports Service_comments
 import { regScoCnt } from "../../controllers/Service_comments/regScoCnt.js";
-//import { fndScoCnt } from "../../controllers/Service_comments/fndScoCnt.js";
-//import { lstScoCnt } from "../../controllers/Service_comments/lstScoCnt.js";
-//import { updScoCnt } from "../../controllers/Service_comments/updScoCnt.js";
-//import { delScoCnt } from "../../controllers/Service_comments/delScoCnt.js";
+import { fndScoCnt } from "../../controllers/Service_comments/fndScoCnt.js";
+import { lstScoCnt } from "../../controllers/Service_comments/lstScoCnt.js";
+import { updScoCnt } from "../../controllers/Service_comments/updScoCnt.js";
+import { delScoCnt } from "../../controllers/Service_comments/delScoCnt.js";
 
 //imports Product_comments
 import { regPcoCnt } from "../../controllers/Product_comments/regPcoCnt.js";
@@ -118,12 +118,20 @@ import { lstPcoCnt } from "../../controllers/Product_comments/lstPcoCnt.js";
 import { updPcoCnt } from "../../controllers/Product_comments/updPcoCnt.js";
 import { delPcoCnt } from "../../controllers/Product_comments/delPcoCnt.js";
 
+//imports Wishlist
+import { regWshCnt } from "../../controllers/Wishlist/regWshCnt.js";
+//import { fndWshCnt } from "../../controllers/Wishlist/fndWshCnt.js";
+//import { lstWshCnt } from "../../controllers/Wishlist/lstWshCnt.js";
+//import { updWshCnt } from "../../controllers/Wishlist/updWshCnt.js";
+//import { delWshCnt } from "../../controllers/Wishlist/delWshCnt.js";
+
 //imports Example
 //import { regExmCnt } from "../../controllers/Example/regExmCnt.js";
 //import { fndExmCnt } from "../../controllers/Example/fndExmCnt.js";
 //import { lstExmCnt } from "../../controllers/Example/lstExmCnt.js";
 //import { updExmCnt } from "../../controllers/Example/updExmCnt.js";
 //import { delExmCnt } from "../../controllers/Example/delExmCnt.js";
+
 const router = express.Router();
 
 //developer actions
@@ -232,10 +240,10 @@ router.delete("/delSer", delSerCnt);
 
 //Service_comments actions
 router.post("/regSco", regScoCnt);
-//router.get("/fndSco", fndScoCnt);
-//router.get("/lstSco", lstScoCnt);
-//router.put("/updSco", updScoCnt);
-//router.delete("/delSco", delScoCnt);
+router.get("/fndSco", fndScoCnt);
+router.get("/lstSco", lstScoCnt);
+router.put("/updSco", updScoCnt);
+router.delete("/delSco", delScoCnt);
 
 //Product_comments actions
 router.post("/regPco", regPcoCnt);
@@ -243,7 +251,13 @@ router.get("/fndPco", fndPcoCnt);
 router.get("/lstPco", lstPcoCnt);
 router.put("/updPco", updPcoCnt);
 router.delete("/delPco", delPcoCnt);
-//
+
+//Wishlist actions
+router.post("/regWsh", regWshCnt);
+//router.get("/fndWsh", fndWshCnt);
+//router.get("/lstWsh", lstWshCnt);
+//router.put("/updWsh", updWshCnt);
+//router.delete("/delWsh", delWshCnt);
 
 //Example actions
 //router.post("/regExm", regExmCnt);
@@ -251,4 +265,5 @@ router.delete("/delPco", delPcoCnt);
 //router.get("/lstExm", lstExmCnt);
 //router.put("/updExm", updExmCnt);
 //router.delete("/delExm", delExmCnt);
+
 export default router;

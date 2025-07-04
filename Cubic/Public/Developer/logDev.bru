@@ -1,0 +1,18 @@
+meta {
+  name: logDev
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3001/public/logDev
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+     "email":"dani.esparza@hotmail.com",
+     "password":"Cubic0023"
+  }
+}

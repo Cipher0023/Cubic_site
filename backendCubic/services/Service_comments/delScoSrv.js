@@ -1,17 +1,13 @@
-import { PrismaClient } from "@prisma/client"; // Database ORM
-import dotenv from "dotenv";
+import prisma from "../../prisma/primaClient.js";
 
-dotenv.config();
-const prisma = new PrismaClient();
-
-export const delExm = async (example_id) => {
+export const delSco = async (service_comment_id) => {
   try {
-    await prisma.example.delete({
-      where: { example_id },
+    await prisma.service_comments.delete({
+      where: { service_comment_id },
     });
-    return { success: true, message: "Example Deletado com sucesso." };
+    return { success: true, message: "Service_comment Deletado com sucesso." };
   } catch (error) {
-    console.error("Erro ao deletar Example", error.message);
-    return { success: false, message: "Erro ao deletar Example" };
+    console.error("Erro ao deletar Service_comment", error.message);
+    return { success: false, message: "Erro ao deletar Service_comment" };
   }
 };

@@ -1,0 +1,21 @@
+meta {
+  name: delSco
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:3001/private/delSco
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTE0NTA3OSwiZXhwIjoxNzUxNzQ5ODc5fQ.OYD0Vr-1panf9sth1bh6_EDW8rdsgX0XMoDcOkZYUeU
+}
+
+body:json {
+  {
+    "service_comment_id":"68680e7b47669a65902a4d27"
+  }
+}

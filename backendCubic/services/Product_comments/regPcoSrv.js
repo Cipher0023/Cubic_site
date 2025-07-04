@@ -1,8 +1,4 @@
-import { PrismaClient } from "@prisma/client"; // Database ORM
-import dotenv from "dotenv";
-
-dotenv.config();
-const prisma = new PrismaClient();
+import prisma from "../../prisma/primaClient.js";
 
 //service padrão da Cubic para registros em tabelas
 
@@ -21,7 +17,7 @@ export const regPco = async (
     !title ||
     !text ||
     !score ||
-    !has_brought 
+    !has_brought
   ) {
     throw new Error("Preencha todos os campos obrigatórios");
   }

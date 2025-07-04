@@ -1,14 +1,16 @@
-import { fndExm } from "../../services/Example/fndExmSrv.js";
+import { fndSco } from "../../services/Service_comments/fndScoSrv.js";
 
-export const fndExmCnt = async (req, res) => {
+export const fndScoCnt = async (req, res) => {
   try {
-    const { example_id } = req.query;
-    if (!example_id) {
+    const { service_comment_id } = req.query;
+    if (!service_comment_id) {
       return res.status(400).json({ message: "Insira dados" });
     }
-    const result = await fndExm(example_id);
+    const result = await fndSco(service_comment_id);
     if (!result) {
-      return res.status(404).json({ message: "Example não encontrade." });
+      return res
+        .status(404)
+        .json({ message: "Service_comments não encontrade." });
     }
 
     return res.status(200).json({

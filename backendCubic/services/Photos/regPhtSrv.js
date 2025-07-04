@@ -1,8 +1,4 @@
-import { PrismaClient } from "@prisma/client"; // Database ORM
-import dotenv from "dotenv";
-
-dotenv.config();
-const prisma = new PrismaClient();
+import prisma from "../../prisma/primaClient.js";
 
 export const regPht = async (source, added_by, description) => {
   const existing = await prisma.photos.findFirst({

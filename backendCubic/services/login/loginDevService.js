@@ -1,10 +1,7 @@
 import bcrypt from "bcrypt"; // For password hashing
 import jwt from "jsonwebtoken"; // For authentication tokens
-import dotenv from "dotenv";
-import { PrismaClient } from "@prisma/client";
+import prisma from "../../prisma/primaClient.js";
 
-dotenv.config();
-const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET;
 
 export const loginDev = async (req, res) => {

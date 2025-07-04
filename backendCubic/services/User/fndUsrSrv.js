@@ -1,8 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-import dotenv from "dotenv";
-
-dotenv.config();
-const prisma = new PrismaClient();
+import prisma from "../../prisma/primaClient.js";
 
 export const fndUsr = async (user_id) => {
   return await prisma.user.findUnique({

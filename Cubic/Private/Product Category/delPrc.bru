@@ -1,0 +1,21 @@
+meta {
+  name: delPrc
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:3001/private/delPrc
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTE0NTA3OSwiZXhwIjoxNzUxNzQ5ODc5fQ.OYD0Vr-1panf9sth1bh6_EDW8rdsgX0XMoDcOkZYUeU
+}
+
+body:json {
+  {
+    "product_category_id": "685ac8a3da9d6ca7f5c77e3e1"
+  }
+}

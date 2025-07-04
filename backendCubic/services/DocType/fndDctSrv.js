@@ -1,8 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-import dotenv from "dotenv";
-
-dotenv.config();
-const prisma = new PrismaClient();
+import prisma from "../../prisma/primaClient.js";
 
 export const fndDct = async (name) => {
   const existingDocType = await prisma.document_type.findUnique({

@@ -1,17 +1,19 @@
-import { delExm } from "../../services/Example/delExmSrv.js";
-import { fndExm } from "../../services/Example/fndExmSrv.js";
+import { delSco } from "../../services/Service_comments/delScoSrv.js";
+import { fndSco } from "../../services/Service_comments/fndScoSrv.js";
 
-export const delExmCnt = async (req, res) => {
-  const { example_id } = req.body;
+export const delScoCnt = async (req, res) => {
+  const { service_comment_id } = req.body;
   try {
-    if (!example_id) {
+    if (!service_comment_id) {
       return res.status(400).json({ message: "id obrigatório" });
     }
-    const existing = fndExm(example_id);
+    const existing = fndSco(service_comment_id);
     if (!existing) {
-      return res.status(404).json({ message: "Example não encontrade." });
+      return res
+        .status(404)
+        .json({ message: "service_comment não encontrade." });
     }
-    const result = await delExm(example_id);
+    const result = await delSco(service_comment_id);
     return res.status(200).json(result);
   } catch (error) {
     console.error("Erro ao deletar:", error.message);

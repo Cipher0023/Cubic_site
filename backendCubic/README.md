@@ -49,3 +49,4 @@ Products = Prd
 Services = Ser
 Service Comments = Sco
 Product Comments = Pco
+Wishlist = Wsl

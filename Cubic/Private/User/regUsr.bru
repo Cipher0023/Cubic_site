@@ -1,0 +1,28 @@
+meta {
+  name: regUsr
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3001/private/regUsr
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTE0NTA3OSwiZXhwIjoxNzUxNzQ5ODc5fQ.OYD0Vr-1panf9sth1bh6_EDW8rdsgX0XMoDcOkZYUeU
+}
+
+body:json {
+  {
+        "name":"User teste2",
+        "email":"user2@cubic.com",
+        "telephone":"17988884444",
+        "password":"teste",
+        "document_type":"6851c647371bba4034d6504d",
+        "document_number":"10010010090",
+        "role_id":"68599d33ae6667ab2777f5b6",
+        "salary":"1000"
+  }
+}

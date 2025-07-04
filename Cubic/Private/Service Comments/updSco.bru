@@ -1,0 +1,29 @@
+meta {
+  name: updSco
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3001/private/updSco
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTE0NTA3OSwiZXhwIjoxNzUxNzQ5ODc5fQ.OYD0Vr-1panf9sth1bh6_EDW8rdsgX0XMoDcOkZYUeU
+}
+
+body:json {
+  {
+    "service_comment_id":"68680e7b47669a65902a4d27",
+    "updateData":{
+      "consumer_id":"685ef17a6b2bf3a7f42fad0d",
+      "service_id":"6866bc85c9ddc07d6a4bab70",
+      "title":"teste update",
+      "text":"teste do comentário de produto",
+      "score":"1",
+      "has_brought":"true"
+    }
+  }
+}

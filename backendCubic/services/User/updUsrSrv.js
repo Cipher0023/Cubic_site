@@ -1,10 +1,6 @@
 import bcrypt from "bcrypt"; // For password hashing
-import { PrismaClient } from "@prisma/client"; // Database ORM
-import dotenv from "dotenv";
-import { fndUsr } from "../User/fndUsrSrv.js";
-
-dotenv.config();
-const prisma = new PrismaClient();
+import prisma from "../../prisma/primaClient.js";
+import { fndUsr } from "./fndUsrSrv.js";
 
 export const updUsr = async (user_id, updateData) => {
   try {
@@ -40,7 +36,7 @@ export const updUsr = async (user_id, updateData) => {
 
     // Verify user exists if updating user_id
     if (updateFields.user_id) {
-      const userExists = await fndUst(updateFields.user_id);
+      const userExists = await fndUsr(updateFields.user_id);
       if (!userExists) {
         throw new Error("user não encontrado");
       }

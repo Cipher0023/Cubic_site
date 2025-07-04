@@ -1,0 +1,19 @@
+meta {
+  name: fndDev
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://localhost:3001/private/fndDev?dev_id=684c3063028c3d5b52aa9cc6
+  body: none
+  auth: bearer
+}
+
+params:query {
+  dev_id: 684c3063028c3d5b52aa9cc6
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTY1NTg1OCwiZXhwIjoxNzUyMjYwNjU4fQ.cV0jKKWH0pQVvZy_Sjc1aX5tEf3p_aMuABXRV-hQgN4
+}

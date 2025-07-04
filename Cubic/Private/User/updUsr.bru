@@ -1,0 +1,25 @@
+meta {
+  name: updUsr
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3001/private/updUsr
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTE0NTA3OSwiZXhwIjoxNzUxNzQ5ODc5fQ.OYD0Vr-1panf9sth1bh6_EDW8rdsgX0XMoDcOkZYUeU
+}
+
+body:json {
+  {
+    "user_id": "685a2f6a54b99577711875a5",
+    "updateData": {
+      "name": "testeDeleteOK"
+    }
+  }
+  
+}

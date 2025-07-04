@@ -1,8 +1,4 @@
-import { PrismaClient } from "@prisma/client"; // Database ORM
-import dotenv from "dotenv";
-
-dotenv.config();
-const prisma = new PrismaClient();
+import prisma from "../../prisma/primaClient.js";
 
 export const updPco = async (product_comments_id, updateData) => {
   try {
@@ -13,7 +9,7 @@ export const updPco = async (product_comments_id, updateData) => {
       "title",
       "text",
       "score",
-      "has_brought"
+      "has_brought",
     ];
     const updateFields = {};
     function booleanConverter(value) {
@@ -34,8 +30,8 @@ export const updPco = async (product_comments_id, updateData) => {
           updateFields[field] = intVal;
           break;
         case "has_brought":
-            const bolVal = booleanConverter(value);
-            updateFields[field] = bolVal;
+          const bolVal = booleanConverter(value);
+          updateFields[field] = bolVal;
           break;
         default:
           updateFields[field] = value;

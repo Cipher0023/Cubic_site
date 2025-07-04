@@ -7,8 +7,18 @@ const prisma = new PrismaClient();
 
 export const regExmCnt = async (req, res) => {
   try {
-    const { key, data1, data2, data3, data4, data5, data6, dataLink } =
-      req.body;
+    const {
+      key,
+      data1,
+      data2,
+      data3,
+      data4,
+      dataInt,
+      dataFloat,
+      dataBoolean,
+      dataDate,
+      dataLink,
+    } = req.body;
     // Enviando dados para o service
     const newExample = await regExm(
       key,
@@ -16,8 +26,10 @@ export const regExmCnt = async (req, res) => {
       data2,
       data3,
       data4,
-      data5,
-      data6,
+      dataInt,
+      dataFloat,
+      dataBoolean,
+      dataDate,
       dataLink
     );
     console.log(newExample);

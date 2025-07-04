@@ -1,0 +1,26 @@
+meta {
+  name: updPrc
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3001/private/updPrc
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTE0NTA3OSwiZXhwIjoxNzUxNzQ5ODc5fQ.OYD0Vr-1panf9sth1bh6_EDW8rdsgX0XMoDcOkZYUeU
+}
+
+body:json {
+  {
+    "product_category_id": "685ac8a3d9d6ca7f5c77e3e1",
+    "updateData":{
+      "name":"prodcat test",
+      "added_by":"",//user_id
+      "description":"teste"
+    }
+  }
+}

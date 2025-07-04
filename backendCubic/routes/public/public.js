@@ -8,4 +8,6 @@ const router = express.Router();
 router.post("/logDev", logDevCnt);
 router.post("/regDev", regDevCnt);
 
+//
+
 export default router;

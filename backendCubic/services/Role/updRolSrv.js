@@ -1,9 +1,5 @@
-import { PrismaClient } from "@prisma/client"; // Database ORM
-import dotenv from "dotenv";
+import prisma from "../../prisma/primaClient.js";
 import { chkDev } from "../Developer/chkDevSrv.js";
-
-dotenv.config();
-const prisma = new PrismaClient();
 
 export const updRol = async (role_id, updateData) => {
   try {

@@ -1,11 +1,7 @@
-import { PrismaClient } from "@prisma/client";
-import dotenv from "dotenv";
+import prisma from "../../prisma/primaClient.js";
 
-dotenv.config();
-const prisma = new PrismaClient();
-
-export const fndExm = async (example_id) => {
-  return await prisma.example.findUnique({
-    where: { example_id },
+export const fndSco = async (service_comment_id) => {
+  return await prisma.service_comments.findUnique({
+    where: { service_comment_id },
   });
 };

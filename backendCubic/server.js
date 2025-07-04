@@ -5,10 +5,12 @@ import uploader from "./services/image/uploader.js";
 import auth from "./middlewares/auth.js";
 import cors from "cors";
 import corsOptions from "./configs/corsOptions.js";
+import dotenv from "dotenv";
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+dotenv.config();
 
 //rotas publicas
 app.use("/public", publicRoutes);

@@ -1,9 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-import dotenv from "dotenv";
-
-dotenv.config();
-const prisma = new PrismaClient();
-
+import prisma from "../../prisma/primaClient.js";
 export const fndDev = async (dev_id) => {
   if (!dev_id) {
     throw new Error("id não fornecido.");

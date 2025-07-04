@@ -1,8 +1,4 @@
-import { PrismaClient } from "@prisma/client"; // Database ORM
-import dotenv from "dotenv";
-
-dotenv.config();
-const prisma = new PrismaClient();
+import prisma from "../../prisma/primaClient.js";
 
 //service padrão da Cubic para registros em tabelas
 
@@ -12,8 +8,10 @@ export const regExm = async (
   data2,
   data3,
   data4,
-  data5,
-  data6,
+  dataInt,
+  dataFloat,
+  dataBoolean,
+  dataDate,
   dataLink
 ) => {
   //verificação de campos
@@ -23,12 +21,24 @@ export const regExm = async (
     !data2 ||
     !data3 ||
     !data4 ||
-    !data5 ||
-    !data6 ||
+    !dataInt ||
+    !dataFloat ||
+    !dataBoolean ||
+    !dataDate ||
     !dataLink
   ) {
     throw new Error("Preencha todos os campos obrigatórios");
   }
+  //conversor de boolean
+  function booleanConverter(value) {
+    if (value == "true") return true;
+    if (value == "false") return false;
+    else {
+      throw new Error("campo contem um valor inválido para boolean");
+    }
+  }
+  //transformando em boolean
+  const boolean = booleanConverter(dataBoolean);
   //verificação se registro já existe
   const existing = await prisma.example.findUnique({
     where: {
@@ -40,13 +50,15 @@ export const regExm = async (
   }
   const newRegister = await prisma.example.create({
     data: {
-      Key: key,
+      key: key,
       data1: data1,
       data2: data2,
       data3: data3,
       data4: data4,
-      data5: data5,
-      data6: data6,
+      dataInt: parseInt(dataInt),
+      dataFloat: parseFloat(dataFloat),
+      dataBoolean: boolean,
+      dataDate: new Date(dataDate),
       dataLink: dataLink,
     },
   });

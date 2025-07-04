@@ -1,15 +1,11 @@
-import { PrismaClient } from "@prisma/client"; // Database ORM
-import dotenv from "dotenv";
+import prisma from "../../prisma/primaClient.js";
 
-dotenv.config();
-const prisma = new PrismaClient();
-
-export const lstExm = async () => {
+export const lstSco = async () => {
   try {
-    const result = await prisma.example.findMany();
+    const result = await prisma.service_comments.findMany();
     return result;
   } catch (error) {
-    console.error("Erro ao listar example:", error.message);
-    throw new Error("Erro ao listar example.");
+    console.error("Erro ao listar service_comment:", error.message);
+    throw new Error("Erro ao listar service_comment.");
   }
 };

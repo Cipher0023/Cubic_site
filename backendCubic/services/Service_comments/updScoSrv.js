@@ -1,31 +1,41 @@
-import bcrypt from "bcrypt"; // For password hashing
-import { PrismaClient } from "@prisma/client"; // Database ORM
-import dotenv from "dotenv";
-import { fndCsm } from "../Consumer/fndCsmSrv.js";
+import prisma from "../../prisma/primaClient.js";
 
-dotenv.config();
-const prisma = new PrismaClient();
-
-export const updCsm = async (example_id, updateData) => {
+export const updSco = async (service_comment_id, updateData) => {
   try {
     //não se esqueça de trocar os allowed fields de acordo com o schema.
     const allowedFields = [
-      "key",
-      "password",
-      "data1",
-      "data2",
-      "data3",
-      "data4",
-      "data5",
-      "data6",
-      "dataLink",
+      "consumer_id",
+      "service_id",
+      "title",
+      "text",
+      "score",
+      "has_brought",
     ];
     const updateFields = {};
-
+    function booleanConverter(value) {
+      if (value == "true") return true;
+      if (value == "false") return false;
+      else {
+        throw new Error("campo contem um valor inválido para boolean");
+      }
+    }
     // popula updateFields com a updateData
     for (const field of allowedFields) {
-      if (updateData[field] !== undefined && updateData[field] !== "") {
-        updateFields[field] = updateData[field];
+      const value = updateData[field];
+      switch (field) {
+        case "score":
+          const intVal = parseInt(value);
+          if (isNaN(intVal))
+            throw new Error(`Campo "&{field}" deve ser um número valido`);
+          updateFields[field] = intVal;
+          break;
+        case "has_brought":
+          const bolVal = booleanConverter(value);
+          updateFields[field] = bolVal;
+          break;
+        default:
+          updateFields[field] = value;
+          break;
       }
     }
     // verifica se pelo menos um dado vai ser atualizado
@@ -33,8 +43,8 @@ export const updCsm = async (example_id, updateData) => {
       throw new Error("Nenhum dado para atualizar");
     }
     // realiza o update tendo como base no updateFields
-    const update = await prisma.example.update({
-      where: { example_id },
+    const update = await prisma.service_comments.update({
+      where: { service_comment_id },
       data: updateFields,
     });
     return {
