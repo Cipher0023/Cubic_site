@@ -1,12 +1,12 @@
 meta {
-  name: delWsh
+  name: lstPsa
   type: http
-  seq: 5
+  seq: 3
 }
 
-delete {
-  url: http://localhost:3001/private/delWsh
-  body: json
+get {
+  url: http://localhost:3001/private/lstWsh
+  body: none
   auth: bearer
 }
 
@@ -16,6 +16,6 @@ auth:bearer {
 
 body:json {
   {
-    "wishlist_id":"68685dbe70c241acebd01c2e"
+    "campaign_id":"68655ea4bef777258aff10f5"
   }
 }

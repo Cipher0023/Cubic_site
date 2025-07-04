@@ -17,7 +17,7 @@ export const regWsh = async (consumer_id, product_id, excluded) => {
   //transformando em boolean
   const boolean = booleanConverter(excluded);
   //verificação se registro já existe
-  const existing = await prisma.example.findfirst({
+  const existing = await prisma.wishlist.findFirst({
     where: {
       product_id: product_id,
     },
@@ -25,7 +25,7 @@ export const regWsh = async (consumer_id, product_id, excluded) => {
   if (existing) {
     throw new Error("produto já na wishlist");
   }
-  const newRegister = await prisma.example.create({
+  const newRegister = await prisma.wishlist.create({
     data: {
       consumer_id: consumer_id,
       product_id: product_id,

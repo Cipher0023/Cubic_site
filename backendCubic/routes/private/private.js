@@ -120,10 +120,17 @@ import { delPcoCnt } from "../../controllers/Product_comments/delPcoCnt.js";
 
 //imports Wishlist
 import { regWshCnt } from "../../controllers/Wishlist/regWshCnt.js";
-//import { fndWshCnt } from "../../controllers/Wishlist/fndWshCnt.js";
-//import { lstWshCnt } from "../../controllers/Wishlist/lstWshCnt.js";
-//import { updWshCnt } from "../../controllers/Wishlist/updWshCnt.js";
-//import { delWshCnt } from "../../controllers/Wishlist/delWshCnt.js";
+import { fndWshCnt } from "../../controllers/Wishlist/fndWshCnt.js";
+import { lstWshCnt } from "../../controllers/Wishlist/lstWshCnt.js";
+import { updWshCnt } from "../../controllers/Wishlist/updWshCnt.js";
+import { delWshCnt } from "../../controllers/Wishlist/delWshCnt.js";
+
+//imports Product_sales
+//import { regPsaCnt } from "../../controllers/Product_sales/regPsaCnt.js";
+//import { fndPsaCnt } from "../../controllers/Product_sales/fndPsaCnt.js";
+//import { lstPsaCnt } from "../../controllers/Product_sales/lstPsaCnt.js";
+//import { updPsaCnt } from "../../controllers/Product_sales/updPsaCnt.js";
+//import { delPsaCnt } from "../../controllers/Product_sales/delPsaCnt.js";
 
 //imports Example
 //import { regExmCnt } from "../../controllers/Example/regExmCnt.js";
@@ -254,10 +261,17 @@ router.delete("/delPco", delPcoCnt);
 
 //Wishlist actions
 router.post("/regWsh", regWshCnt);
-//router.get("/fndWsh", fndWshCnt);
-//router.get("/lstWsh", lstWshCnt);
-//router.put("/updWsh", updWshCnt);
-//router.delete("/delWsh", delWshCnt);
+router.get("/fndWsh", fndWshCnt);
+router.get("/lstWsh", lstWshCnt);
+router.put("/updWsh", updWshCnt);
+router.delete("/delWsh", delWshCnt);
+
+//Product_sales actions
+//router.post("/regPsa", regPsaCnt);
+//router.get("/fndPsa", fndPsaCnt);
+//router.get("/lstPsa", lstPsaCnt);
+//router.put("/updPsa", updPsaCnt);
+//router.delete("/delPsa", delPsaCnt);
 
 //Example actions
 //router.post("/regExm", regExmCnt);

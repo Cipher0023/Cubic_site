@@ -1,10 +1,10 @@
-import { lstExm } from "../../services/Example/lstExmSrv.js";
+import { lstWsh } from "../../services/Wishlist/lstWshSrv.js";
 
-export const lstExmCnt = async (req, res) => {
+export const lstWshCnt = async (req, res) => {
   try {
-    const Example = await lstExm();
-    return res.status(200).json(Example);
+    const Wishlist = await lstWsh();
+    return res.status(200).json(Wishlist);
   } catch (error) {
-    console.error("Erro ao listar Example");
+    console.error("Erro ao listar Wishlist");
   }
 };

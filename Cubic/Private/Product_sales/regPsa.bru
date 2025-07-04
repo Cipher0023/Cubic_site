@@ -1,11 +1,11 @@
 meta {
-  name: delWsh
+  name: regPsa
   type: http
-  seq: 5
+  seq: 1
 }
 
-delete {
-  url: http://localhost:3001/private/delWsh
+post {
+  url: http://localhost:3001/private/regPsa
   body: json
   auth: bearer
 }
@@ -16,6 +16,8 @@ auth:bearer {
 
 body:json {
   {
-    "wishlist_id":"68685dbe70c241acebd01c2e"
+    "consumer_id":"685ef17a6b2bf3a7f42fad0d",
+    "product_id":"68668568043e22d579a35e7b",
+    "excluded":"false"
   }
 }

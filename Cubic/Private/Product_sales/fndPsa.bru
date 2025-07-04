@@ -1,13 +1,17 @@
 meta {
-  name: delWsh
+  name: fndPsa
   type: http
-  seq: 5
+  seq: 2
 }
 
-delete {
-  url: http://localhost:3001/private/delWsh
-  body: json
+get {
+  url: http://localhost:3001/private/fndWsh?wishlist_id=686852ca5bfa5fa4863e4088
+  body: none
   auth: bearer
+}
+
+params:query {
+  wishlist_id: 686852ca5bfa5fa4863e4088
 }
 
 auth:bearer {
@@ -16,6 +20,6 @@ auth:bearer {
 
 body:json {
   {
-    "wishlist_id":"68685dbe70c241acebd01c2e"
+    "campaign_id":"68655ea4bef777258aff10f5"
   }
 }

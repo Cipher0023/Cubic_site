@@ -50,3 +50,4 @@ Services = Ser
 Service Comments = Sco
 Product Comments = Pco
 Wishlist = Wsl
+Product_sales = Psa

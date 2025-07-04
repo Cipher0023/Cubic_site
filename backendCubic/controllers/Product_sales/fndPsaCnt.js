@@ -1,14 +1,14 @@
-import { fndWsh } from "../../services/Wishlist/fndWshSrv.js";
+import { fndExm } from "../../services/Example/fndExmSrv.js";
 
-export const fndWshCnt = async (req, res) => {
+export const fndExmCnt = async (req, res) => {
   try {
-    const { wishlist_id } = req.query;
-    if (!wishlist_id) {
+    const { example_id } = req.query;
+    if (!example_id) {
       return res.status(400).json({ message: "Insira dados" });
     }
-    const result = await fndWsh(wishlist_id);
+    const result = await fndExm(example_id);
     if (!result) {
-      return res.status(404).json({ message: "wishlist não encontrade." });
+      return res.status(404).json({ message: "Example não encontrade." });
     }
 
     return res.status(200).json({

@@ -1,17 +1,17 @@
-import { delExm } from "../../services/Example/delExmSrv.js";
-import { fndExm } from "../../services/Example/fndExmSrv.js";
+import { delWsh } from "../../services/Wishlist/delWshSrv.js";
+import { fndWsh } from "../../services/Wishlist/fndWshSrv.js";
 
-export const delExmCnt = async (req, res) => {
-  const { example_id } = req.body;
+export const delWshCnt = async (req, res) => {
+  const { wishlist_id } = req.body;
   try {
-    if (!example_id) {
+    if (!wishlist_id) {
       return res.status(400).json({ message: "id obrigatório" });
     }
-    const existing = fndExm(example_id);
+    const existing = fndWsh(wishlist_id);
     if (!existing) {
-      return res.status(404).json({ message: "Example não encontrade." });
+      return res.status(404).json({ message: "Wishlist não encontrade." });
     }
-    const result = await delExm(example_id);
+    const result = await delWsh(wishlist_id);
     return res.status(200).json(result);
   } catch (error) {
     console.error("Erro ao deletar:", error.message);

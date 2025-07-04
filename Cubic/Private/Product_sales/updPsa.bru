@@ -1,11 +1,11 @@
 meta {
-  name: delWsh
+  name: updPsa
   type: http
-  seq: 5
+  seq: 4
 }
 
-delete {
-  url: http://localhost:3001/private/delWsh
+put {
+  url: http://localhost:3001/private/updWsh
   body: json
   auth: bearer
 }
@@ -16,6 +16,9 @@ auth:bearer {
 
 body:json {
   {
-    "wishlist_id":"68685dbe70c241acebd01c2e"
+    "wishlist_id":"686852ca5bfa5fa4863e4088",
+    "updateData":{
+      "excluded":"true"
+    }
   }
 }
