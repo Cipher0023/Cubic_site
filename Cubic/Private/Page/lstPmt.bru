@@ -1,25 +1,15 @@
 meta {
-  name: fndPsa
+  name: lstPmt
   type: http
-  seq: 2
+  seq: 1
 }
 
 get {
-  url: http://localhost:3001/private/fndPsa?product_sales_id=686bd7643d56cf4804bb402c
+  url: http://localhost:3001/private/lstPgs
   body: none
   auth: bearer
 }
 
-params:query {
-  product_sales_id: 686bd7643d56cf4804bb402c
-}
-
 auth:bearer {
   token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTg5NzAxNiwiZXhwIjoxNzUyNTAxODE2fQ.euZbz0-HJfPCBM_HMV3_PdAy_rvxgh44lQUaY5huFNU
-}
-
-body:json {
-  {
-    "campaign_id":"68655ea4bef777258aff10f5"
-  }
 }

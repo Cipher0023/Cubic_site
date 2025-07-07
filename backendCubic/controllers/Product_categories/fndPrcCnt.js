@@ -1,4 +1,4 @@
-import { fndPrc } from "../../services/ProdCat/fndPrcSrv.js";
+import { fndPrc } from "../../services/Product_categories/fndPrcSrv.js";
 
 export const fndPrcCnt = async (req, res) => {
   try {

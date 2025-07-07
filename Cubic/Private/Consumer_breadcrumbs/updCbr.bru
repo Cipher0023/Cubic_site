@@ -1,11 +1,11 @@
 meta {
-  name: delPsa
+  name: updCbr
   type: http
-  seq: 5
+  seq: 4
 }
 
-delete {
-  url: http://localhost:3001/private/delPsa
+put {
+  url: http://localhost:3001/private/updCbr
   body: json
   auth: bearer
 }
@@ -16,6 +16,11 @@ auth:bearer {
 
 body:json {
   {
-    "product_sales_id":"686bdc092932345b20dd752a"
+    "breadcrumb_id":"686c318347470499e48d8c92",
+    "updateData":{
+      "consumer_id":"685ef17a6b2bf3a7f42fad0d",
+      "page_id":"68589ed28ba7030d4b0a4f9f",
+      "time_spent":"101"
+    }   
   }
 }

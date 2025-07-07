@@ -1,5 +1,5 @@
-import { fndPrc } from "../../services/ProdCat/fndPrcSrv.js";
-import { updPrc } from "../../services/ProdCat/updPrcSrv.js";
+import { fndPrc } from "../../services/Product_categories/fndPrcSrv.js";
+import { updPrc } from "../../services/Product_categories/updPrcSrv.js";
 
 //
 

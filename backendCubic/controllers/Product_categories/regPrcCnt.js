@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client"; // Database ORM
 import dotenv from "dotenv";
-import { regPrc } from "../../services/ProdCat/regPrcSrv.js";
+import { regPrc } from "../../services/Product_categories/regPrcSrv.js";
 
 dotenv.config();
 const prisma = new PrismaClient();

@@ -1,22 +1,15 @@
 import prisma from "../../prisma/primaClient.js";
 
-export const updPsa = async (product_sales_id, updateData) => {
+export const updCbr = async (breadcrumb_id, updateData) => {
   try {
     //não se esqueça de trocar os allowed fields de acordo com o schema.
-    const allowedFields = [
-      "product_id",
-      "consumer_id",
-      "price",
-      "receipt_id",
-      "payment_method_id",
-      "wishlist_id",
-    ];
+    const allowedFields = ["consumer_id", "page_id", "time_spent"];
     const updateFields = {};
     // popula updateFields com a updateData colocando o tipo certo de variável
     for (const field of allowedFields) {
       const value = updateData[field];
       switch (field) {
-        case "price":
+        case "time_spent":
           const floatVal = parseFloat(value);
           if (isNaN(floatVal))
             throw new Error(`Campo "&{field}" deve ser um número float valido`);
@@ -32,8 +25,8 @@ export const updPsa = async (product_sales_id, updateData) => {
       throw new Error("Nenhum dado para atualizar");
     }
     // realiza o update tendo como base no updateFields
-    const update = await prisma.product_sales.update({
-      where: { product_sales_id },
+    const update = await prisma.consumer_breadcrums.update({
+      where: { breadcrumb_id },
       data: updateFields,
     });
     return {

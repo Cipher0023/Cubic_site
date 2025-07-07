@@ -49,11 +49,11 @@ import { updUsrCnt } from "../../controllers/User/updUsrCnt.js";
 import { delUsrCnt } from "../../controllers/User/delUsrCnt.js";
 
 //imports ProdCat
-import { regPrcCnt } from "../../controllers/ProdCat/regPrcCnt.js";
-import { fndPrcCnt } from "../../controllers/ProdCat/fndPrcCnt.js";
-import { lstPrcCnt } from "../../controllers/ProdCat/lstPrcCnt.js";
-import { updPrcCnt } from "../../controllers/ProdCat/updPrcCnt.js";
-import { delPrcCnt } from "../../controllers/ProdCat/delPrcCnt.js";
+import { regPrcCnt } from "../../controllers/Product_categories/regPrcCnt.js";
+import { fndPrcCnt } from "../../controllers/Product_categories/fndPrcCnt.js";
+import { lstPrcCnt } from "../../controllers/Product_categories/lstPrcCnt.js";
+import { updPrcCnt } from "../../controllers/Product_categories/updPrcCnt.js";
+import { delPrcCnt } from "../../controllers/Product_categories/delPrcCnt.js";
 
 //imports ServCat
 import { regSvcCnt } from "../../controllers/ServCat/regSvcCnt.js";
@@ -126,11 +126,18 @@ import { updWshCnt } from "../../controllers/Wishlist/updWshCnt.js";
 import { delWshCnt } from "../../controllers/Wishlist/delWshCnt.js";
 
 //imports Product_sales
-//import { regPsaCnt } from "../../controllers/Product_sales/regPsaCnt.js";
-//import { fndPsaCnt } from "../../controllers/Product_sales/fndPsaCnt.js";
-//import { lstPsaCnt } from "../../controllers/Product_sales/lstPsaCnt.js";
-//import { updPsaCnt } from "../../controllers/Product_sales/updPsaCnt.js";
-//import { delPsaCnt } from "../../controllers/Product_sales/delPsaCnt.js";
+import { regPsaCnt } from "../../controllers/Product_sales/regPsaCnt.js";
+import { fndPsaCnt } from "../../controllers/Product_sales/fndPsaCnt.js";
+import { lstPsaCnt } from "../../controllers/Product_sales/lstPsaCnt.js";
+import { updPsaCnt } from "../../controllers/Product_sales/updPsaCnt.js";
+import { delPsaCnt } from "../../controllers/Product_sales/delPsaCnt.js";
+
+//imports Consumer_breadcrumbs
+import { regCbrCnt } from "../../controllers/Consumer_breadcrumbs/regCbrCnt.js";
+import { fndCbrCnt } from "../../controllers/Consumer_breadcrumbs/fndCbrCnt.js";
+import { lstCbrCnt } from "../../controllers/Consumer_breadcrumbs/lstCbrCnt.js";
+import { updCbrCnt } from "../../controllers/Consumer_breadcrumbs/updCbrCnt.js";
+import { delCbrCnt } from "../../controllers/Consumer_breadcrumbs/delCbrCnt.js";
 
 //imports Example
 //import { regExmCnt } from "../../controllers/Example/regExmCnt.js";
@@ -267,11 +274,18 @@ router.put("/updWsh", updWshCnt);
 router.delete("/delWsh", delWshCnt);
 
 //Product_sales actions
-//router.post("/regPsa", regPsaCnt);
-//router.get("/fndPsa", fndPsaCnt);
-//router.get("/lstPsa", lstPsaCnt);
-//router.put("/updPsa", updPsaCnt);
-//router.delete("/delPsa", delPsaCnt);
+router.post("/regPsa", regPsaCnt);
+router.get("/fndPsa", fndPsaCnt);
+router.get("/lstPsa", lstPsaCnt);
+router.put("/updPsa", updPsaCnt);
+router.delete("/delPsa", delPsaCnt);
+
+//Consumer_breadcrumbs actions
+router.post("/regCbr", regCbrCnt);
+router.get("/fndCbr", fndCbrCnt);
+router.get("/lstCbr", lstCbrCnt);
+router.put("/updCbr", updCbrCnt);
+router.delete("/delCbr", delCbrCnt);
 
 //Example actions
 //router.post("/regExm", regExmCnt);

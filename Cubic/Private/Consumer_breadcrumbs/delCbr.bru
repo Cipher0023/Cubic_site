@@ -1,17 +1,13 @@
 meta {
-  name: fndPsa
+  name: delCbr
   type: http
-  seq: 2
+  seq: 5
 }
 
-get {
-  url: http://localhost:3001/private/fndPsa?product_sales_id=686bd7643d56cf4804bb402c
-  body: none
+delete {
+  url: http://localhost:3001/private/delCbr
+  body: json
   auth: bearer
-}
-
-params:query {
-  product_sales_id: 686bd7643d56cf4804bb402c
 }
 
 auth:bearer {
@@ -20,6 +16,6 @@ auth:bearer {
 
 body:json {
   {
-    "campaign_id":"68655ea4bef777258aff10f5"
+    "breadcrumb_id":"686c38816badae8e936ac38b"
   }
 }

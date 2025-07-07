@@ -1,4 +1,4 @@
-import { delPrc } from "../../services/ProdCat/delPrcSrv.js";
+import { delPrc } from "../../services/Product_categories/delPrcSrv.js";
 
 export const delPrcCnt = async (req, res) => {
   const { product_category_id } = req.body;

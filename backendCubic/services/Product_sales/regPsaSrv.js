@@ -2,64 +2,33 @@ import prisma from "../../prisma/primaClient.js";
 
 //service padrão da Cubic para registros em tabelas
 
-export const regExm = async (
-  key,
-  data1,
-  data2,
-  data3,
-  data4,
-  dataInt,
-  dataFloat,
-  dataBoolean,
-  dataDate,
-  dataLink
+export const regPsa = async (
+  product_id,
+  consumer_id,
+  price,
+  receipt_id,
+  payment_method_id,
+  wishlist_id
 ) => {
   //verificação de campos
   if (
-    !key ||
-    !data1 ||
-    !data2 ||
-    !data3 ||
-    !data4 ||
-    !dataInt ||
-    !dataFloat ||
-    !dataBoolean ||
-    !dataDate ||
-    !dataLink
+    !product_id ||
+    !consumer_id ||
+    !price ||
+    !receipt_id ||
+    !payment_method_id ||
+    !wishlist_id
   ) {
     throw new Error("Preencha todos os campos obrigatórios");
   }
-  //conversor de boolean
-  function booleanConverter(value) {
-    if (value == "true") return true;
-    if (value == "false") return false;
-    else {
-      throw new Error("campo contem um valor inválido para boolean");
-    }
-  }
-  //transformando em boolean
-  const boolean = booleanConverter(dataBoolean);
-  //verificação se registro já existe
-  const existing = await prisma.example.findUnique({
-    where: {
-      key: key,
-    },
-  });
-  if (existing) {
-    throw new Error("key já existe");
-  }
-  const newRegister = await prisma.example.create({
+  const newRegister = await prisma.product_sales.create({
     data: {
-      key: key,
-      data1: data1,
-      data2: data2,
-      data3: data3,
-      data4: data4,
-      dataInt: parseInt(dataInt),
-      dataFloat: parseFloat(dataFloat),
-      dataBoolean: boolean,
-      dataDate: new Date(dataDate),
-      dataLink: dataLink,
+      product_id: product_id,
+      consumer_id: consumer_id,
+      price: parseFloat(price),
+      receipt_id: receipt_id,
+      payment_method_id: payment_method_id,
+      wishlist_id: wishlist_id,
     },
   });
   return newRegister;

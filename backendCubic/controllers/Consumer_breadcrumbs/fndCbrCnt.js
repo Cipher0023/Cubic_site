@@ -1,14 +1,16 @@
-import { fndPsa } from "../../services/Product_sales/fndPsaSrv.js";
+import { fndCbr } from "../../services/Consumer_breadcrumbs/fndCbrSrv.js";
 
-export const fndPsaCnt = async (req, res) => {
+export const fndCbrCnt = async (req, res) => {
   try {
-    const { product_sales_id } = req.query;
-    if (!product_sales_id) {
+    const { breadcrumb_id } = req.query;
+    if (!breadcrumb_id) {
       return res.status(400).json({ message: "Insira dados" });
     }
-    const result = await fndPsa(product_sales_id);
+    const result = await fndCbr(breadcrumb_id);
     if (!result) {
-      return res.status(404).json({ message: "Product_sales não encontrade." });
+      return res
+        .status(404)
+        .json({ message: "Consumer_breadcrumbs não encontrade." });
     }
 
     return res.status(200).json({

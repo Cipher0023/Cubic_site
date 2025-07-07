@@ -1,7 +1,7 @@
 import prisma from "../../prisma/primaClient.js";
 
-export const fndExm = async (example_id) => {
-  return await prisma.example.findUnique({
-    where: { example_id },
+export const fndPsa = async (product_sales_id) => {
+  return await prisma.product_sales.findUnique({
+    where: { product_sales_id },
   });
 };

@@ -1,17 +1,17 @@
-import { delExm } from "../../services/Example/delExmSrv.js";
-import { fndExm } from "../../services/Example/fndExmSrv.js";
+import { delPsa } from "../../services/Product_sales/delPsaSrv.js";
+import { fndPsa } from "../../services/Product_sales/fndPsaSrv.js";
 
-export const delExmCnt = async (req, res) => {
-  const { example_id } = req.body;
+export const delPsaCnt = async (req, res) => {
+  const { product_sales_id } = req.body;
   try {
-    if (!example_id) {
+    if (!product_sales_id) {
       return res.status(400).json({ message: "id obrigatório" });
     }
-    const existing = fndExm(example_id);
+    const existing = fndPsa(product_sales_id);
     if (!existing) {
-      return res.status(404).json({ message: "Example não encontrade." });
+      return res.status(404).json({ message: "Product_sales não encontrade." });
     }
-    const result = await delExm(example_id);
+    const result = await delPsa(product_sales_id);
     return res.status(200).json(result);
   } catch (error) {
     console.error("Erro ao deletar:", error.message);

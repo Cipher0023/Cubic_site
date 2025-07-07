@@ -1,4 +1,4 @@
-import { lstPrc } from "../../services/ProdCat/lstPrcSrv.js";
+import { lstPrc } from "../../services/Product_categories/lstPrcSrv.js";
 
 export const lstPrcCnt = async (req, res) => {
   try {
