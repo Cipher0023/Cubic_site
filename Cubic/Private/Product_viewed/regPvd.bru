@@ -1,12 +1,12 @@
 meta {
-  name: lstSer
+  name: regPvd
   type: http
-  seq: 3
+  seq: 1
 }
 
-get {
-  url: http://localhost:3001/private/lstSer
-  body: none
+post {
+  url: http://localhost:3001/private/regPvd
+  body: json
   auth: bearer
 }
 
@@ -16,6 +16,7 @@ auth:bearer {
 
 body:json {
   {
-    "campaign_id":"68655ea4bef777258aff10f5"
-  }
+    "breadcrum_id":"685ef17a6b2bf3a7f42fad0d",
+    "product_id":"68668568043e22d579a35e7b"
+  }  
 }

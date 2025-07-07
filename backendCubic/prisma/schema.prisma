@@ -390,7 +390,7 @@ model Service_viewed{
 }
 
 model Product_viewed{
-  service_viewed_id String @id @default(auto()) @map("_id") @db.ObjectId
+  product_viewed_id String @id @default(auto()) @map("_id") @db.ObjectId
   breadcrum_id String @db.ObjectId
   breadcrum Consumer_breadcrums @relation(fields: [breadcrum_id], references: [breadcrumb_id])
   product_id String @db.ObjectId

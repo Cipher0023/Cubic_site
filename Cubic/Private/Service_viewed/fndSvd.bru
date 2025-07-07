@@ -1,13 +1,17 @@
 meta {
-  name: lstSer
+  name: fndSvd
   type: http
-  seq: 3
+  seq: 2
 }
 
 get {
-  url: http://localhost:3001/private/lstSer
+  url: http://localhost:3001/private/fndSvd?service_viewed_id=686c3df12bd6aa45246307ba
   body: none
   auth: bearer
+}
+
+params:query {
+  service_viewed_id: 686c3df12bd6aa45246307ba
 }
 
 auth:bearer {

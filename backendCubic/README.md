@@ -52,3 +52,5 @@ Product Comments = Pco
 Wishlist = Wsl
 Product_sales = Psa
 Consumer_breadcrumbs = Cbr
+Service_viewed = Svd
+Product_viewed = Pvd

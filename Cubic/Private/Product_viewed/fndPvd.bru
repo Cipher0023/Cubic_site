@@ -1,13 +1,17 @@
 meta {
-  name: lstSer
+  name: fndPvd
   type: http
-  seq: 3
+  seq: 2
 }
 
 get {
-  url: http://localhost:3001/private/lstSer
+  url: http://localhost:3001/private/fndPvd?product_viewed_id=686c43efbfb19b43e8c03ee3
   body: none
   auth: bearer
+}
+
+params:query {
+  product_viewed_id: 686c43efbfb19b43e8c03ee3
 }
 
 auth:bearer {

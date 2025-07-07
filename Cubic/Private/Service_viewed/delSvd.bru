@@ -1,12 +1,12 @@
 meta {
-  name: lstSer
+  name: delSvd
   type: http
-  seq: 3
+  seq: 5
 }
 
-get {
-  url: http://localhost:3001/private/lstSer
-  body: none
+delete {
+  url: http://localhost:3001/private/delSvd
+  body: json
   auth: bearer
 }
 
@@ -16,6 +16,6 @@ auth:bearer {
 
 body:json {
   {
-    "campaign_id":"68655ea4bef777258aff10f5"
+    "service_viewed_id":"686c4058a4e76c8b20168e1e"
   }
 }

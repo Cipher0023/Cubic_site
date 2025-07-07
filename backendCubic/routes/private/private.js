@@ -139,6 +139,18 @@ import { lstCbrCnt } from "../../controllers/Consumer_breadcrumbs/lstCbrCnt.js";
 import { updCbrCnt } from "../../controllers/Consumer_breadcrumbs/updCbrCnt.js";
 import { delCbrCnt } from "../../controllers/Consumer_breadcrumbs/delCbrCnt.js";
 
+//imports Service_viewed
+import { regSvdCnt } from "../../controllers/Service_viewed/regSvdCnt.js";
+import { fndSvdCnt } from "../../controllers/Service_viewed/fndSvdCnt.js";
+import { lstSvdCnt } from "../../controllers/Service_viewed/lstSvdCnt.js";
+import { delSvdCnt } from "../../controllers/Service_viewed/delSvdCnt.js";
+
+//imports Product_viewed
+import { regPvdCnt } from "../../controllers/Product_viewed/regPvdCnt.js";
+import { fndPvdCnt } from "../../controllers/Product_viewed/fndPvdCnt.js";
+import { lstPvdCnt } from "../../controllers/Product_viewed/lstPvdCnt.js";
+import { delPvdCnt } from "../../controllers/Product_viewed/delPvdCnt.js";
+
 //imports Example
 //import { regExmCnt } from "../../controllers/Example/regExmCnt.js";
 //import { fndExmCnt } from "../../controllers/Example/fndExmCnt.js";
@@ -286,6 +298,18 @@ router.get("/fndCbr", fndCbrCnt);
 router.get("/lstCbr", lstCbrCnt);
 router.put("/updCbr", updCbrCnt);
 router.delete("/delCbr", delCbrCnt);
+
+//Service_viewed actions
+router.post("/regSvd", regSvdCnt);
+router.get("/fndSvd", fndSvdCnt);
+router.get("/lstSvd", lstSvdCnt);
+router.delete("/delSvd", delSvdCnt);
+
+//Product_viewed actions
+router.post("/regPvd", regPvdCnt);
+router.get("/fndPvd", fndPvdCnt);
+router.get("/lstPvd", lstPvdCnt);
+router.delete("/delPvd", delPvdCnt);
 
 //Example actions
 //router.post("/regExm", regExmCnt);
