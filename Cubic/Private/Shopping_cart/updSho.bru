@@ -1,0 +1,25 @@
+meta {
+  name: updSho
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3001/private/updSho
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTg5NzAxNiwiZXhwIjoxNzUyNTAxODE2fQ.euZbz0-HJfPCBM_HMV3_PdAy_rvxgh44lQUaY5huFNU
+}
+
+body:json {
+  {
+    "shopping_cart_id":"686d31ce67549c7464dc126b",
+    "updateData":{
+      "consumer_id":"685ef17a6b2bf3a7f42fad0d",
+      "purchased":"true"
+    }
+  }
+}

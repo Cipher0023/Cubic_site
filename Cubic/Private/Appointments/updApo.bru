@@ -1,0 +1,30 @@
+meta {
+  name: updApo
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3001/private/updApo
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTg5NzAxNiwiZXhwIjoxNzUyNTAxODE2fQ.euZbz0-HJfPCBM_HMV3_PdAy_rvxgh44lQUaY5huFNU
+}
+
+body:json {
+  {
+    "appointment_id":"686d3f2ff271734f17c801b5",
+    "updateData":{
+      "service_id":"6866bc85c9ddc07d6a4bab70",
+      "consumer_id":"685ef17a6b2bf3a7f42fad0d",
+      "value":"100",
+      "text":"teste de api ok",
+      "execution_date":"1000",
+      "end_date":"1001",
+      "state_id":"68598385b5708324b04e5913"
+    } 
+  }
+}

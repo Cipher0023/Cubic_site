@@ -151,6 +151,20 @@ import { fndPvdCnt } from "../../controllers/Product_viewed/fndPvdCnt.js";
 import { lstPvdCnt } from "../../controllers/Product_viewed/lstPvdCnt.js";
 import { delPvdCnt } from "../../controllers/Product_viewed/delPvdCnt.js";
 
+//imports Shopping_cart
+import { regShoCnt } from "../../controllers/Shopping_cart/regShoCnt.js";
+import { fndShoCnt } from "../../controllers/Shopping_cart/fndShoCnt.js";
+import { lstShoCnt } from "../../controllers/Shopping_cart/lstShoCnt.js";
+import { updShoCnt } from "../../controllers/Shopping_cart/updShoCnt.js";
+import { delShoCnt } from "../../controllers/Shopping_cart/delShoCnt.js";
+
+//imports Appointments
+import { regApoCnt } from "../../controllers/Appointments/regApoCnt.js";
+import { fndApoCnt } from "../../controllers/Appointments/fndApoCnt.js";
+import { lstApoCnt } from "../../controllers/Appointments/lstApoCnt.js";
+import { updApoCnt } from "../../controllers/Appointments/updApoCnt.js";
+import { delApoCnt } from "../../controllers/Appointments/delApoCnt.js";
+
 //imports Example
 //import { regExmCnt } from "../../controllers/Example/regExmCnt.js";
 //import { fndExmCnt } from "../../controllers/Example/fndExmCnt.js";
@@ -310,6 +324,20 @@ router.post("/regPvd", regPvdCnt);
 router.get("/fndPvd", fndPvdCnt);
 router.get("/lstPvd", lstPvdCnt);
 router.delete("/delPvd", delPvdCnt);
+
+//Shopping_cart actions
+router.post("/regSho", regShoCnt);
+router.get("/fndSho", fndShoCnt);
+router.get("/lstSho", lstShoCnt);
+router.put("/updSho", updShoCnt);
+router.delete("/delSho", delShoCnt);
+
+//Appointments actions
+router.post("/regApo", regApoCnt);
+router.get("/fndApo", fndApoCnt);
+router.get("/lstApo", lstApoCnt);
+router.put("/updApo", updApoCnt);
+router.delete("/delApo", delApoCnt);
 
 //Example actions
 //router.post("/regExm", regExmCnt);

@@ -1,0 +1,25 @@
+meta {
+  name: fndSho
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:3001/private/fndSho?shopping_cart_id=686d31ce67549c7464dc126b
+  body: none
+  auth: bearer
+}
+
+params:query {
+  shopping_cart_id: 686d31ce67549c7464dc126b
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTg5NzAxNiwiZXhwIjoxNzUyNTAxODE2fQ.euZbz0-HJfPCBM_HMV3_PdAy_rvxgh44lQUaY5huFNU
+}
+
+body:json {
+  {
+    "campaign_id":"68655ea4bef777258aff10f5"
+  }
+}
