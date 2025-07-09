@@ -1,0 +1,25 @@
+meta {
+  name: fndSre
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:3001/private/fndSre?appointment_receipt_id=686e81a3b558feb790382210
+  body: none
+  auth: bearer
+}
+
+params:query {
+  appointment_receipt_id: 686e81a3b558feb790382210
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTg5NzAxNiwiZXhwIjoxNzUyNTAxODE2fQ.euZbz0-HJfPCBM_HMV3_PdAy_rvxgh44lQUaY5huFNU
+}
+
+body:json {
+  {
+    "campaign_id":"68655ea4bef777258aff10f5"
+  }
+}

@@ -56,3 +56,6 @@ Service_viewed = Svd
 Product_viewed = Pvd
 Shopping_cart = Sho
 Appointments = Apo
+Product_receipt = Pre
+Service_receipt = Sre
+Shopping_cart_product = Scp

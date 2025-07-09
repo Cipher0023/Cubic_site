@@ -1,0 +1,23 @@
+meta {
+  name: regScp
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3001/private/regScp
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTg5NzAxNiwiZXhwIjoxNzUyNTAxODE2fQ.euZbz0-HJfPCBM_HMV3_PdAy_rvxgh44lQUaY5huFNU
+}
+
+body:json {
+  {
+    "shopping_cart_id":"686d31ce67549c7464dc126b",
+    "product_id":"68668568043e22d579a35e7b",
+    "quantity":"1"
+  }  
+}

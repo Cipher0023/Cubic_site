@@ -165,6 +165,25 @@ import { lstApoCnt } from "../../controllers/Appointments/lstApoCnt.js";
 import { updApoCnt } from "../../controllers/Appointments/updApoCnt.js";
 import { delApoCnt } from "../../controllers/Appointments/delApoCnt.js";
 
+//imports Product_receipt
+import { regPreCnt } from "../../controllers/Product_receipt/regPreCnt.js";
+import { fndPreCnt } from "../../controllers/Product_receipt/fndPreCnt.js";
+import { lstPreCnt } from "../../controllers/Product_receipt/lstPreCnt.js";
+import { delPreCnt } from "../../controllers/Product_receipt/delPreCnt.js";
+
+//imports Service_receipt
+import { regSreCnt } from "../../controllers/Service_receipt/regSreCnt.js";
+import { fndSreCnt } from "../../controllers/Service_receipt/fndSreCnt.js";
+import { lstSreCnt } from "../../controllers/Service_receipt/lstSreCnt.js";
+import { delSreCnt } from "../../controllers/Service_receipt/delSreCnt.js";
+
+//imports Shopping_cart_product
+import { regScpCnt } from "../../controllers/Shopping_cart_product/regScpCnt.js";
+import { fndScpCnt } from "../../controllers/Shopping_cart_product/fndScpCnt.js";
+import { lstScpCnt } from "../../controllers/Shopping_cart_product/lstScpCnt.js";
+import { updScpCnt } from "../../controllers/Shopping_cart_product/updScpCnt.js";
+import { delScpCnt } from "../../controllers/Shopping_cart_product/delScpCnt.js";
+
 //imports Example
 //import { regExmCnt } from "../../controllers/Example/regExmCnt.js";
 //import { fndExmCnt } from "../../controllers/Example/fndExmCnt.js";
@@ -338,6 +357,25 @@ router.get("/fndApo", fndApoCnt);
 router.get("/lstApo", lstApoCnt);
 router.put("/updApo", updApoCnt);
 router.delete("/delApo", delApoCnt);
+
+//Product_receipt actions
+router.post("/regPre", regPreCnt);
+router.get("/fndPre", fndPreCnt);
+router.get("/lstPre", lstPreCnt);
+router.delete("/delPre", delPreCnt);
+
+//Service_receipt actions
+router.post("/regSre", regSreCnt);
+router.get("/fndSre", fndSreCnt);
+router.get("/lstSre", lstSreCnt);
+router.delete("/delSre", delSreCnt);
+
+//Shopping_cart_product actions
+router.post("/regScp", regScpCnt);
+router.get("/fndScp", fndScpCnt);
+router.get("/lstScp", lstScpCnt);
+router.put("/updScp", updScpCnt);
+router.delete("/delScp", delScpCnt);
 
 //Example actions
 //router.post("/regExm", regExmCnt);
