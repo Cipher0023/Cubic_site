@@ -1,27 +1,25 @@
-import BannerHorizontalThick from '@/components/banners/horizontal/thick/BannerHorizontalThick'
-import React from 'react'
+import BannerHorizontalThick from "@/components/banners/horizontal/thick/BannerHorizontalThick";
+import React from "react";
 
 export default function page() {
   return (
     <div>
-      <p>Produtos</p>
+      <p className="text-white">Produto1</p>
 
-      <div className='flex flex-col items-center justify-evenly text-white'>
+      <div className="flex flex-col items-center justify-evenly text-white">
         <BannerHorizontalThick
           title="Inpire! e-commerce de perfumarias"
-          description='E-commerce'
-          listItems={[
-            "novidade 1",
-            "novidade 2",
-            "novidade 3",
-          ]}
+          description="E-commerce"
+          listItems={["novidade 1", "novidade 2", "novidade 3"]}
           image="/images/images.jpeg"
         />
       </div>
 
       <div>
         <p>Gestão de Mídias Sociais e Marketing Digital:</p>
-        <p className='text-white'>nós fazemos a gestão das redes sociais para você</p>
+        <p className="text-white">
+          nós fazemos a gestão das redes sociais para você
+        </p>
       </div>
 
       <div>
@@ -39,7 +37,6 @@ export default function page() {
       <div>
         <p>Entretenimento Digital</p>
       </div>
-
     </div>
-  )
+  );
 }

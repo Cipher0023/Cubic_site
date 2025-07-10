@@ -184,6 +184,13 @@ import { lstScpCnt } from "../../controllers/Shopping_cart_product/lstScpCnt.js"
 import { updScpCnt } from "../../controllers/Shopping_cart_product/updScpCnt.js";
 import { delScpCnt } from "../../controllers/Shopping_cart_product/delScpCnt.js";
 
+//imports Strorage
+import { regStoCnt } from "../../controllers/Storage/regStoCnt.js";
+import { fndStoCnt } from "../../controllers/Storage/fndStoCnt.js";
+import { lstStoCnt } from "../../controllers/Storage/lstStoCnt.js";
+import { updStoCnt } from "../../controllers/Storage/updStoCnt.js";
+import { delStoCnt } from "../../controllers/Storage/delStoCnt.js";
+
 //imports Example
 //import { regExmCnt } from "../../controllers/Example/regExmCnt.js";
 //import { fndExmCnt } from "../../controllers/Example/fndExmCnt.js";
@@ -376,6 +383,13 @@ router.get("/fndScp", fndScpCnt);
 router.get("/lstScp", lstScpCnt);
 router.put("/updScp", updScpCnt);
 router.delete("/delScp", delScpCnt);
+
+//Strorage actions
+router.post("/regSto", regStoCnt);
+router.get("/fndSto", fndStoCnt);
+router.get("/lstSto", lstStoCnt);
+router.put("/updSto", updStoCnt);
+router.delete("/delSto", delStoCnt);
 
 //Example actions
 //router.post("/regExm", regExmCnt);

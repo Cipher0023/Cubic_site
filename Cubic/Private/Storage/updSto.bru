@@ -1,0 +1,28 @@
+meta {
+  name: updSto
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3001/private/updSto
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGMzMDYzMDI4YzNkNWI1MmFhOWNjNiIsImlhdCI6MTc1MTg5NzAxNiwiZXhwIjoxNzUyNTAxODE2fQ.euZbz0-HJfPCBM_HMV3_PdAy_rvxgh44lQUaY5huFNU
+}
+
+body:json {
+  {
+    "storage_id":"686ff236ac6b27a36b7dd346",
+    "updateData":{
+      "product_id":"68668568043e22d579a35e7b",
+      "added_by":"685a2e7c54b99577711875a4",
+      "location":"localização teste",
+      "quantity":"11",
+      "expire_date":"4000"
+    }  
+  }
+}

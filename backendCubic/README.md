@@ -59,3 +59,4 @@ Appointments = Apo
 Product_receipt = Pre
 Service_receipt = Sre
 Shopping_cart_product = Scp
+Storage = Sto

@@ -31,6 +31,7 @@ model User {
   campaigns Campaign[]
   products Products[]
   services Services[]
+  storage Storage[]
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
@@ -147,6 +148,7 @@ model Products{
   wishlist Wishlist[]
   product_sales Product_sales[]
   product_viewed Product_viewed[]
+  storage Storage[]
 }
 //as fotos gerais são uma string pois o prisma não suporta arrays de strings 
 
@@ -397,3 +399,17 @@ model Product_viewed{
   product Products @relation(fields: [product_id], references: [product_id])
   visit_date DateTime @default(now())
 }
+
+model Storage{
+  storage_id String @id @default(auto()) @map("_id") @db.ObjectId
+  product_id String @db.ObjectId
+  product Products @relation(fields: [product_id], references: [product_id])
+  added_by String @db.ObjectId
+  user User @relation(fields: [added_by], references: [user_id])
+  location String
+  quantity Int
+  expire_date DateTime
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+

@@ -1,12 +1,12 @@
 meta {
-  name: lstUsr
+  name: delSto
   type: http
-  seq: 3
+  seq: 5
 }
 
-get {
-  url: http://localhost:3001/private/lstUsr
-  body: none
+delete {
+  url: http://localhost:3001/private/delSto
+  body: json
   auth: bearer
 }
 
@@ -16,6 +16,6 @@ auth:bearer {
 
 body:json {
   {
-    "campaign_id":"68655ea4bef777258aff10f5"
+    "storage_id":"686ff236ac6b27a36b7dd346"
   }
 }

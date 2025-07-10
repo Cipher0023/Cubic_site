@@ -1,13 +1,17 @@
 meta {
-  name: lstUsr
+  name: fndSto
   type: http
-  seq: 3
+  seq: 2
 }
 
 get {
-  url: http://localhost:3001/private/lstUsr
+  url: http://localhost:3001/private/fndSto?storage_id=686ff236ac6b27a36b7dd346
   body: none
   auth: bearer
+}
+
+params:query {
+  storage_id: 686ff236ac6b27a36b7dd346
 }
 
 auth:bearer {
