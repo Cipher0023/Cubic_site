@@ -5,7 +5,6 @@ import Link from "next/link";
 import NavItem, { NavItemInterface } from "./Item/index";
 import { usePathname } from "next/navigation";
 import Logo from "@/components/logo/Logo";
-import { useViewportContext } from "@/context/ViewportContext";
 
 export default function Navbar() {
   const items: NavItemInterface[] = [
