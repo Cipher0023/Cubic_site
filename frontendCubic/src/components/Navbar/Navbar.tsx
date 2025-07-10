@@ -29,7 +29,7 @@ export default function Navbar() {
 
   return (
     <header>
-      <nav className="bg-gradient-to-b from-gray-800 to-gray-900 flex flex-row text-2xl justify-between items-center box-border p-4">
+      <nav className="bg-linear-to-b from-gray-800 to-gray-900 flex flex-row text-2xl justify-between items-center box-border p-4">
         <Link href="/">
           <Logo />
         </Link>

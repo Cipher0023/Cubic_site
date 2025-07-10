@@ -16,7 +16,7 @@ export default function page({}: Props) {
 
   return (
     <div className="flex flex-col w-full items-center aspect-square text-white 
-bg-gradient-to-br from-gray-950 via-indigo-950 to-sky-500 
+bg-linear-to-br from-gray-950 via-indigo-950 to-sky-500 
 relative shadow-inner shadow-blue-800/30 rounded-2xl">
 
 
@@ -169,7 +169,7 @@ relative shadow-inner shadow-blue-800/30 rounded-2xl">
 
       </div>
 
-      <div className=' bg-radial-[at_25%_25%] from-trasnparent from-20% to-black/90 backdrop-blur-md w-9/10 border-1 border-white rounded-3xl p-2 m-2'>
+      <div className=' bg-radial-[at_25%_25%] from-trasnparent from-20% to-black/90 backdrop-blur-md w-9/10 border border-white rounded-3xl p-2 m-2'>
 
         <p className='text-3xl  font-bold m-2'>novo estilo para o site!</p>
         <p className='font-bold'>Início do projeto: 25/04/2025</p>
@@ -197,12 +197,12 @@ relative shadow-inner shadow-blue-800/30 rounded-2xl">
           <div className='flex justify-center m-4'>
 
             <div className=' bg-radial-[at_50%_50%] from-black/50 from-9% to-white/30 backdrop-blur 
-            w-2/10 aspect-square border-1 border-black rounded-3xl p-2 m-2'
+            w-2/10 aspect-square border border-black rounded-3xl p-2 m-2'
             >
             </div>
 
             <div className=' bg-radial-[at_25%_25%] from-transparent from-50% to-white/70 backdrop-blur 
-            w-2/10 aspect-square border-1 border-white rounded-3xl p-2 m-2'
+            w-2/10 aspect-square border border-white rounded-3xl p-2 m-2'
             >
             </div>
 
@@ -223,7 +223,7 @@ relative shadow-inner shadow-blue-800/30 rounded-2xl">
 
       </div>
 
-      <div className=' bg-radial-[at_25%_25%] from-trasnparent from-20% to-black/90 backdrop-blur-md w-9/10 border-1 border-white rounded-3xl p-2 m-2'>
+      <div className=' bg-radial-[at_25%_25%] from-trasnparent from-20% to-black/90 backdrop-blur-md w-9/10 border border-white rounded-3xl p-2 m-2'>
 
         <p className='text-3xl  font-bold m-2'>Projeto blockchain e pagamentos</p>
         <p className='font-bold'>Início do projeto: 28/04/2025</p>

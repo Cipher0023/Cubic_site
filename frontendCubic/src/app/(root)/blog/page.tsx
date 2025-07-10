@@ -8,7 +8,7 @@ type Props = object
 export default function page({}: Props) {
   return (
     <div className='flex flex-col w-full items-center aspect-square text-white
-    bg-gradient-to-br from-gray-950 via-indigo-950 to-sky-500 '>
+    bg-linear-to-br from-gray-950 via-indigo-950 to-sky-500 '>
 
       <BannerHorizontalThin
                   title="Blog do Foguete"

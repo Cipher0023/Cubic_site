@@ -14,7 +14,7 @@ const chakra = Chakra_Petch({
 
 function Home() {
   return (
-    <main className="flex flex-col min-h-screen justify-center items-center bg-gradient-to-br from-gray-950 via-indigo-950 to-sky-500 p-6">
+    <main className="flex flex-col min-h-screen justify-center items-center bg-linear-to-br from-gray-950 via-indigo-950 to-sky-500 p-6">
       <div className=" w-3/4">
         {/* Container do título e cubo */}
         <div className="m-4 flex flex-col items-center">
@@ -24,7 +24,7 @@ function Home() {
               ${chakra.className} font-bold sm:text-[5em] md:text-[5em] lg:text-[9em] italic
               text-transparent
               bg-clip-text 
-              bg-gradient-to-r from-white to-gray-400    
+              bg-linear-to-r from-white to-gray-400    
             `}
             >
               CUBIC developers

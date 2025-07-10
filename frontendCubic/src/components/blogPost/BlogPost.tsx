@@ -23,7 +23,7 @@ type Props = {
 function BlogPost({title,startDate,description,version}: Props) {
   return (
     <div>
-      <div className=' bg-radial-[at_25%_25%] from-trasnparent from-20% to-black/90 backdrop-blur-md w-[90vw] border-1 border-white rounded-3xl p-2 m-2'>
+      <div className=' bg-radial-[at_25%_25%] from-trasnparent from-20% to-black/90 backdrop-blur-md w-[90vw] border border-white rounded-3xl p-2 m-2'>
 
         <p className='text-3xl  font-bold m-2'>{title}</p>
         <p className='font-bold'>Início do projeto: {startDate}</p>
