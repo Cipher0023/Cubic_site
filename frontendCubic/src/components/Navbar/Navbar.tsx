@@ -5,6 +5,7 @@ import Link from "next/link";
 import NavItem, { NavItemInterface } from "./Item/index";
 import { usePathname } from "next/navigation";
 import Logo from "@/components/logo/Logo";
+import { useViewportContext } from "@/context/ViewportContext";
 
 export default function Navbar() {
   const items: NavItemInterface[] = [
@@ -25,16 +26,15 @@ export default function Navbar() {
       label: "Blog",
     },
   ];
-
   const pathName = usePathname();
 
   return (
     <header>
-      <nav className="sm:h-[2em] bg-gradient-to-b  from-gray-700 to-gray-700 flex flex-row text-2xl justify-between items-center box-border">
+      <nav className="bg-gradient-to-b from-gray-800 to-gray-900 flex flex-row text-2xl justify-between items-center box-border p-4">
         <Link href="/">
           <Logo />
         </Link>
-        <ul className="flex flex-row">
+        <ul className="flex flex-row space-x-4">
           {items.map((item, index) => (
             <NavItem
               key={index}

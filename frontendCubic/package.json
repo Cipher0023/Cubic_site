@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:css": "npx @tailwindcss/cli -i app.css -o public/output.css"
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "github:googlemaps/js-api-loader",

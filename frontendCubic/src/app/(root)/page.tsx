@@ -4,8 +4,6 @@ import React from "react";
 import Link from "next/link";
 import { Chakra_Petch } from "next/font/google";
 import { Cubic } from "@/components/cubeLogo/Cubic";
-import BannerMediumLeft from "@/components/banners/medium/BannerMediumLeft";
-import BannerMediumRight from "@/components/banners/medium/BannerMediumRight";
 
 const chakra = Chakra_Petch({
   weight: ["300", "400", "500", "600", "700"],
@@ -69,72 +67,6 @@ function Home() {
         {/* divisão provisória */}
         <section className="text-center w-full ">
           <p className="text-white md:text-3xl">Serviços</p>
-
-          <BannerMediumLeft
-            title="Criação de sites:"
-            description="Venda 24h por dia, mesmo quando sua loja está fechada."
-            listItems={[
-              "Sites responsivos e otimizados para vendas online.",
-              "Integração com meios de pagamento e gestão de estoque.",
-              "Design profissional que reflete a identidade da sua marca.",
-            ]}
-            image="/images/sitecreation.png"
-          />
-
-          <BannerMediumRight
-            title="Gestão de Mídias Sociais e Marketing Digital:"
-            description="Aumente seu alcance e engajamento sem precisar postar uma única foto."
-            listItems={[
-              "Criação de conteúdo estratégico para Instagram, Facebook e LinkedIn.",
-              "Campanhas segmentadas no Google Ads e Meta Ads.",
-              "Relatórios mensais de desempenho e ajustes em tempo real.",
-            ]}
-            image="/images/redesociais.jpeg"
-          />
-
-          <BannerMediumLeft
-            title="Sistemas de Gestão Online (ERP e CRM)"
-            description="Controle vendas, estoque e clientes em um único lugar."
-            listItems={[
-              "Plataformas intuitivas para automatizar processos.",
-              "Treinamento prático para sua equipe.",
-              "Suporte técnico dedicado para dúvidas e ajustes.",
-            ]}
-            image="/images/ERP.jpeg"
-          />
-
-          <BannerMediumRight
-            title="Assistência Técnica em Informática"
-            description="Problemas técnicos? Resolvemos rápido, sem complicação."
-            listItems={[
-              "Reparo de computadores, impressoras e dispositivos.",
-              "Instalação de softwares e configuração de redes.",
-              "Planos de manutenção preventiva sob medida.",
-            ]}
-            image="/images/TI.jpg"
-          />
-
-          <BannerMediumLeft
-            title="Consultoria em Inteligência Artificial"
-            description="Use a IA a favor do seu negócio, mesmo sem entender de tecnologia"
-            listItems={[
-              "Automação de atendimento via chatbots.",
-              "Análise de dados para tomada de decisões estratégicas.",
-              "Implementação de ferramentas de produtividade com IA generativa.",
-            ]}
-            image="/images/IAa.jpg"
-          />
-
-          <BannerMediumRight
-            title="Entretenimento Digital"
-            description="Jogos que atraem e fidelizam clientes à sua empresa!"
-            listItems={[
-              "Quiosques interativos para lojas e eventos.",
-              "Desenvolvimento de jogos personalizados para promoções.",
-              "Soluções de realidade aumentada para branding.",
-            ]}
-            image="/images/negaomechendonopc.jpg"
-          />
         </section>
         <div className="bg-white w-full h-1 rounded-full"></div>{" "}
         {/* divisão provisória */}
