@@ -1,24 +1,22 @@
-import React, { Suspense, useRef } from 'react' // Importe useRef
-import { Canvas, useFrame } from '@react-three/fiber' // Importe useFrame
-import { Environment} from '@react-three/drei'
-import * as THREE from 'three'; // Importe THREE para tipagem (opcional, mas bom)
+import React, { Suspense, useRef } from "react"; // Importe useRef
+import { Canvas, useFrame } from "@react-three/fiber"; // Importe useFrame
+import { Environment } from "@react-three/drei";
+import * as THREE from "three"; // Importe THREE para tipagem (opcional, mas bom)
 
-
-type Props = object
+type Props = object;
 
 export function Cubic({}: Props) {
   return (
-    <div className="w-full h-full">
-      <Canvas
-        className=""
-        camera={{ position: [2.5, 2.5, 2.5], fov: 30 }}
-      >
-        <Suspense fallback={null}> {/* Adicione um fallback para Suspense */}
+    <div className="w-full h-full ">
+      <Canvas className="" camera={{ position: [2.5, 2.5, 2.5], fov: 30 }}>
+        <Suspense fallback={null}>
+          {" "}
+          {/* Adicione um fallback para Suspense */}
           <Scene />
         </Suspense>
       </Canvas>
     </div>
-  )
+  );
 }
 
 function Scene() {
@@ -47,9 +45,10 @@ function Scene() {
 
       {/* 3. Atribua a ref ao mesh */}
       <mesh ref={meshRef}>
-        <meshStandardMaterial color="white" /> {/* Adicionei uma cor para ver melhor */}
+        <meshStandardMaterial color="white" />{" "}
+        {/* Adicionei uma cor para ver melhor */}
         <boxGeometry />
       </mesh>
     </group>
-  )
+  );
 }

@@ -10,12 +10,10 @@ export interface NavItemInterface {
 
 export default function NavItem(props: NavItemInterface) {
   const { isMobile } = useViewportContext();
-
   if (isMobile) {
     return (
       <li
-        className={`
-        m-5 text-lg font-normal transition-colors duration-200
+        className={`text-sm font-normal transition-colors duration-200
         border-b-2 hover:text-blue-500
         ${
           props.isActive
@@ -31,7 +29,7 @@ export default function NavItem(props: NavItemInterface) {
   return (
     <li
       className={`
-        m-5 text-lg font-normal transition-colors duration-200
+        m-3 text-3xl font-normal transition-colors duration-200
         border-b-2 hover:text-blue-500
         ${
           props.isActive

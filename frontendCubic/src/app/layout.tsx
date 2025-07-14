@@ -22,7 +22,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR">
+    <html data-theme="Cubic" lang="pt-BR">
       <body>
         <ViewportProvider>
           <LayoutContent>{children}</LayoutContent>

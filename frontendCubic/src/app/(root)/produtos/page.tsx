@@ -1,4 +1,3 @@
-import BannerHorizontalThick from "@/components/banners/horizontal/thick/BannerHorizontalThick";
 import React from "react";
 
 export default function page() {
@@ -6,14 +5,7 @@ export default function page() {
     <div>
       <p className="text-white">Produto1</p>
 
-      <div className="flex flex-col items-center justify-evenly text-white">
-        <BannerHorizontalThick
-          title="Inpire! e-commerce de perfumarias"
-          description="E-commerce"
-          listItems={["novidade 1", "novidade 2", "novidade 3"]}
-          image="/images/images.jpeg"
-        />
-      </div>
+      <div className="flex flex-col items-center justify-evenly text-white"></div>
 
       <div>
         <p>Gestão de Mídias Sociais e Marketing Digital:</p>

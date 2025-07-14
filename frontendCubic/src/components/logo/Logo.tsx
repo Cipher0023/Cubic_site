@@ -13,9 +13,9 @@ export default function Logo({}: Props) {
         <img
           src="/isometric-cube.svg"
           alt="logo Cubic"
-          className="w-14 aspect-square"
+          className="w-10 aspect-square"
         />
-        <p className="text-white text-xl">Cubic</p>
+        <p className="text-white text-2xl">Cubic</p>
       </div>
     );
   }
@@ -24,9 +24,9 @@ export default function Logo({}: Props) {
       <img
         src="/isometric-cube.svg"
         alt="logo Cubic"
-        className="w-20 aspect-square"
+        className="w-15 aspect-square"
       />
-      <p className="text-white text-xl">Cubic</p>
+      <p className="text-white text-3xl">Cubic</p>
     </div>
   );
 }

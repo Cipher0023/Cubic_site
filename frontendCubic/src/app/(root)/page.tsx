@@ -4,6 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { Chakra_Petch } from "next/font/google";
 import { Cubic } from "@/components/cubeLogo/Cubic";
+import HeroSection from "@/components/heroSection/HeroSection";
+import Background from "@/components/background/Background";
 
 const chakra = Chakra_Petch({
   weight: ["300", "400", "500", "600", "700"],
@@ -14,43 +16,32 @@ const chakra = Chakra_Petch({
 
 function Home() {
   return (
-    <main className="flex flex-col min-h-screen justify-center items-center bg-linear-to-br from-gray-950 via-indigo-950 to-sky-500 p-6">
+    <main className="flex flex-col min-h-screen justify-center items-center bg-linear-to-br from-gray-950/85  to-sky-950/10 p-6">
       <div className=" w-3/4">
         {/* Container do título e cubo */}
-        <div className="m-4 flex flex-col items-center">
-          <div className="flex items-center">
-            <h1
-              className={`
-              ${chakra.className} font-bold sm:text-[5em] md:text-[5em] lg:text-[9em] italic
-              text-transparent
-              bg-clip-text 
-              bg-linear-to-r from-white to-gray-400    
-            `}
-            >
-              CUBIC developers
-            </h1>
-
-            <div className="flex bg-red-500-0 w-2/5 aspect-square items-center justify-center">
-              <Cubic />
-            </div>
-          </div>
-
+        <div className="flex flex-col items-center">
+          <HeroSection />
           <h2
-            className={`text-white m-4 mt-6 md:text-3xl ${chakra.className} italic`}
+            className={`text-white m-4 mt-6 md:text-2xl ${chakra.className} italic`}
           >
-            Tecnologia que Impulsiona seu Negócio: Soluções de tecnologia
-            completas para pequenas e médias empresas
+            Tecnologia que Impulsiona seu Negócio
           </h2>
+          <Background />
 
           <p className={`text-xl m-4 text-white ${chakra.className}`}>
-            Oferecemos ferramentas digitais, suporte técnico e estratégias
-            inteligentes para você vender mais, organizar sua operação e crescer
-            com segurança.
+            Criamos e-commerces e páginas web personalizadas para pequenos e
+            médios negócios.
           </p>
+          <div className="">
+            <button className="btn btn-xs sm:btn-md md:btn-lg lg:btn-xl xl:btn-xl m-2">
+              Nossos produtos
+            </button>
+            <button className="btn btn-xs sm:btn-md md:btn-lg lg:btn-xl xl:btn-xl m-2">
+              Contete-nos
+            </button>
+          </div>
         </div>
-        <div className="bg-white w-full h-1 rounded-full"></div>{" "}
-        {/* divisão provisória */}
-        <div className=" flex flex-col m-4 text-white text-center">
+        <div className=" flex flex-col m-4 text-white text-center bg-black">
           <p className="text-2xl">Sobre nós</p>
 
           <p className="text-white">
@@ -63,13 +54,9 @@ function Home() {
             importa: seu cliente.
           </p>
         </div>
-        <div className="bg-white w-full h-1 rounded-full"></div>{" "}
-        {/* divisão provisória */}
         <section className="text-center w-full ">
           <p className="text-white md:text-3xl">Serviços</p>
         </section>
-        <div className="bg-white w-full h-1 rounded-full"></div>{" "}
-        {/* divisão provisória */}
         <div className="text-white m-4">
           <p className="">Diferenciais</p>
 

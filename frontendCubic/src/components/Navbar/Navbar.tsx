@@ -2,11 +2,15 @@
 
 import React from "react";
 import Link from "next/link";
-import NavItem, { NavItemInterface } from "./Item/index";
+import NavItem, { NavItemInterface } from "./Item/item";
 import { usePathname } from "next/navigation";
 import Logo from "@/components/logo/Logo";
+import { useViewportContext } from "@/context/ViewportContext";
+import { Menu } from "lucide-react";
 
 export default function Navbar() {
+  const pathName = usePathname();
+  const { isMobile } = useViewportContext();
   const items: NavItemInterface[] = [
     {
       url: "/produtos",
@@ -25,11 +29,38 @@ export default function Navbar() {
       label: "Blog",
     },
   ];
-  const pathName = usePathname();
-
+  if (isMobile) {
+    return (
+      <header>
+        <nav className="bg-linear-to-b from-gray-800 to-gray-900 flex flex-row text-2xl justify-between items-center box-border p-2 text-white">
+          <Link href="/">
+            <Logo />
+          </Link>
+          <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button" className="btn m-1">
+              <Menu />
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+            >
+              {items.map((item, index) => (
+                <NavItem
+                  key={index}
+                  url={item.url}
+                  label={item.label}
+                  isActive={pathName === item.url}
+                />
+              ))}
+            </ul>
+          </div>
+        </nav>
+      </header>
+    );
+  }
   return (
     <header>
-      <nav className="bg-linear-to-b from-gray-800 to-gray-900 flex flex-row text-2xl justify-between items-center box-border p-4">
+      <nav className="bg-linear-to-b from-gray-800 to-gray-900 flex flex-row text-2xl justify-between items-center box-border p-1">
         <Link href="/">
           <Logo />
         </Link>

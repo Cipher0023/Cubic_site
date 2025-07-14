@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @custom-variant dark (&:is(.dark *));
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: all;
+}
 
 @plugin "daisyui/theme" {
   name: "Cubic";
@@ -34,7 +36,7 @@
   --size-field: 0.25rem;
   --border: 1px;
   --depth: 1;
-  --noise: 1;
+  --noise: 0;
 }
 
 body {
