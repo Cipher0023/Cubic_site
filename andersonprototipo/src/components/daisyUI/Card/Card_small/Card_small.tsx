@@ -6,24 +6,23 @@ type Props = object;
 function Card_small({}: Props) {
   return (
     <div>
-      <div className="card w-96 bg-base-200 card-md shadow-sm m-4">
+      <div className="card w-96 bg-base-200 card-md shadow-2xs m-4">
         <div className="card-body flex-row">
-          <Image
-            src="/logo.png"
-            alt="AG Restaurante Logo"
-            width={100}
-            height={10}
-            className="rounded-4xl"
-          />
+          <div className="relative w-full aspect-[1/1] rounded-4xl overflow-hidden">
+            <Image
+              src="/logo.png"
+              alt="AG Restaurante Logo"
+              fill
+              className="object-contain"
+            />
+          </div>
           <div>
-            <h2 className="card-title">Medium Card</h2>
+            <h2 className="card-title">Item</h2>
             <p>
               A card component has a figure, a body part, and inside body there
               are title and actions parts
             </p>
-            <div className="justify-end card-actions">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
+            <div className="justify-end card-actions"> </div>
           </div>
         </div>
       </div>
