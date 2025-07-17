@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Dropdown from "./Dropdown/Dropdown";
 import Shopping_cart from "./Shopping_cart/Shopping_cart";
 import Searchbar from "./Serachbar/Searchbar";
+import Avatar from "../Avatar/Avatar";
 
 type Props = object;
 
@@ -21,9 +21,9 @@ function Navbar({}: Props) {
       <div className="navbar-center">
         <Searchbar />
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end gap-2">
         <Shopping_cart />
-        <Dropdown />
+        <Avatar />
       </div>
     </div>
   );

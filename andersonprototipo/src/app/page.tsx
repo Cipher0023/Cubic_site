@@ -1,6 +1,4 @@
-import Categories from "@/components/Categories/Categories";
 import Card from "@/components/Card/Card";
-import Card_small from "@/components/Card/Card_small/Card_small";
 import Carousel from "@/components/Carousel/Carousel";
 import Footer from "@/components/Footer/Footer";
 import HeroShot from "@/components/HeroShot/HeroShot";
@@ -23,24 +21,14 @@ export default function Home() {
           >
             Pratos populares
           </a>
-          <div className="flex flex-wrap items-end-safe justify-center gap-4 mt-4 mb-4">
+          <div className="flex flex-wrap items-end-safe justify-center gap-4 m-4 mb-4">
             <Card />
             <Card />
             <Card />
           </div>
         </h1>
-        <div className="flex flex-col bg-base-200">
+        <div className="flex flex-col bg-base-200 w-full">
           <Tab />
-          <Categories />
-          <div className="flex flex-wrap items-end-safe justify-center gap-1">
-            <Card_small />
-            <Card_small />
-            <Card_small />
-            <Card_small />
-            <Card_small />
-            <Card_small />
-            <Card_small />
-          </div>
         </div>
       </main>
       <footer>

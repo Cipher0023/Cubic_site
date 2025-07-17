@@ -8,8 +8,14 @@ import corsOptions from "./configs/corsOptions.js";
 import dotenv from "dotenv";
 
 const app = express();
+app.use(
+  cors({
+    origin: "http://localhost:3000", // ou '*', se estiver só testando
+    credentials: true,
+  })
+);
+
 app.use(express.json());
-app.use(cors());
 dotenv.config();
 
 //rotas publicas
