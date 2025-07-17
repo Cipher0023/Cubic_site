@@ -6,7 +6,7 @@ type Props = object;
 function Card_small({}: Props) {
   return (
     <div>
-      <div className="card w-96 bg-base-200 card-md shadow-2xs m-4">
+      <div className="card w-96 bg-base-300 card-md shadow-xl m-4">
         <div className="card-body flex-row">
           <div className="relative w-full aspect-[1/1] rounded-4xl overflow-hidden">
             <Image

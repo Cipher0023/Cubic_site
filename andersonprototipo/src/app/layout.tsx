@@ -1,8 +1,8 @@
 import React from "react";
 import "./globals.css";
 import { merriweather } from "@/fonts/merriweather";
-import Navbar from "@/components/daisyUI/Navbar/Navbar";
-import Dock from "@/components/daisyUI/Dock/Dock";
+import Navbar from "@/components/Navbar/Navbar";
+import Dock from "@/components/Dock/Dock";
 
 export default function RootLayout({
   children,

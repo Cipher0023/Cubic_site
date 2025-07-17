@@ -34,6 +34,6 @@
   --size-selector: 0.28125rem;
   --size-field: 0.25rem;
   --border: 1px;
-  --depth: 1;
+  --depth: 0.25rem;
   --noise: 0;
 }

@@ -1,10 +1,11 @@
-import Categories from "@/components/custom/categories/Categories";
-import Card from "@/components/daisyUI/Card/Card";
-import Card_small from "@/components/daisyUI/Card/Card_small/Card_small";
-import Carousel from "@/components/daisyUI/Carousel/Carousel";
-import Footer from "@/components/daisyUI/Footer/Footer";
-import HeroShot from "@/components/daisyUI/HeroShot/HeroShot";
+import Categories from "@/components/Categories/Categories";
+import Card from "@/components/Card/Card";
+import Card_small from "@/components/Card/Card_small/Card_small";
+import Carousel from "@/components/Carousel/Carousel";
+import Footer from "@/components/Footer/Footer";
+import HeroShot from "@/components/HeroShot/HeroShot";
 import { merriweather } from "@/fonts/merriweather";
+import Tab from "@/components/Tab/Tab";
 
 export default function Home() {
   return (
@@ -28,16 +29,18 @@ export default function Home() {
             <Card />
           </div>
         </h1>
-        <Categories />
-        <div className="flex flex-wrap items-end-safe justify-center gap-2">
-          {" "}
-          <Card_small />
-          <Card_small />
-          <Card_small />
-          <Card_small />
-          <Card_small />
-          <Card_small />
-          <Card_small />
+        <div className="flex flex-col bg-base-200">
+          <Tab />
+          <Categories />
+          <div className="flex flex-wrap items-end-safe justify-center gap-1">
+            <Card_small />
+            <Card_small />
+            <Card_small />
+            <Card_small />
+            <Card_small />
+            <Card_small />
+            <Card_small />
+          </div>
         </div>
       </main>
       <footer>
