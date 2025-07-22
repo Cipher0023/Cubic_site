@@ -37,7 +37,7 @@ import { lstPstCnt } from "../../controllers/Post/lstPstCnt.js";
 
 //Consumer
 import { regCsmCnt } from "../../controllers/Consumer/regCsmCnt.js";
-//login consumer
+import { logCsmCnt } from "../../controllers/Consumer/logCsmCnt.js";
 
 //Camaign
 import { fndCpgCnt } from "../../controllers/Campaign/fndCpgCnt.js";
@@ -55,6 +55,9 @@ import { lstPcoCnt } from "../../controllers/Product_comments/lstPcoCnt.js";
 import { fndApoCnt } from "../../controllers/Appointments/fndApoCnt.js";
 import { lstApoCnt } from "../../controllers/Appointments/lstApoCnt.js";
 
+//Doctype
+import { lstDctCnt } from "../../controllers/DocType/lstDctCnt.js";
+
 const router = express.Router();
 
 //parte de ações de developer
@@ -68,7 +71,7 @@ router.get("/fndStt", fndSttCnt);
 //user
 router.post("/logUsr", logUsrCnt);
 
-//product Categories
+//Product Categories
 router.get("/fndPrc", fndPrcCnt);
 router.get("/lstPrc", lstPrcCnt);
 
@@ -90,7 +93,7 @@ router.get("/lstPst", lstPstCnt);
 
 //Consumer
 router.post("/regCsm", regCsmCnt);
-// Consumer login
+router.post("/logCsm", logCsmCnt);
 
 //Campaign
 router.get("/fndCpg", fndCpgCnt);
@@ -111,5 +114,8 @@ router.get("/lstPco", lstPcoCnt);
 //Appointments
 router.get("/fndApo", fndApoCnt);
 router.get("/lstApo", lstApoCnt);
+
+//DocType
+router.get("/lstDct", lstDctCnt);
 
 export default router;

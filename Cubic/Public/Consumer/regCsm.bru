@@ -1,0 +1,23 @@
+meta {
+  name: regCsm
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3001/public/regCsm
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "dani.esparza@hotmail.com",
+    "name": "Daniel Silva Esparza",
+    "password": "Cubic0023",
+    "telephone": "17981061023",
+    "document_type": "6851c647371bba4034d6504d",
+    "document_number": "44149622850",
+    "adress": "Célio barbosa da silva 80"
+  }
+}
