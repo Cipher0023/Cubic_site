@@ -99,7 +99,7 @@ router.post("/logCsm", logCsmCnt);
 router.get("/fndCpg", fndCpgCnt);
 router.get("/lstCpg", lstCpgCnt);
 
-//service
+//Service
 router.get("/fndSer", fndSerCnt);
 router.get("/lstSer", lstSerCnt);
 
