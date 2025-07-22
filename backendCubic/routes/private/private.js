@@ -41,7 +41,7 @@ import { lstRolCnt } from "../../controllers/Role/lstRolCnt.js";
 import { updRolCnt } from "../../controllers/Role/updRolCnt.js";
 import { delRolCnt } from "../../controllers/Role/delRolCnt.js";
 
-//imports Users
+//imports User
 import { regUsrCnt } from "../../controllers/User/regUsrCnt.js";
 import { fndUsrCnt } from "../../controllers/User/fndUsrCnt.js";
 import { lstUsrCnt } from "../../controllers/User/lstUsrCnt.js";
@@ -55,7 +55,7 @@ import { lstPrcCnt } from "../../controllers/Product_categories/lstPrcCnt.js";
 import { updPrcCnt } from "../../controllers/Product_categories/updPrcCnt.js";
 import { delPrcCnt } from "../../controllers/Product_categories/delPrcCnt.js";
 
-//imports ServCat
+//imports Service_categories
 import { regSvcCnt } from "../../controllers/ServCat/regSvcCnt.js";
 import { fndSvcCnt } from "../../controllers/ServCat/fndSvcCnt.js";
 import { lstSvcCnt } from "../../controllers/ServCat/lstSvcCnt.js";
@@ -69,7 +69,7 @@ import { lstPhtCnt } from "../../controllers/Photos/lstPhtCnt.js";
 import { updPhtCnt } from "../../controllers/Photos/updPhtCnt.js";
 import { delPhtCnt } from "../../controllers/Photos/delPhtCnt.js";
 
-//imports Photos
+//imports Post
 import { regPstCnt } from "../../controllers/Post/regPstCnt.js";
 import { fndPstCnt } from "../../controllers/Post/fndPstCnt.js";
 import { lstPstCnt } from "../../controllers/Post/lstPstCnt.js";
@@ -390,7 +390,7 @@ router.get("/fndSto", fndStoCnt);
 router.get("/lstSto", lstStoCnt);
 router.put("/updSto", updStoCnt);
 router.delete("/delSto", delStoCnt);
-
+//
 //Example actions
 //router.post("/regExm", regExmCnt);
 //router.get("/fndExm", fndExmCnt);
