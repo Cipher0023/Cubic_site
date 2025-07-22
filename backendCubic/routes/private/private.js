@@ -11,7 +11,6 @@ import { fndDctCnt } from "../../controllers/DocType/fndDctCnt.js";
 import { regDctCnt } from "../../controllers/DocType/regDctCnt.js";
 import { updDctCnt } from "../../controllers/DocType/updDctCnt.js";
 import { delDctCnt } from "../../controllers/DocType/delDctCnt.js";
-import { lstDctCnt } from "../../controllers/DocType/lstDctCnt.js";
 
 //imports pages
 import { regPgsCnt } from "../../controllers/Pages/regPgsCnt.js";
@@ -29,8 +28,6 @@ import { updPmtCnt } from "../../controllers/PaymentMethods/updPmtCnt.js";
 
 //imports states
 import { regSttCnt } from "../../controllers/States/regSttCnt.js";
-import { fndSttCnt } from "../../controllers/States/fndSttCnt.js";
-import { lstSttCnt } from "../../controllers/States/lstSttCnt.js";
 import { delSttCnt } from "../../controllers/States/delSttCnt.js";
 import { updSttCnt } from "../../controllers/States/updSttCnt.js";
 
@@ -50,34 +47,25 @@ import { delUsrCnt } from "../../controllers/User/delUsrCnt.js";
 
 //imports ProdCat
 import { regPrcCnt } from "../../controllers/Product_categories/regPrcCnt.js";
-import { fndPrcCnt } from "../../controllers/Product_categories/fndPrcCnt.js";
-import { lstPrcCnt } from "../../controllers/Product_categories/lstPrcCnt.js";
 import { updPrcCnt } from "../../controllers/Product_categories/updPrcCnt.js";
 import { delPrcCnt } from "../../controllers/Product_categories/delPrcCnt.js";
 
 //imports Service_categories
 import { regSvcCnt } from "../../controllers/ServCat/regSvcCnt.js";
-import { fndSvcCnt } from "../../controllers/ServCat/fndSvcCnt.js";
-import { lstSvcCnt } from "../../controllers/ServCat/lstSvcCnt.js";
 import { updSvcCnt } from "../../controllers/ServCat/updSvcCnt.js";
 import { delSvcCnt } from "../../controllers/ServCat/delSvcCnt.js";
 
 //imports Photos
 import { regPhtCnt } from "../../controllers/Photos/regPhtCnt.js";
-import { fndPhtCnt } from "../../controllers/Photos/fndPhtCnt.js";
-import { lstPhtCnt } from "../../controllers/Photos/lstPhtCnt.js";
 import { updPhtCnt } from "../../controllers/Photos/updPhtCnt.js";
 import { delPhtCnt } from "../../controllers/Photos/delPhtCnt.js";
 
 //imports Post
 import { regPstCnt } from "../../controllers/Post/regPstCnt.js";
-import { fndPstCnt } from "../../controllers/Post/fndPstCnt.js";
-import { lstPstCnt } from "../../controllers/Post/lstPstCnt.js";
 import { updPstCnt } from "../../controllers/Post/updPstCnt.js";
 import { delPstCnt } from "../../controllers/Post/delPstCnt.js";
 
 //imports Consumer
-import { regCsmCnt } from "../../controllers/Consumer/regCsmCnt.js";
 import { fndCsmCnt } from "../../controllers/Consumer/fndCsmCnt.js";
 import { lstCsmCnt } from "../../controllers/Consumer/lstCsmCnt.js";
 import { updCsmCnt } from "../../controllers/Consumer/updCsmCnt.js";
@@ -85,36 +73,26 @@ import { delCsmCnt } from "../../controllers/Consumer/delCsmCnt.js";
 
 //imports Campaign
 import { regCpgCnt } from "../../controllers/Campaign/regCpgCnt.js";
-import { fndCpgCnt } from "../../controllers/Campaign/fndCpgCnt.js";
-import { lstCpgCnt } from "../../controllers/Campaign/lstCpgCnt.js";
 import { updCpgCnt } from "../../controllers/Campaign/updCpgCnt.js";
 import { delCpgCnt } from "../../controllers/Campaign/delCpgCnt.js";
 
 //imports Products
 import { regPrdCnt } from "../../controllers/Products/regPrdCnt.js";
-import { fndPrdCnt } from "../../controllers/Products/fndPrdCnt.js";
-import { lstPrdCnt } from "../../controllers/Products/lstPrdCnt.js";
 import { updPrdCnt } from "../../controllers/Products/updPrdCnt.js";
 import { delPrdCnt } from "../../controllers/Products/delPrdCnt.js";
 
 //imports Services
 import { regSerCnt } from "../../controllers/Services/regSerCnt.js";
-import { fndSerCnt } from "../../controllers/Services/fndSerCnt.js";
-import { lstSerCnt } from "../../controllers/Services/lstSerCnt.js";
 import { updSerCnt } from "../../controllers/Services/updSerCnt.js";
 import { delSerCnt } from "../../controllers/Services/delSerCnt.js";
 
 //imports Service_comments
 import { regScoCnt } from "../../controllers/Service_comments/regScoCnt.js";
-import { fndScoCnt } from "../../controllers/Service_comments/fndScoCnt.js";
-import { lstScoCnt } from "../../controllers/Service_comments/lstScoCnt.js";
 import { updScoCnt } from "../../controllers/Service_comments/updScoCnt.js";
 import { delScoCnt } from "../../controllers/Service_comments/delScoCnt.js";
 
 //imports Product_comments
 import { regPcoCnt } from "../../controllers/Product_comments/regPcoCnt.js";
-import { fndPcoCnt } from "../../controllers/Product_comments/fndPcoCnt.js";
-import { lstPcoCnt } from "../../controllers/Product_comments/lstPcoCnt.js";
 import { updPcoCnt } from "../../controllers/Product_comments/updPcoCnt.js";
 import { delPcoCnt } from "../../controllers/Product_comments/delPcoCnt.js";
 
@@ -160,8 +138,6 @@ import { delShoCnt } from "../../controllers/Shopping_cart/delShoCnt.js";
 
 //imports Appointments
 import { regApoCnt } from "../../controllers/Appointments/regApoCnt.js";
-import { fndApoCnt } from "../../controllers/Appointments/fndApoCnt.js";
-import { lstApoCnt } from "../../controllers/Appointments/lstApoCnt.js";
 import { updApoCnt } from "../../controllers/Appointments/updApoCnt.js";
 import { delApoCnt } from "../../controllers/Appointments/delApoCnt.js";
 
@@ -209,7 +185,6 @@ router.put("/updDev", updDevCnt);
 //doctype actions
 router.post("/regDct", regDctCnt);
 router.get("/fndDct", fndDctCnt);
-router.get("/lstDct", lstDctCnt);
 router.put("/updDct", updDctCnt);
 router.delete("/delDct", delDctCnt);
 
@@ -229,8 +204,6 @@ router.delete("/delPmt", delPmtCnt);
 
 //state actions
 router.post("/regStt", regSttCnt);
-router.get("/fndStt", fndSttCnt);
-router.get("/lstStt", lstSttCnt);
 router.put("/updStt", updSttCnt);
 router.delete("/delStt", delSttCnt);
 
@@ -250,34 +223,25 @@ router.delete("/delUsr", delUsrCnt);
 
 //product categories actions
 router.post("/regPrc", regPrcCnt);
-router.get("/fndPrc", fndPrcCnt);
-router.get("/lstPrc", lstPrcCnt);
 router.put("/updPrc", updPrcCnt);
 router.delete("/delPrc", delPrcCnt);
 
 //service categories actions
 router.post("/regSvc", regSvcCnt);
-router.get("/fndSvc", fndSvcCnt);
-router.get("/lstSvc", lstSvcCnt);
 router.put("/updSvc", updSvcCnt);
 router.delete("/delSvc", delSvcCnt);
 
 //photo actions
 router.post("/regPht", regPhtCnt);
-router.get("/fndPht", fndPhtCnt);
-router.get("/lstPht", lstPhtCnt);
 router.put("/updPht", updPhtCnt);
 router.delete("/delPht", delPhtCnt);
 
 //post actions
 router.post("/regPst", regPstCnt);
-router.get("/fndPst", fndPstCnt);
-router.get("/lstPst", lstPstCnt);
 router.put("/updPst", updPstCnt);
 router.delete("/delPst", delPstCnt);
 
 //consumer actions
-router.post("/regCsm", regCsmCnt);
 router.get("/fndCsm", fndCsmCnt);
 router.get("/lstCsm", lstCsmCnt);
 router.put("/updCsm", updCsmCnt);
@@ -285,36 +249,26 @@ router.delete("/delCsm", delCsmCnt);
 
 //Campaign actions
 router.post("/regCpg", regCpgCnt);
-router.get("/fndCpg", fndCpgCnt);
-router.get("/lstCpg", lstCpgCnt);
 router.put("/updCpg", updCpgCnt);
 router.delete("/delCpg", delCpgCnt);
 
 //Products actions
 router.post("/regPrd", regPrdCnt);
-router.get("/fndPrd", fndPrdCnt);
-router.get("/lstPrd", lstPrdCnt);
 router.put("/updPrd", updPrdCnt);
 router.delete("/delPrd", delPrdCnt);
 
 //Services actions
 router.post("/regSer", regSerCnt);
-router.get("/fndSer", fndSerCnt);
-router.get("/lstSer", lstSerCnt);
 router.put("/updSer", updSerCnt);
 router.delete("/delSer", delSerCnt);
 
 //Service_comments actions
 router.post("/regSco", regScoCnt);
-router.get("/fndSco", fndScoCnt);
-router.get("/lstSco", lstScoCnt);
 router.put("/updSco", updScoCnt);
 router.delete("/delSco", delScoCnt);
 
 //Product_comments actions
 router.post("/regPco", regPcoCnt);
-router.get("/fndPco", fndPcoCnt);
-router.get("/lstPco", lstPcoCnt);
 router.put("/updPco", updPcoCnt);
 router.delete("/delPco", delPcoCnt);
 
@@ -360,8 +314,6 @@ router.delete("/delSho", delShoCnt);
 
 //Appointments actions
 router.post("/regApo", regApoCnt);
-router.get("/fndApo", fndApoCnt);
-router.get("/lstApo", lstApoCnt);
 router.put("/updApo", updApoCnt);
 router.delete("/delApo", delApoCnt);
 
