@@ -1,4 +1,6 @@
 import React from "react";
+import { Menu } from "lucide-react";
+import Link from "next/link";
 
 type Props = {};
 
@@ -9,7 +11,7 @@ export default function Sidebar({}: Props) {
       <div className="drawer-content">
         {/* Page content here */}
         <label htmlFor="my-drawer" className="btn btn-primary drawer-button">
-          Open drawer
+          <Menu />
         </label>
       </div>
       <div className="drawer-side">
@@ -21,10 +23,17 @@ export default function Sidebar({}: Props) {
         <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
           {/* Sidebar content here */}
           <li>
-            <a>Sidebar Item 1</a>
+            <Link href="/dashboard" className=" rounded-full overflow-hidden">
+              Dashboard
+            </Link>
           </li>
           <li>
-            <a>Sidebar Item 2</a>
+            <Link
+              href="/dashboard/produtos"
+              className=" rounded-full overflow-hidden"
+            >
+              Produtos
+            </Link>
           </li>
         </ul>
       </div>
