@@ -6,6 +6,8 @@ import auth from "./middlewares/auth.js";
 import cors from "cors";
 import corsOptions from "./configs/corsOptions.js";
 import dotenv from "dotenv";
+import fs from "fs";
+import https from "https";
 
 const app = express();
 app.use(
@@ -26,3 +28,13 @@ app.use("/private", auth, privateRoutes);
 //app.use("/private", auth, uploader);
 
 app.listen(3001, () => console.log("Server running on port 3001"));
+
+https
+  .createServer(
+    {
+      cert: fs.readFileSync("SSL/code.crt"),
+      key: fs.readFileSync("SSL/code.key"),
+    },
+    app
+  )
+  .listen(3002, console.log("Rodando em https"));
