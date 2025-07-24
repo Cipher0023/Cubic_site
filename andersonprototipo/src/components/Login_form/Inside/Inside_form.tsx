@@ -30,7 +30,7 @@ function Inside_form({}: Props) {
         setSuccess("Login feito com sucesso!");
         setError("");
         console.log("Dados recebidos:", data);
-        router.push("/");
+        router.push("/dashboard");
       } else {
         setError(data.message || "Erro ao fazer login");
         setSuccess("");
@@ -63,9 +63,6 @@ function Inside_form({}: Props) {
         <div className="flex flex-col justify-center items-center m-2 gap-2">
           <p className="hover:text-blue-500 hover:underline">
             esqueci minha senha
-          </p>
-          <p className="hover:text-blue-500 hover:underline">
-            não tenho uma conta
           </p>
         </div>
         <button className="btn btn-neutral" onClick={handleLogin}>

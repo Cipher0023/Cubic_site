@@ -22,6 +22,7 @@ export const regPrdCnt = async (req, res) => {
       product_score,
       quantity,
     } = req.body;
+    console.log("Recebido dados: ", req.body);
     // Enviando dados para o service
     const newProducts = await regPrd(
       name,

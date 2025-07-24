@@ -9,13 +9,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="bg-base-100">
-      <body className={merriweather.className}>
+    <div lang="pt-BR" className="bg-base-100">
+      <div className={merriweather.className}>
         <div className="sticky top-0 z-50">
           <Navbar_internal />
         </div>
         {children}
-      </body>
-    </html>
+      </div>
+    </div>
   );
 }
