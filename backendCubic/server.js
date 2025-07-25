@@ -8,17 +8,19 @@ import corsOptions from "./configs/corsOptions.js";
 import dotenv from "dotenv";
 import fs from "fs";
 import https from "https";
+import cookieParser from "cookie-parser";
 
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:3000", // ou '*', se estiver só testando
+    origin: "https://localhost:3000", // ou '*', se estiver só testando
     credentials: true,
   })
 );
 
 app.use(express.json());
 dotenv.config();
+app.use(cookieParser());
 
 //rotas publicas
 app.use("/public", publicRoutes);

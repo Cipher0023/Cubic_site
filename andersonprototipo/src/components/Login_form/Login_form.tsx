@@ -15,16 +15,15 @@ function Register_form({}: Props) {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch("http://localhost:3001/public/logDev", {
+      const response = await fetch("https://localhost:3002/public/logDev", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
+        credentials: "include",
       });
-
       const data = await response.json();
-
       if (response.ok) {
         Cookies.set("token", data.token, { expires: 7 });
         setSuccess("Login feito com sucesso!");

@@ -2,7 +2,6 @@
 import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
 
 type Props = object;
 
@@ -21,12 +20,13 @@ function Inside_form({}: Props) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
+        credentials: 'include',
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        Cookies.set("token", data.token, { expires: 7 });
+        // Cookie HttpOnly enviado pelo backend, não guardar manualmente
         setSuccess("Login feito com sucesso!");
         setError("");
         console.log("Dados recebidos:", data);

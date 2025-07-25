@@ -28,11 +28,6 @@ const page = () => {
             description:
               "Daniel é um desenvolvedor web com experiência em front-end e back-end. Estudou na USP, UFSCar e Unesp",
           },
-          {
-            name: "Luis",
-            image: "/fotosMembros/luis.jpg",
-            description: "Luis é o nosso bixo da Mecatronica",
-          },
         ]}
       />
     </div>

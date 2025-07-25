@@ -31,6 +31,13 @@ export const loginUser = async (req, res) => {
 
     console.log("🔐 Token gerado com sucesso para:", email);
 
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "strict",
+      maxAge: 7 * 24 * 60 * 1000,
+    });
+    //
     res.status(200).json({
       message: "Login realizado com sucesso",
       user: {

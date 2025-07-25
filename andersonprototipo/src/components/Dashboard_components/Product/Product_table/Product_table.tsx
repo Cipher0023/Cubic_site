@@ -19,10 +19,8 @@ function Product_table() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("http://localhost:3001/private/lstPrd", {
-          headers: {
-            Authorization: `Bearer ${Cookies.get("token")}`,
-          },
+        const res = await fetch("https://localhost:3002/private/lstPrd", {
+          credentials: "include",
         });
         const data = await res.json();
         setProducts(data);
