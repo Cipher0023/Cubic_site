@@ -8,6 +8,7 @@ const prisma = new PrismaClient();
 export const regPrcCnt = async (req, res) => {
   try {
     const { name, added_by, description } = req.body;
+    console.log("Recebido:", name, added_by, description);
     //validação dos campos obrigatórios
     if (!name || !added_by || !description) {
       return res

@@ -1,12 +1,12 @@
 meta {
-  name: regPrc
+  name: chkUsr
   type: http
-  seq: 1
+  seq: 6
 }
 
-post {
-  url: http://localhost:3001/private/regPrc
-  body: json
+get {
+  url: https://localhost:3002/private/chkUsr
+  body: none
   auth: bearer
 }
 
@@ -16,8 +16,6 @@ auth:bearer {
 
 body:json {
   {
-    "name":"prodcat test",
-    "added_by":"685a2e7c54b99577711875a4",
-    "description":"teste"
+    "campaign_id":"68655ea4bef777258aff10f5"
   }
 }

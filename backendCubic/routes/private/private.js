@@ -44,6 +44,7 @@ import { fndUsrCnt } from "../../controllers/User/fndUsrCnt.js";
 import { lstUsrCnt } from "../../controllers/User/lstUsrCnt.js";
 import { updUsrCnt } from "../../controllers/User/updUsrCnt.js";
 import { delUsrCnt } from "../../controllers/User/delUsrCnt.js";
+import chkUsrCnt from "../../controllers/User/chkUsrCnt.js";
 
 //imports ProdCat
 import { regPrcCnt } from "../../controllers/Product_categories/regPrcCnt.js";
@@ -222,6 +223,7 @@ router.get("/fndUsr", fndUsrCnt);
 router.get("/lstUsr", lstUsrCnt);
 router.put("/updUsr", updUsrCnt);
 router.delete("/delUsr", delUsrCnt);
+router.get("/chkUsr", chkUsrCnt);
 
 //product categories actions
 router.post("/regPrc", regPrcCnt);

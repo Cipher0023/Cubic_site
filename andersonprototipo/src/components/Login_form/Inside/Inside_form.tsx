@@ -2,6 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import useUserStore from "../../../store/useUserStore";
 
 type Props = object;
 
@@ -11,16 +12,17 @@ function Inside_form({}: Props) {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const router = useRouter();
+  const setUser = useUserStore((state) => state.setUser);
 
   const handleLogin = async () => {
     try {
-      const response = await fetch("http://localhost:3001/public/logUsr", {
+      const response = await fetch("https://localhost:3002/public/logUsr", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
-        credentials: 'include',
+        credentials: "include",
       });
 
       const data = await response.json();
@@ -30,6 +32,11 @@ function Inside_form({}: Props) {
         setSuccess("Login feito com sucesso!");
         setError("");
         console.log("Dados recebidos:", data);
+        setUser({
+          id: data.user.user_id,
+          name: data.user.name,
+          email: data.user.email,
+        });
         router.push("/dashboard");
       } else {
         setError(data.message || "Erro ao fazer login");

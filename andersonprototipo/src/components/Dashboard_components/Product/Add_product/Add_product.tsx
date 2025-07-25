@@ -3,14 +3,12 @@
 import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
+import useUserStore from "../../../../store/useUserStore";
 
 type Props = object;
 
 function Add_product({}: Props) {
-  const token = Cookies.get("token");
   const [name, setName] = useState("");
-  const [added_by, setAdded_by] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [campaign_id, setCampaign_id] = useState("");
@@ -27,19 +25,14 @@ function Add_product({}: Props) {
   const [success, setSuccess] = useState("");
 
   const router = useRouter();
+  // Pega o ID do usuário logado do Zustand
+  const added_by = useUserStore((state) => state.user?.id || "");
 
   const addProduct = async () => {
     try {
-      if (!token) {
-        console.error("Usuário não autenticado");
-        return;
-      }
-      const response = await fetch("http://localhost:3001/private/regPrd", {
+      const response = await fetch("https://localhost:3002/private/regPrd", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // <--- aqui vai o token
-        },
+        credentials: "include",
         body: JSON.stringify({
           name,
           added_by,
@@ -70,6 +63,8 @@ function Add_product({}: Props) {
       }
     } catch (err) {
       console.error("Erro ao cadastrar item:", err);
+      setError("Erro ao cadastrar item, tente novamente");
+      setSuccess("");
     }
   };
 
@@ -88,13 +83,7 @@ function Add_product({}: Props) {
         </div>
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>added_by:</p>
-          <input
-            type="text"
-            placeholder="Type here"
-            className="input w-full"
-            value={added_by}
-            onChange={(e) => setAdded_by(e.target.value)}
-          />
+          <p>{added_by}</p>
         </div>
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>category:</p>

@@ -29,7 +29,7 @@ app.use("/public", publicRoutes);
 app.use("/private", auth, privateRoutes);
 //app.use("/private", auth, uploader);
 
-app.listen(3001, () => console.log("Server running on port 3001"));
+app.listen(3001, () => console.log("Server http running on port 3001"));
 
 https
   .createServer(
@@ -39,4 +39,4 @@ https
     },
     app
   )
-  .listen(3002, console.log("Rodando em https"));
+  .listen(3002, console.log("Server https running on port 3002"));
