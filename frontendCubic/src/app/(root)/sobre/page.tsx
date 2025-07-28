@@ -23,10 +23,9 @@ const page = () => {
       <ImagensEquipe
         Member={[
           {
-            name: "Daniel Silva Esparza",
-            image: "/fotosMembros/fotoDan.jpg",
-            description:
-              "Daniel é um desenvolvedor web com experiência em front-end e back-end. Estudou na USP, UFSCar e Unesp",
+            name: "pessoa",
+            image: "/",
+            description: "",
           },
         ]}
       />
