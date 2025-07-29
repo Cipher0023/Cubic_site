@@ -6,15 +6,12 @@ import HeroShot from "@/components/HeroShot/HeroShot";
 import { merriweather } from "@/fonts/merriweather";
 import Tab from "@/components/Tab/Tab";
 
-import Token_tester from "@/components/Token_tester/Token_tester";
-
 export default function Home() {
   return (
     <div className="">
       <main className="justify-center items-center flex flex-col">
         <div className="justify-center items-center flex flex-col">
           <HeroShot />
-          <Token_tester />
           <div className="m-8">
             <Carousel />
           </div>

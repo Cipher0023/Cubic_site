@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Product_table_item from "./Product_table_item/Product_table_item";
-import Cookies from "js-cookie";
 
 type Product = {
   product_id: string;
@@ -13,7 +12,6 @@ type Product = {
 };
 
 function Product_table() {
-  const token = Cookies.get("token");
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
@@ -29,7 +27,7 @@ function Product_table() {
       }
     };
     fetchProducts();
-  }, [token]);
+  });
 
   return (
     <div className="overflow-x-auto">

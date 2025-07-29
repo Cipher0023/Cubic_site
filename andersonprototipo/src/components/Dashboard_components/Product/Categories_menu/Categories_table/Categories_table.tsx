@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Categories_table_item from "./Categories_table_item/Categories_table_item";
-import Cookies from "js-cookie";
 
 // Ajuste o tipo conforme o retorno real da API
 export type Category = {
@@ -12,7 +11,6 @@ export type Category = {
 };
 
 function Categories_table() {
-  const token = Cookies.get("token");
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
@@ -28,7 +26,7 @@ function Categories_table() {
       }
     };
     fetchCategories();
-  }, [token]);
+  });
 
   return (
     <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
@@ -44,7 +42,10 @@ function Categories_table() {
         </thead>
         <tbody>
           {categories.map((category, idx) => (
-            <Categories_table_item key={category.id || idx} category={category} />
+            <Categories_table_item
+              key={category.id || idx}
+              category={category}
+            />
           ))}
         </tbody>
       </table>
