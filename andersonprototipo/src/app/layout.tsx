@@ -2,6 +2,7 @@ import React from "react";
 import "./globals.css";
 import { merriweather } from "@/fonts/merriweather";
 import { UserHydrator } from "@/components/Hydrators/UserHydrator";
+import { AppHydrator } from "@/components/App_hydrator/App_hydrator";
 
 export default function RootLayout({
   children,
@@ -12,7 +13,9 @@ export default function RootLayout({
     <html lang="pt-BR" className="bg-base-100">
       <body className={merriweather.className}>
         <div className="sticky top-0 z-50"></div>
-        <UserHydrator>{children}</UserHydrator>
+        <AppHydrator>
+          <UserHydrator>{children}</UserHydrator>
+        </AppHydrator>
       </body>
     </html>
   );

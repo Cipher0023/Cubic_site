@@ -4,6 +4,7 @@ import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import useUserStore from "../../../../store/useUserStore";
+import PrcSelect from "@/components/Select/PrcSelect/PrcSelect";
 
 type Props = object;
 
@@ -25,7 +26,7 @@ function Add_product({}: Props) {
   const [success, setSuccess] = useState("");
 
   const router = useRouter();
-  // Pega o ID do usuário logado do Zustand
+  // constantes do zhustand
   const added_by = useUserStore((state) => state.user?.id || "");
 
   const addProduct = async () => {
@@ -87,13 +88,7 @@ function Add_product({}: Props) {
         </div>
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>category:</p>
-          <input
-            type="text"
-            placeholder="Type here"
-            className="input w-full"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          />
+          <PrcSelect defaultValue={category} onChange={setCategory} />
         </div>
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>price:</p>
