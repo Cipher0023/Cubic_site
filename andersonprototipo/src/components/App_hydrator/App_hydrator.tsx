@@ -1,17 +1,16 @@
 "use client";
-import { ReactNode, useEffect } from "react";
+import React, { ReactNode, useEffect } from "react";
 import usePrcStore from "@/store/usePrcStore";
-// etc.
+import useCpgStore from "@/store/useCpgStore";
 
 export function AppHydrator({ children }: { children: ReactNode }) {
   const fetchCategories = usePrcStore((s) => s.fetchCategories);
-  // etc.
+  const fetchCampaigns = useCpgStore((s) => s.fetchCampaigns);
 
   useEffect(() => {
     fetchCategories();
-
-    // …
-  }, [fetchCategories]);
+    fetchCampaigns();
+  }, [fetchCategories, fetchCampaigns]);
 
   return <>{children}</>;
 }

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import useUserStore from "../../../../store/useUserStore";
 import PrcSelect from "@/components/Select/PrcSelect/PrcSelect";
+import CpgSelect from "@/components/Select/CpgSelect/CpgSelect";
 
 type Props = object;
 
@@ -17,22 +18,22 @@ function Add_product({}: Props) {
   const [description, setDescription] = useState("");
   const [main_photo_id, setMain_photo_id] = useState("");
   const [photos_ids, setPhotos_ids] = useState("");
-  const [views, setViews] = useState("");
-  const [selling_numbers, setSelling_numbers] = useState("");
-  const [product_score, setProduct_score] = useState("");
+  const views = "0";
+  const selling_numbers = "0"; // fix zero
+  const product_score = "0"; // fix zero
   const [quantity, setQuantity] = useState("");
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
   const router = useRouter();
-  // constantes do zhustand
-  const added_by = useUserStore((state) => state.user?.id || "");
+  const added_by = useUserStore((s) => s.user?.id || "");
 
   const addProduct = async () => {
     try {
       const response = await fetch("https://localhost:3002/private/regPrd", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify({
           name,
@@ -72,6 +73,7 @@ function Add_product({}: Props) {
   return (
     <div className="flex flex-col w-full h-full">
       <div className="flex flex-col items-start justify-center w-full p-10 gap-2">
+        {/* Name */}
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>name:</p>
           <input
@@ -82,14 +84,17 @@ function Add_product({}: Props) {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
+        {/* Added by */}
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>added_by:</p>
           <p>{added_by}</p>
         </div>
+        {/* Category */}
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>category:</p>
           <PrcSelect defaultValue={category} onChange={setCategory} />
         </div>
+        {/* Price */}
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>price:</p>
           <input
@@ -100,16 +105,12 @@ function Add_product({}: Props) {
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
+        {/* Campaign */}
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>campaign_id:</p>
-          <input
-            type="text"
-            placeholder="Type here"
-            className="input w-full"
-            value={campaign_id}
-            onChange={(e) => setCampaign_id(e.target.value)}
-          />
+          <CpgSelect defaultValue={campaign_id} onChange={setCampaign_id} />
         </div>
+        {/* Call to action */}
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>call_to_action:</p>
           <input
@@ -120,6 +121,7 @@ function Add_product({}: Props) {
             onChange={(e) => setCall_to_action(e.target.value)}
           />
         </div>
+        {/* Description */}
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>description:</p>
           <input
@@ -130,6 +132,7 @@ function Add_product({}: Props) {
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
+        {/* Main Photo */}
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>main_photo_id:</p>
           <input
@@ -140,6 +143,7 @@ function Add_product({}: Props) {
             onChange={(e) => setMain_photo_id(e.target.value)}
           />
         </div>
+        {/* Photos IDs */}
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>photos_ids:</p>
           <input
@@ -150,36 +154,22 @@ function Add_product({}: Props) {
             onChange={(e) => setPhotos_ids(e.target.value)}
           />
         </div>
+        {/* Views */}
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>views:</p>
-          <input
-            type="text"
-            placeholder="Type here"
-            className="input w-full"
-            value={views}
-            onChange={(e) => setViews(e.target.value)}
-          />
+          <p>{views}</p>
         </div>
+        {/* Selling Numbers */}
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>selling_numbers:</p>
-          <input
-            type="text"
-            placeholder="Type here"
-            className="input w-full"
-            value={selling_numbers}
-            onChange={(e) => setSelling_numbers(e.target.value)}
-          />
+          <p>{selling_numbers}</p>
         </div>
+        {/* Product Score */}
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>product_score:</p>
-          <input
-            type="text"
-            placeholder="Type here"
-            className="input w-full"
-            value={product_score}
-            onChange={(e) => setProduct_score(e.target.value)}
-          />
+          <p>{product_score}</p>
         </div>
+        {/* Quantity */}
         <div className="flex flex-row items-center justify-center text-2xl w-full">
           <p>quantity:</p>
           <input
