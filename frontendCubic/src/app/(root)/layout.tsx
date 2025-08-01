@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "@/components/Navbar/Navbar";
+import Navbar from "../../../../frontendcubicfinal/src/components/Cubic/Navbar/Navbar";
 import "../globals.css";
 
 export default function RootLayout({

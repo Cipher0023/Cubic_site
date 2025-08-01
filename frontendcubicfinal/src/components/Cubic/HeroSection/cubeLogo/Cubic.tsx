@@ -1,3 +1,4 @@
+"use client";
 import React, { Suspense, useRef } from "react"; // Importe useRef
 import { Canvas, useFrame } from "@react-three/fiber"; // Importe useFrame
 import { Environment } from "@react-three/drei";
@@ -7,7 +8,7 @@ type Props = object;
 
 export function Cubic({}: Props) {
   return (
-    <div className="w-full h-full ">
+    <div className="w-full h-full">
       <Canvas className="" camera={{ position: [2.5, 2.5, 2.5], fov: 30 }}>
         <Suspense fallback={null}>
           {" "}
