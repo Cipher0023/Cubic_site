@@ -22,7 +22,10 @@ export function useCheckUser() {
         try {
           const response = await fetch(
             "https://localhost:3002/private/chkUsr",
-            { method: "GET", credentials: "include" }
+            {
+              method: "GET",
+              credentials: "include",
+            }
           );
           console.log("[useCheckUser] Status da resposta:", response.status);
 

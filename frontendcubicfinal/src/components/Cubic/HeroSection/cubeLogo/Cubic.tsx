@@ -41,12 +41,12 @@ function Scene() {
 
   return (
     <group>
-      <Environment preset="sunset" /*background*/ />
+      <Environment preset="forest" /*background*/ />
       {/*<pointLight position={[1,1,1] intensity={5}} />*/}
 
       {/* 3. Atribua a ref ao mesh */}
       <mesh ref={meshRef}>
-        <meshStandardMaterial color="white" />{" "}
+        <meshStandardMaterial color={[0.7, 0.9, 1]} />{" "}
         {/* Adicionei uma cor para ver melhor */}
         <boxGeometry />
       </mesh>

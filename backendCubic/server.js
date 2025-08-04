@@ -11,12 +11,8 @@ import https from "https";
 import cookieParser from "cookie-parser";
 
 const app = express();
-app.use(
-  cors({
-    origin: "https://localhost:3000", // ou '*', se estiver só testando
-    credentials: true,
-  })
-);
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 app.use(express.json());
 dotenv.config();

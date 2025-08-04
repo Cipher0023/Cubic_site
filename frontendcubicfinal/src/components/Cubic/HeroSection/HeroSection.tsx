@@ -37,13 +37,13 @@ export default function HeroSection({}: Props) {
           </div>
         </div>
       ) : (
-        <div className="relative z-10 flex items-center justify-between px-6 py-12 sm:px-12">
+        <div className="relative z-10 flex items-center justify-between p-25">
           <h1
-            className={`${chakra.className} font-bold text-8xl text-transparent bg-clip-text bg-linear-to-r from-white to-gray-400`}
+            className={`${chakra.className} font-bold text-9xl text-transparent bg-clip-text bg-linear-to-r from-white to-gray-400`}
           >
             CUBIC developers
           </h1>
-          <div className="hidden sm:flex w-2/5 aspect-square items-center justify-center">
+          <div className="hidden sm:flex w-1/3 aspect-square items-center justify-center">
             <Cubic />
           </div>
         </div>

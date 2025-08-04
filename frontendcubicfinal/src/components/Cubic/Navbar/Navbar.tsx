@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import NavItem, { NavItemInterface } from "./Item/item";
 import { usePathname } from "next/navigation";
-import Logo from "@/components/logo/Logo";
+import Logo from "@/components/Cubic/Logo/Logo";
 import { useViewportContext } from "@/context/ViewportContext";
 import { Menu } from "lucide-react";
 
@@ -13,12 +13,12 @@ export default function Navbar() {
   const { isMobile } = useViewportContext();
   const items: NavItemInterface[] = [
     {
-      url: "/testes",
-      label: "Testes",
+      url: "/projetos",
+      label: "Projetos",
     },
     {
-      url: "/produtos",
-      label: "Soluções",
+      url: "/serviços",
+      label: "Serviços",
     },
     {
       url: "/sobre",

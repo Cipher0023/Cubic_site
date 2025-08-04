@@ -1,5 +1,6 @@
 import express from "express";
 
+import chkUsrCnt from "../../controllers/User/chkUsrCnt.js";
 //dev
 import { logDevCnt } from "../../controllers/Developer/logDevCnt.js";
 import { regDevCnt } from "../../controllers/Developer/regDevCnt.js";
@@ -117,5 +118,7 @@ router.get("/lstApo", lstApoCnt);
 
 //DocType
 router.get("/lstDct", lstDctCnt);
+
+router.get("/chkUsr", chkUsrCnt);
 
 export default router;
