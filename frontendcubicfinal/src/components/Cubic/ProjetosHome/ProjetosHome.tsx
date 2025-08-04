@@ -25,7 +25,7 @@ export default function ProjetosHome() {
   ];
 
   return (
-    <section className="py-12 px-4 bg-base-200">
+    <section className="py-12 px-4 bg-base-100">
       <h2 className="text-3xl font-bold text-center mb-6">Nossos Projetos</h2>
       <p className="text-center mb-8 max-w-2xl mx-auto">
         Veja exemplos de como ajudamos negócios a transformar sua presença

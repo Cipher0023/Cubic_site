@@ -32,11 +32,11 @@ export default function Blog() {
 
   return (
     <section className="py-12 px-4 bg-base-200">
-      <h2 className="text-3xl font-bold text-center mb-4">Blog</h2>
-      <p className="text-center max-w-2xl mx-auto mb-8">
+      <h2 className="text-6xl font-bold text-center text-primary mb-4">Blog</h2>
+      <p className="text-2xl text-center max-w-2xl mx-auto mb-8">
         Veja os posts das novidades implementadas nos produtos!
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      <div className="flex gap-6 overflow-x-auto max-w-7xl mx-auto">
         {posts.map((post, idx) => (
           <CardBlog
             key={idx}

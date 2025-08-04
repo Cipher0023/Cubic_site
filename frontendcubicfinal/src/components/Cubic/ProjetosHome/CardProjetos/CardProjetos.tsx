@@ -9,7 +9,7 @@ type Props = {
 
 export default function CardProjetos({ info, titulo, conteudo }: Props) {
   return (
-    <div className="card bg-base-100 w-96 shadow-sm">
+    <div className="card bg-base-300 w-96 shadow-sm">
       <figure>
         <Image
           src="/placeholder.jpg"

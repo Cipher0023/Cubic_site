@@ -12,7 +12,7 @@ export default function Proposta({}: Props) {
         Ready to transform your business? Get in touch with us and let's discuss
         how we can help you achieve digital autonomy.
       </p>
-      <div className="flex flex-row items-center justify-center">
+      <div className="flex flex-col md:flex-row items-start justify-center gap-8 py-10">
         <ContatosHome />
         <MensagemHome />
       </div>

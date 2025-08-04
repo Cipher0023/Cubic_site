@@ -10,33 +10,33 @@ type ValorItem = {
 
 const valores: ValorItem[] = [
   {
-    icon: <Zap className="w-8 h-8 text-primary" />,
+    icon: <Zap className="w-14 h-14 text-primary" />,
     title: "Modernidade",
     description: "Tecnologia e design de ponta.",
   },
   {
-    icon: <Shield className="w-8 h-8 text-primary" />,
+    icon: <Shield className="w-14 h-14 text-primary" />,
     title: "Segurança",
     description: "Segurança de ponta a todo momento.",
   },
   {
-    icon: <Gauge className="w-8 h-8 text-primary" />,
+    icon: <Gauge className="w-14 h-14 text-primary" />,
     title: "Velocidade",
     description: "Entrega veloz sem comprometer a qualidade",
   },
   {
-    icon: <Lightbulb className="w-8 h-8 text-primary" />,
+    icon: <Lightbulb className="w-14 h-14 text-primary" />,
     title: "Inovação",
     description: "Soluções criativas para desafios únicos do seu negócio",
   },
   {
-    icon: <Heart className="w-8 h-8 text-primary" />,
+    icon: <Heart className="w-14 h-14 text-primary" />,
     title: "Honestidade",
     description:
       "Comunicação e preços transparentes, simplificando a tecnologia",
   },
   {
-    icon: <Users className="w-8 h-8 text-primary" />,
+    icon: <Users className="w-14 h-14 text-primary" />,
     title: "Parseiria",
     description: "Seu sucesso é nosso sucesso.",
   },
