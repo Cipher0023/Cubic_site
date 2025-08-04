@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import PricingCard from "./Card/PricingCard";
 import { ShoppingCart, Globe, Database } from "lucide-react";
 
@@ -37,14 +38,14 @@ export default function Serviços() {
   ];
 
   return (
-    <section className="flex flex-col items-center justify-center py-12 px-4">
+    <section className="flex flex-col items-center justify-center py-12 px-4 gap-10">
       <h2 className="text-2xl font-bold mb-4">Nossos Serviços</h2>
       <p className="mb-8 text-center max-w-2xl">
         Soluções digitais completas, projetadas para transformar o seu negócio e
         oferecer a autonomia que você precisa para ter sucesso no ambiente
         online.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl mx-auto justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-10 w-full max-w-7xl mx-auto justify-items-center">
         {services.map((srv, idx) => (
           <PricingCard
             key={idx}
@@ -56,7 +57,9 @@ export default function Serviços() {
         ))}
       </div>
 
-      <button className="btn btn-primary mt-12 w-full">Saiba mais</button>
+      <Link href="/servicos" className="btn btn-primary mt-12 w-1/4">
+        Saiba mais
+      </Link>
     </section>
   );
 }

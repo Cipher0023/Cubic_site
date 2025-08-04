@@ -7,7 +7,7 @@ import ProjetosHome from "@/components/Cubic/ProjetosHome/ProjetosHome";
 import Chamado from "@/components/Cubic/Chamado/Chamado";
 import Blog from "@/components/Cubic/Blog/Blog";
 import Proposta from "@/components/Cubic/Proposta/Proposta";
-
+//
 export default function Home() {
   return (
     <div className="flex flex-col w-full bg-base-200">

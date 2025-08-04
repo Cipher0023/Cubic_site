@@ -31,7 +31,7 @@ export default function ProjetosHome() {
         Veja exemplos de como ajudamos negócios a transformar sua presença
         digital com soluções customizadas.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full max-w-4xl mx-auto justify-items-center">
         {projetos.map((proj, idx) => (
           <CardProjetos
             key={idx}
