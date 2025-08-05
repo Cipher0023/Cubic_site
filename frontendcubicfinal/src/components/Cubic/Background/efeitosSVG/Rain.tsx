@@ -4,7 +4,11 @@ type Props = object;
 
 function Rain({}: Props) {
   return (
-    <svg viewBox="0 0 400 400">
+    <svg
+      viewBox="0 0 800 800"
+      className="w-full h-full"
+      preserveAspectRatio="none"
+    >
       <defs>
         <linearGradient
           x1="50%"

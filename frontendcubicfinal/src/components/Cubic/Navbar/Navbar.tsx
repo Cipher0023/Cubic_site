@@ -13,8 +13,8 @@ export default function Navbar() {
   const { isMobile } = useViewportContext();
   const items: NavItemInterface[] = [
     {
-      url: "/projetos",
-      label: "Projetos",
+      url: "/demostracoes",
+      label: "Demonstrações",
     },
     {
       url: "/servicos",

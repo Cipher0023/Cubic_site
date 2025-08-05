@@ -18,9 +18,9 @@ export default function HeroSection({}: Props) {
   const { isMobile } = useViewportContext();
 
   return (
-    <section className="relative w-full h-auto overflow-hidden">
+    <section className="relative w-full  overflow-hidden">
       {/* Background atrás de tudo */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 w-full h-full">
         <Background />
       </div>
 
@@ -28,7 +28,7 @@ export default function HeroSection({}: Props) {
       {isMobile ? (
         <div className="relative z-10 flex flex-col items-center justify-center px-4 py-8 gap-6">
           <h1
-            className={`${chakra.className} font-bold text-4xl text-transparent bg-clip-text bg-linear-to-r from-white to-gray-400`}
+            className={`${chakra.className} font-bold text-6xl text-transparent bg-clip-text bg-linear-to-r from-gray-300 to-gray-400`}
           >
             CUBIC developers
           </h1>
@@ -39,7 +39,7 @@ export default function HeroSection({}: Props) {
       ) : (
         <div className="relative z-10 flex items-center justify-between p-25">
           <h1
-            className={`${chakra.className} font-bold text-9xl text-transparent bg-clip-text bg-linear-to-r from-white to-gray-400`}
+            className={`${chakra.className} font-bold text-9xl text-transparent bg-clip-text bg-linear-to-r from-gray-300 to-gray-400`}
           >
             CUBIC developers
           </h1>

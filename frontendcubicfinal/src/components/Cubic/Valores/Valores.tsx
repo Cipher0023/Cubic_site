@@ -44,7 +44,7 @@ const valores: ValorItem[] = [
 
 export default function Valores() {
   return (
-    <section className="py-12 px-4 bg-base-100">
+    <section className="py-12 px-4 ">
       <h2 className="text-3xl font-bold mb-8 text-center">Nossos Valores</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {valores.map((item, idx) => (

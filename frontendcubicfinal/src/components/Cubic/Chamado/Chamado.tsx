@@ -4,9 +4,11 @@ type Props = object;
 
 export default function Chamado({}: Props) {
   return (
-    <div className="flex flex-col w-full bg-base-300 items-center justify-center gap-5 p-10">
-      <p className="text-4xl text-accent">Pronto para começar o seu projeto?</p>
-      <p className="text-2xl">
+    <div className="flex flex-col w-full  items-center justify-center gap-5 p-20">
+      <p className="text-6xl text-accent text-center">
+        Pronto para começar o seu projeto?
+      </p>
+      <p className="text-2xl p-10">
         {" "}
         vamos conversar para criar uma solução digital que se encaixa na
         necessidade do seu negócio

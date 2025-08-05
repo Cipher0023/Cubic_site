@@ -7,7 +7,7 @@ type Props = {
   conteudo: string;
 };
 
-export default function CardProjetos({ info, titulo, conteudo }: Props) {
+export default function CardDemonstacoes({ info, titulo, conteudo }: Props) {
   return (
     <div className="card bg-base-300 w-96 shadow-sm">
       <figure>

@@ -32,7 +32,7 @@ export default function Blog() {
 
   return (
     <section className="py-12 px-4 bg-base-200">
-      <h2 className="text-6xl font-bold text-center text-primary mb-4">Blog</h2>
+      <h2 className="text-6xl  text-center text-accent mb-4">Blog</h2>
       <p className="text-2xl text-center max-w-2xl mx-auto mb-8">
         Veja os posts das novidades implementadas nos produtos!
       </p>

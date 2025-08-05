@@ -3,7 +3,7 @@ import Sobre from "@/components/Cubic/Sobre/Sobre";
 import Valores from "@/components/Cubic/Valores/Valores";
 import HeroSection from "@/components/Cubic/HeroSection/HeroSection";
 import Proposito from "@/components/Cubic/Proposito/Proposito";
-import ProjetosHome from "@/components/Cubic/ProjetosHome/ProjetosHome";
+import ProjetosHome from "@/components/Cubic/Demonstracoes/DemosntracoesHome/DemonstracoesHome";
 import Chamado from "@/components/Cubic/Chamado/Chamado";
 import Blog from "@/components/Cubic/Blog/Blog";
 import Proposta from "@/components/Cubic/Proposta/Proposta";
