@@ -14,7 +14,7 @@ export default function Proposito({}: Props) {
           criamos soluções personalizadas que oferecem controle total sobre sua
           presença online, com suporte contínuo e foco total no cliente.
         </p>
-        <div className="bg-radial-[at_50%_50%] from-white/30 from-9% to-base-300 backdrop-blur rounded-2xl p-5">
+        <div className="bg-radial-[at_50%_50%] from-base-100/30 from-5% to-base-100/99 border-1 border-base-300 rounded-2xl p-5">
           <p className="text-2xl text-primary">Nosso Compromisso</p>
           <p>
             Apoio constante e uma parceria que evolui junto com o seu negócio.

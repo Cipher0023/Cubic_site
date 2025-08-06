@@ -9,7 +9,7 @@ type Props = {
 
 export default function CardBlog({ info, titulo, conteudo }: Props) {
   return (
-    <div className="card bg-base-100 w-96 shadow-sm">
+    <div className="card bg-radial-[at_50%_100%] from-base-100/99 from-30% to-base-100/10 border-1 border-base-300 w-96 shadow-sm">
       <figure>
         <Image
           src="/placeholder.jpg"

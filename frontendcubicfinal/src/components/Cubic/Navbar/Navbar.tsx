@@ -25,10 +25,6 @@ export default function Navbar() {
       label: "Sobre",
     },
     {
-      url: "/contato",
-      label: "Contato",
-    },
-    {
       url: "/blog",
       label: "Blog",
     },

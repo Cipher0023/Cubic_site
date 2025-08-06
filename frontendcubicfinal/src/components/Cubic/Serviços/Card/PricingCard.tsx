@@ -15,7 +15,7 @@ export default function PricingCard({
   itemName,
 }: Props) {
   return (
-    <div className="card w-80 md:w-96 bg-base-100 shadow-lg hover:shadow-xl transition-shadow">
+    <div className="card w-80 md:w-96  shadow-lg hover:shadow-xl transition-shadow bg-radial-[at_50%_50%] from-base-100/30 from-5% to-base-100/99 border-1 border-base-300">
       <div className="card-body flex flex-col justify-between p-6">
         <div className="mb-4 text-primary">{icon}</div>
         <div className="flex flex-col justify-between items-baseline mb-4">
