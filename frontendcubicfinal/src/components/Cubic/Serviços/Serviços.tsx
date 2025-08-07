@@ -38,14 +38,19 @@ export default function Serviços() {
   ];
 
   return (
-    <section className="flex flex-col items-center justify-center py-12 px-4 gap-10">
-      <h2 className="text-2xl font-bold mb-4">Nossos Serviços</h2>
-      <p className="mb-8 text-center max-w-2xl">
+    <section
+      id="services"
+      className="flex flex-col justify-center items-center gap-10 px-4 py-12"
+    >
+      <h2 className="mb-6 font-bold text-primary text-3xl sm:text-4xl">
+        Nossos Serviços
+      </h2>
+      <p className="pb-5 w-3/5 text-gray-300 text-xl leading-relaxed">
         Soluções digitais completas, projetadas para transformar o seu negócio e
         oferecer a autonomia que você precisa para ter sucesso no ambiente
         online.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-10 w-full max-w-7xl mx-auto justify-items-center">
+      <div className="justify-items-center gap-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 mx-auto w-full max-w-7xl">
         {services.map((srv, idx) => (
           <PricingCard
             key={idx}
@@ -57,7 +62,7 @@ export default function Serviços() {
         ))}
       </div>
 
-      <Link href="/servicos" className="btn btn-primary mt-12 w-1/4">
+      <Link href="/servicos" className="mt-12 w-1/4 btn btn-primary">
         Saiba mais
       </Link>
     </section>

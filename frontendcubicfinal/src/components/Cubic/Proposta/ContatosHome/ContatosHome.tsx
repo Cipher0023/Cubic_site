@@ -27,20 +27,21 @@ export default function ContatosHome() {
   ];
 
   return (
-    <div className="w-full max-w-md  p-10 rounded-lg shadow flex flex-col items-center justify-center gap-6">
+    <div className="flex flex-col justify-center items-center gap-6 shadow p-10 rounded-lg w-full max-w-md">
       {contacts.map(({ icon: Icon, title, description }, idx) => (
-        <button
-          key={idx}
-          className="w-full group bg-base-100 rounded-lg shadow p-4 flex items-center transition-transform duration-300 hover:scale-105"
+        <div key={idx} className="relative group w-full">
+          <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-20 group-hover:opacity-30 rounded-2xl transition-opacity duration-300 blur"></div>
+          <button className="flex items-center bg-gradient-to-br from-base-300 to-base-100 shadow-md p-5 border border-base-300 rounded-2xl w-full hover:scale-105 transition-transform duration-300 relative z-10"
         >
-          <Icon className="text-accent transition-colors duration-300 group-hover:text-primary" />
+          <Icon className="text-primary group-hover:text-accent transition-colors duration-300" />
           <div className="ml-4 text-left">
             <span className="block font-semibold">{title}</span>
-            <span className="block text-sm text-gray-500 mt-1">
+            <span className="block mt-1 text-gray-500 text-sm">
               {description}
             </span>
           </div>
         </button>
+        </div>
       ))}
     </div>
   );

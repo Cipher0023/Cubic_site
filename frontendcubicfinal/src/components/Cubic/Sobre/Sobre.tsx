@@ -1,19 +1,23 @@
 import React from "react";
-
+import Valores from "@/components/Cubic/Sobre/Valores/Valores";
+import Proposito from "@/components/Cubic/Sobre/Proposito/Proposito";
 type Props = object;
 
 export default function Sobre({}: Props) {
   return (
-    <div className="flex flex-col items-center justify-center p-20 ">
-      <div className="flex flex-col items-center justify-center p-20 gap-10 rounded-4xl bg-radial-[at_50%_50%] from-base-100/30 from-5% to-base-100/99 border-1 border-base-300">
-        <h2 className="text-6xl text-accent font-bold">Sobre a Cubic</h2>
-        <div className="text-2xl text-center p-10">
-          Ajudamos empresas a se digitalizarem e conquistarem liberdade digital,
-          dando ao empreendedor o poder de escolher seus próprios caminhos.
-          Nossa missão é oferecer às pequenas e médias empresas as ferramentas
-          certas para crescer com independência e segurança no mercado atual.
-        </div>
+    <div className="flex flex-col justify-center items-center bg-base-100 py-10">
+      {" "}
+      <h1 className="mb-6 pt-10 font-bold text-accentr text-3xl sm:text-4xl">
+        Sobre a Cubic
+      </h1>
+      <div className="w-3/5 text-gray-300 text-xl leading-relaxed">
+        Ajudamos empresas a se digitalizarem e conquistarem liberdade digital,
+        dando ao empreendedor o poder de escolher seus próprios caminhos. Nossa
+        missão é oferecer às pequenas e médias empresas as ferramentas certas
+        para crescer com independência e segurança no mercado atual.
       </div>
+      <Proposito />
+      <Valores />
     </div>
   );
 }

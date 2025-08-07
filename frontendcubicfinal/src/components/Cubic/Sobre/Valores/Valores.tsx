@@ -44,16 +44,16 @@ const valores: ValorItem[] = [
 
 export default function Valores() {
   return (
-    <section className="py-12 px-4 ">
-      <h2 className="text-3xl font-bold mb-8 text-center">Nossos Valores</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section className="px-4 py-12">
+      <h2 className="mb-8 font-bold text-3xl text-center">Nossos Valores</h2>
+      <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {valores.map((item, idx) => (
           <div
             key={idx}
-            className="flex flex-col items-center text-center gap-4 p-6 "
+            className="flex flex-col items-center gap-4 p-6 text-center"
           >
             {item.icon}
-            <h3 className="text-xl font-semibold">{item.title}</h3>
+            <h3 className="font-semibold text-xl">{item.title}</h3>
             <p className="text-base-content/80">{item.description}</p>
           </div>
         ))}

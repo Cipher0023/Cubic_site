@@ -31,12 +31,14 @@ export default function Blog() {
   ];
 
   return (
-    <section className="py-12 px-4 bg-base-200">
-      <h2 className="text-6xl  text-center text-accent mb-4">Blog</h2>
-      <p className="text-2xl text-center max-w-2xl mx-auto mb-8">
+    <section className="bg-gradient-to-br from-base-200 via-base-100 to-base-200 p-20 px-4 py-12 pt-24 pb-16">
+      <h2 className="mb-4 font-semibold text-primary text-6xl text-center">
+        Blog
+      </h2>
+      <p className="mx-auto mb-8 max-w-2xl text-2xl text-center">
         Veja os posts das novidades implementadas nos produtos!
       </p>
-      <div className="flex gap-6 overflow-x-auto max-w-7xl mx-auto">
+      <div className="flex gap-6 mx-auto max-w-7xl overflow-x-auto">
         {posts.map((post, idx) => (
           <CardBlog
             key={idx}

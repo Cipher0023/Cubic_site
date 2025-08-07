@@ -1,31 +1,28 @@
 import Serviços from "@/components/Cubic/Serviços/Serviços";
 import Sobre from "@/components/Cubic/Sobre/Sobre";
-import Valores from "@/components/Cubic/Valores/Valores";
 import HeroSection from "@/components/Cubic/HeroSection/HeroSection";
-import Proposito from "@/components/Cubic/Proposito/Proposito";
 import ProjetosHome from "@/components/Cubic/Demonstracoes/DemosntracoesHome/DemonstracoesHome";
-import Chamado from "@/components/Cubic/Chamado/Chamado";
 import Blog from "@/components/Cubic/Blog/Blog";
 import Proposta from "@/components/Cubic/Proposta/Proposta";
+import ChamadoStr from "@/components/Cubic/Chamado/ChamadoStr";
+import ChamadoEnd from "@/components/Cubic/Chamado/ChamadoEnd";
 //
 export default function Home() {
   return (
-    <div className="flex flex-col w-full bg-base-200">
-      <div className="flex w-full bg-base-100">
+    <div className="flex flex-col bg-base-200 w-full">
+      <div className="flex bg-base-200 w-full">
         <HeroSection />
       </div>
-      <main className="flex flex-col w-full justify-center">
+      <main className="flex flex-col justify-center w-full">
+        <ChamadoStr />
+
         <Sobre />
-
-        <Proposito />
-
-        <Valores />
 
         <Serviços />
 
         <ProjetosHome />
 
-        <Chamado />
+        <ChamadoEnd />
 
         <Blog />
 

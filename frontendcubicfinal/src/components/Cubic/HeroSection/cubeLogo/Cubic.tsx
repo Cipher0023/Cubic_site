@@ -31,7 +31,7 @@ function Scene() {
 
     if (meshRef.current) {
       // Rotaciona o cubo ao redor do eixo Y
-      meshRef.current.rotation.y += delta * 0.5; // Ajuste o 0.5 para mudar a velocidade
+      meshRef.current.rotation.y += delta * 0.35; // Ajuste o 0.5 para mudar a velocidade
 
       // Você pode rotacionar em outros eixos também:
       // meshRef.current.rotation.x += delta * 0.2;
@@ -41,12 +41,19 @@ function Scene() {
 
   return (
     <group>
-      <Environment preset="forest" /*background*/ />
-      {/*<pointLight position={[1,1,1] intensity={5}} />*/}
+      {/* Luz ambiente suave */}
+      <ambientLight intensity={0.25} />
+      {/* Luz direcional azulada, 45° acima e 45° para a direita */}
+      <directionalLight
+        position={[0.507, 2.5, -0.107]}
+        intensity={2}
+        color="#d2f6fa"
+        castShadow
+      />
 
       {/* 3. Atribua a ref ao mesh */}
       <mesh ref={meshRef}>
-        <meshStandardMaterial color={[0.7, 0.9, 1]} />{" "}
+        <meshStandardMaterial color={[1, 1, 1]} />{" "}
         {/* Adicionei uma cor para ver melhor */}
         <boxGeometry />
       </mesh>
