@@ -1,5 +1,5 @@
 import Serviços from "@/components/Cubic/Serviços/Serviços";
-import Sobre from "@/components/Cubic/Sobre/Sobre";
+import Sobre from "@/components/Cubic/Sobre/SobreHome/Sobre";
 import HeroSection from "@/components/Cubic/HeroSection/HeroSection";
 import ProjetosHome from "@/components/Cubic/Demonstracoes/DemosntracoesHome/DemonstracoesHome";
 import Blog from "@/components/Cubic/Blog/Blog";

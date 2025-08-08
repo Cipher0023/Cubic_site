@@ -20,8 +20,13 @@ import {
   MapPin,
   Calendar,
   Coffee,
+  MonitorCog,
   Rocket,
+  MonitorPlay,
 } from "lucide-react";
+import HeaderSobre from "./HeaderSobre/HeaderSobre";
+import Historia from "@/components/Cubic/Sobre/Historia/Historia";
+import Timeline from "@/components/Cubic/Sobre/Timeline/Timeline";
 
 export default function SobrePage() {
   const valores = [
@@ -131,31 +136,40 @@ export default function SobrePage() {
 
   const timeline = [
     {
-      ano: "2022",
-      titulo: "The Beginning",
+      ano: "2023",
+      titulo: "O começo",
       descricao:
-        "Cubic was founded with a simple mission: help small businesses achieve digital autonomy.",
+        "O idealizador Daniel S. Esparza percebe a necessidade de boas tecnologias para empresas durante seus estudos na USP",
       icone: Rocket,
       detalhes:
-        "Started as a freelance project, quickly grew into a full-service digital agency.",
+        "Vendo que era um setor com muitas possibilidades de crescimento e muitas dores, decide dar atenção ao tema",
     },
     {
-      ano: "2023",
-      titulo: "First Major Success",
+      ano: " Outubro 2024",
+      titulo: "Primeiros esboços",
       descricao:
-        "Launched our first e-commerce platform that increased client sales by 300% in 6 months.",
-      icone: TrendingUp,
+        "Daniel inicia os primeiros esboços do que seriam as tecnologias e produtos usados e criados pela Cubic.",
+      icone: MonitorCog,
       detalhes:
-        "This success validated our approach and attracted more ambitious projects.",
+        "Neste momento muitas ideias são criadas e descartadas rapidamente, somente ficando aquilo que se mostra sólido para o crescimento da empresa",
     },
     {
-      ano: "2024",
-      titulo: "Team Expansion",
+      ano: "Fevereiro 2025",
+      titulo: "Definiçoes de Desenvolvimento",
       descricao:
-        "Grew our team to include specialized designers and infrastructure experts.",
-      icone: Users,
+        "Após muitos esboços criados e alterados, é definido como será feito o primeiro protótipo",
+      icone: MonitorPlay,
       detalhes:
         "Expanded capabilities to offer comprehensive digital transformation services.",
+    },
+    {
+      ano: "Julho 2025",
+      titulo: "Backend inicial criado",
+      descricao:
+        "Serving 50+ businesses with custom digital solutions and ongoing support.",
+      icone: Award,
+      detalhes:
+        "Continuing to innovate and help businesses thrive in the digital landscape.",
     },
     {
       ano: "2024",
@@ -176,205 +190,44 @@ export default function SobrePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="bg-base-200 min-h-screen">
       {/* Header da página */}
-      <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-gray-700">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <Link
-            href="/"
-            className="inline-flex items-center text-green-400 hover:text-green-300 mb-8 transition-colors duration-200"
-          >
-            <ArrowLeft className="h-5 w-5 mr-2" />
-            Back to Home
-          </Link>
+      <HeaderSobre estatisticas={estatisticas} />
 
-          <div className="max-w-4xl">
-            <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6">
-              About <span className="text-green-400">Cubic</span>
-            </h1>
-            <p className="text-xl text-gray-300 leading-relaxed mb-8">
-              We're more than just a development agency. We're your partners in
-              digital transformation, committed to helping small and medium
-              businesses achieve true digital autonomy.
-            </p>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {estatisticas.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <stat.icone className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="text-2xl font-bold text-white">
-                    {stat.numero}
-                  </div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="mx-auto px-4 sm:px-6 lg:px-8 container">
         {/* Nossa História */}
-        <section className="py-20">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-white mb-6">Our Story</h2>
-              <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
-                <p>
-                  Cubic was born from a simple observation: too many small
-                  businesses were being left behind in the digital revolution.
-                  While large corporations had entire IT departments, smaller
-                  companies struggled to find affordable, reliable digital
-                  solutions.
-                </p>
-                <p>
-                  We founded Cubic in 2022 with a clear mission: to democratize
-                  digital transformation. We believe every business, regardless
-                  of size, deserves access to modern, professional digital tools
-                  that can compete with industry giants.
-                </p>
-                <p>
-                  Today, we're proud to have helped over 50 businesses achieve
-                  digital autonomy through custom e-commerce platforms,
-                  high-converting landing pages, and robust digital
-                  infrastructure. But we're just getting started.
-                </p>
-              </div>
-
-              <div className="mt-8 p-6 bg-gray-800 rounded-xl border border-gray-700">
-                <h3 className="text-xl font-bold text-white mb-3">
-                  Our Mission
-                </h3>
-                <p className="text-gray-300">
-                  To empower small and medium businesses with digital autonomy
-                  through custom, scalable, and affordable solutions that drive
-                  real growth and success.
-                </p>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl blur opacity-20"></div>
-              <div className="relative bg-gray-800 rounded-2xl p-8 border border-gray-700">
-                <div className="aspect-square bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <span className="text-white font-bold text-3xl">C</span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                      Digital Autonomy
-                    </h3>
-                    <p className="text-gray-300">
-                      Empowering businesses through technology
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Historia />
 
         {/* Timeline */}
         <section className="py-20">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Our Journey</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              From a simple idea to a growing agency, here's how we've evolved
-              to better serve our clients.
-            </p>
-          </div>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-green-600"></div>
-
-            <div className="space-y-12">
-              {timeline.map((item, index) => (
-                <div
-                  key={index}
-                  className={`flex items-center ${
-                    index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                  }`}
-                >
-                  <div
-                    className={`w-1/2 ${
-                      index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"
-                    }`}
-                  >
-                    <div className="bg-gray-800 rounded-xl p-6 border border-gray-700 shadow-lg">
-                      <div className="flex items-center gap-3 mb-3">
-                        {index % 2 === 0 ? (
-                          <>
-                            <div>
-                              <h3 className="text-xl font-bold text-white">
-                                {item.titulo}
-                              </h3>
-                              <p className="text-green-400 font-medium">
-                                {item.ano}
-                              </p>
-                            </div>
-                            <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-                              <item.icone className="h-6 w-6 text-white" />
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-                              <item.icone className="h-6 w-6 text-white" />
-                            </div>
-                            <div>
-                              <h3 className="text-xl font-bold text-white">
-                                {item.titulo}
-                              </h3>
-                              <p className="text-green-400 font-medium">
-                                {item.ano}
-                              </p>
-                            </div>
-                          </>
-                        )}
-                      </div>
-                      <p className="text-gray-300 mb-2">{item.descricao}</p>
-                      <p className="text-sm text-gray-400">{item.detalhes}</p>
-                    </div>
-                  </div>
-
-                  {/* Timeline dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-600 rounded-full border-4 border-gray-900"></div>
-
-                  <div className="w-1/2"></div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <Timeline timeline={timeline} />
         </section>
 
         {/* Nossos Valores */}
-        <section className="py-20 bg-gradient-to-r from-gray-800 to-gray-700 rounded-3xl my-20 border border-gray-600">
+        <section className="bg-gradient-to-r from-gray-800 to-gray-700 my-20 py-20 border border-gray-600 rounded-3xl">
           <div className="px-8 lg:px-12">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-6">Our Values</h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <div className="mb-16 text-center">
+              <h2 className="mb-6 font-bold text-white text-4xl">Our Values</h2>
+              <p className="mx-auto max-w-3xl text-gray-300 text-xl">
                 These core principles guide everything we do and shape how we
                 work with our clients.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="gap-8 grid md:grid-cols-2 lg:grid-cols-3">
               {valores.map((valor, index) => (
                 <div
                   key={index}
-                  className="bg-gray-800 rounded-xl p-6 border border-gray-600 hover:border-green-600 transition-colors duration-200 group"
+                  className="group bg-gray-800 p-6 border border-gray-600 hover:border-accent rounded-xl transition-colors duration-200"
                 >
-                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200">
-                    <valor.icone className="h-6 w-6 text-white" />
+                  <div className="flex justify-center items-center bg-accent mb-4 rounded-full w-12 h-12 group-hover:scale-110 transition-transform duration-200">
+                    <valor.icone className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">
+                  <h3 className="mb-3 font-bold text-white text-xl">
                     {valor.titulo}
                   </h3>
-                  <p className="text-gray-300 mb-3">{valor.descricao}</p>
-                  <p className="text-sm text-gray-400">{valor.detalhes}</p>
+                  <p className="mb-3 text-gray-300">{valor.descricao}</p>
+                  <p className="text-gray-400 text-sm">{valor.detalhes}</p>
                 </div>
               ))}
             </div>
@@ -383,23 +236,23 @@ export default function SobrePage() {
 
         {/* Nossa Equipe */}
         <section className="py-20">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">
+          <div className="mb-16 text-center">
+            <h2 className="mb-6 font-bold text-white text-4xl">
               Meet Our Team
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="mx-auto max-w-3xl text-gray-300 text-xl">
               The talented individuals behind Cubic who make digital
               transformation possible for our clients.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="gap-8 grid md:grid-cols-2 lg:grid-cols-3">
             {equipe.map((membro, index) => (
               <div
                 key={index}
-                className="bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-gray-800 shadow-lg hover:shadow-xl border border-gray-700 rounded-2xl overflow-hidden transition-shadow duration-300"
               >
-                <div className="aspect-square bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+                <div className="flex justify-center items-center bg-gradient-to-br from-gray-700 to-gray-800 aspect-square">
                   <Image
                     src={membro.imagem || "/placeholder.svg"}
                     alt={membro.nome}
@@ -410,25 +263,25 @@ export default function SobrePage() {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-1">
+                  <h3 className="mb-1 font-bold text-white text-xl">
                     {membro.nome}
                   </h3>
-                  <p className="text-green-400 font-medium mb-3">
+                  <p className="mb-3 font-medium text-green-400">
                     {membro.cargo}
                   </p>
-                  <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                  <p className="mb-4 text-gray-300 text-sm leading-relaxed">
                     {membro.bio}
                   </p>
 
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-white mb-2">
+                    <h4 className="mb-2 font-semibold text-white text-sm">
                       Specialties:
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {membro.especialidades.map((especialidade, idx) => (
                         <span
                           key={idx}
-                          className="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs border border-gray-600"
+                          className="bg-gray-700 px-2 py-1 border border-gray-600 rounded text-gray-300 text-xs"
                         >
                           {especialidade}
                         </span>
@@ -439,21 +292,21 @@ export default function SobrePage() {
                   <div className="flex gap-3">
                     <Link
                       href={membro.social.linkedin}
-                      className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-200"
+                      className="flex justify-center items-center bg-gray-700 hover:bg-green-600 rounded-full w-8 h-8 transition-colors duration-200"
                     >
-                      <Linkedin className="h-4 w-4 text-gray-300 hover:text-white" />
+                      <Linkedin className="w-4 h-4 text-gray-300 hover:text-white" />
                     </Link>
                     <Link
                       href={membro.social.twitter}
-                      className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-200"
+                      className="flex justify-center items-center bg-gray-700 hover:bg-green-600 rounded-full w-8 h-8 transition-colors duration-200"
                     >
-                      <Twitter className="h-4 w-4 text-gray-300 hover:text-white" />
+                      <Twitter className="w-4 h-4 text-gray-300 hover:text-white" />
                     </Link>
                     <Link
                       href={`mailto:${membro.social.email}`}
-                      className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-200"
+                      className="flex justify-center items-center bg-gray-700 hover:bg-green-600 rounded-full w-8 h-8 transition-colors duration-200"
                     >
-                      <Mail className="h-4 w-4 text-gray-300 hover:text-white" />
+                      <Mail className="w-4 h-4 text-gray-300 hover:text-white" />
                     </Link>
                   </div>
                 </div>
@@ -464,18 +317,18 @@ export default function SobrePage() {
 
         {/* Localização e Contato */}
         <section className="py-20">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="gap-12 grid lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold text-white mb-6">
+              <h2 className="mb-6 font-bold text-white text-3xl">
                 Where We Work
               </h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-white" />
+                  <div className="flex flex-shrink-0 justify-center items-center bg-green-600 rounded-full w-12 h-12">
+                    <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-white mb-2">
+                    <h3 className="mb-2 font-semibold text-white text-lg">
                       Remote-First Approach
                     </h3>
                     <p className="text-gray-300">
@@ -488,11 +341,11 @@ export default function SobrePage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Calendar className="h-6 w-6 text-white" />
+                  <div className="flex flex-shrink-0 justify-center items-center bg-green-600 rounded-full w-12 h-12">
+                    <Calendar className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-white mb-2">
+                    <h3 className="mb-2 font-semibold text-white text-lg">
                       Flexible Scheduling
                     </h3>
                     <p className="text-gray-300">
@@ -504,11 +357,11 @@ export default function SobrePage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Coffee className="h-6 w-6 text-white" />
+                  <div className="flex flex-shrink-0 justify-center items-center bg-green-600 rounded-full w-12 h-12">
+                    <Coffee className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-white mb-2">
+                    <h3 className="mb-2 font-semibold text-white text-lg">
                       Personal Touch
                     </h3>
                     <p className="text-gray-300">
@@ -521,11 +374,11 @@ export default function SobrePage() {
               </div>
             </div>
 
-            <div className="bg-gray-800 rounded-2xl p-8 border border-gray-700">
-              <h3 className="text-2xl font-bold text-white mb-6">
+            <div className="bg-gray-800 p-8 border border-gray-700 rounded-2xl">
+              <h3 className="mb-6 font-bold text-white text-2xl">
                 Ready to Work Together?
               </h3>
-              <p className="text-gray-300 mb-6">
+              <p className="mb-6 text-gray-300">
                 We'd love to learn about your business and discuss how we can
                 help you achieve digital autonomy.
               </p>
@@ -533,22 +386,22 @@ export default function SobrePage() {
               <div className="space-y-4">
                 <Link
                   href="/#contact"
-                  className="w-full bg-green-600 hover:bg-green-700 text-white rounded-lg py-3 px-6 font-medium transition-colors duration-200 flex items-center justify-center gap-2"
+                  className="flex justify-center items-center gap-2 bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg w-full font-medium text-white transition-colors duration-200"
                 >
-                  <MessageCircle className="h-5 w-5" />
+                  <MessageCircle className="w-5 h-5" />
                   Start a Conversation
                 </Link>
 
                 <Link
                   href="/servicos"
-                  className="w-full border border-green-600 text-green-400 hover:bg-green-600 hover:text-white rounded-lg py-3 px-6 font-medium transition-colors duration-200 flex items-center justify-center gap-2 bg-transparent"
+                  className="flex justify-center items-center gap-2 bg-transparent hover:bg-green-600 px-6 py-3 border border-green-600 rounded-lg w-full font-medium text-green-400 hover:text-white transition-colors duration-200"
                 >
                   View Our Services
                 </Link>
               </div>
 
-              <div className="mt-6 pt-6 border-t border-gray-700">
-                <p className="text-sm text-gray-400 text-center">
+              <div className="mt-6 pt-6 border-gray-700 border-t">
+                <p className="text-gray-400 text-sm text-center">
                   Typically respond within 24 hours • Free consultation • No
                   commitment required
                 </p>

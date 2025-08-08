@@ -2,7 +2,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ExternalLink, Check, Calendar, Users } from "lucide-react";
+import { ExternalLink, Check } from "lucide-react";
+import DemoInfo from "./DemoInfo.tsx/DemoInfo";
 
 type Projeto = {
   id: number;
@@ -27,9 +28,9 @@ type DemonstracaoProps = {
 
 export default function Demonstracao({ projeto, index }: DemonstracaoProps) {
   return (
-    <div className="flex flex-row gap-10">
+    <div className="flex flex-row gap-10 items-center">
       {/* Imagem do projeto */}
-      <div className={`${index % 2 === 1 ? "lg:order-2" : ""}`}>
+      <div className={`${index % 2 === 1 ? "lg:order-2" : ""} flex items-center justify-center`}>
         <div className="group relative">
           <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-20 group-hover:opacity-30 rounded-2xl transition-opacity duration-300 blur"></div>
           <div className="relative bg-base-100 shadow-xl border border-base-300 rounded-2xl overflow-hidden">
@@ -68,42 +69,20 @@ export default function Demonstracao({ projeto, index }: DemonstracaoProps) {
           </div>
 
           {/* Informações rápidas */}
-          <div className="gap-4 grid grid-cols-3 py-4 border-y border-base-300">
-            <div className="text-center">
-              <Calendar className="mx-auto mb-1 w-5 h-5 text-primary" />
-              <p className="font-medium text-sm text-base-content">
-                {projeto.lancamento}
-              </p>
-              <p className="text-gray-400 text-xs">Lançamento</p>
-            </div>
-            <div className="text-center">
-              <Users className="mx-auto mb-1 w-5 h-5 text-primary" />
-              <p className="font-medium text-sm text-base-content">
-                {projeto.clientes}
-              </p>
-              <p className="text-gray-400 text-xs">Clientes</p>
-            </div>
-            <div className="text-center">
-              <Check className="mx-auto mb-1 w-5 h-5 text-primary" />
-              <p className="font-medium text-sm text-base-content">
-                {projeto.resultados.length}
-              </p>
-              <p className="text-gray-400 text-xs">Resultados</p>
-            </div>
-          </div>
+          <DemoInfo projeto={projeto} />
 
           {/* Funcionalidades principais */}
           <div>
             <h3 className="mb-3 font-semibold text-base-content">
               Principais Funcionalidades:
             </h3>
-            <div className="gap-2 grid grid-cols-1">
+            <div className="gap-2 grid grid-cols-2">
               {projeto.funcionalidades.slice(0, 6).map((f, idx) => (
                 <div
                   key={idx}
                   className="flex items-center text-gray-300 text-sm"
                 >
-                  <Check className="flex-shrink-0 mr-2 w-4 h-4 text-primary" />
+                  <Check className="flex-shrink-0 mr-2 w-4 h-4 text-accent" />
                   {f}
                 </div>
               ))}
@@ -119,7 +98,7 @@ export default function Demonstracao({ projeto, index }: DemonstracaoProps) {
               {projeto.tecnologias.map((tech, idx) => (
                 <span
                   key={idx}
-                  className="bg-base-300 px-3 py-1 border border-base-300 rounded-full text-gray-300 text-sm"
+                  className="bg-base-300 px-3 py-1 border border-base-300 rounded-full text-accent text-sm"
                 >
                   {tech}
                 </span>
@@ -127,27 +106,15 @@ export default function Demonstracao({ projeto, index }: DemonstracaoProps) {
             </div>
           </div>
 
-          {/* Resultados */}
-          <div>
-            <h3 className="mb-3 font-semibold text-base-content">
-              Resultados Alcançados:
-            </h3>
-            <ul className="space-y-1 text-gray-300 text-sm list-disc list-inside">
-              {projeto.resultados.map((r, idx) => (
-                <li key={idx}>{r}</li>
-              ))}
-            </ul>
-          </div>
-
           {/* Botões de ação */}
-          <div className="flex sm:flex-row flex-col gap-4 pt-4">
-            <button className="flex justify-center items-center gap-2 bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg font-medium text-base-content transition-colors duration-200">
-              <ExternalLink className="w-5 h-5" />
-              Ver Projeto Completo
+          <div className="flex sm:flex-row flex-col gap-4 pt-4 pb-4">
+            <button className="flex justify-center items-center gap-2 bg-accent hover:bg-accent/30 px-6 py-3 rounded-full font-medium hover:text-accent transition-colors duration-200 text-accent-content">
+              <ExternalLink className="" />
+              Demonstração
             </button>
             <Link
               href="/#contact"
-              className="bg-transparent hover:bg-green-600 px-6 py-3 border border-green-600 rounded-lg font-medium text-primary hover:text-base-content text-center transition-colors duration-200"
+              className="bg-transparent hover:bg-accent/50 px-6 py-3 border border-accent rounded-full font-medium text-accent hover:text-accent text-center transition-colors duration-200"
             >
               Solicitar Projeto Similar
             </Link>

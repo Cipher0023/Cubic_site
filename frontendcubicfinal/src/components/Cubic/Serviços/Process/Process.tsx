@@ -16,34 +16,34 @@ export default function Process({ metodologia }: Props) {
   return (
     <div>
       <div className="px-8 lg:px-12">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Our Proven Process
+        <div className="mb-16 text-center">
+          <h2 className="mb-6 font-bold text-base-content text-4xl">
+            Nosso processo de criação
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            We follow a systematic approach that ensures every project delivers
-            exceptional results and exceeds expectations.
+          <p className="mx-auto max-w-3xl text-gray-300 text-xl">
+            Seguimos um processo esquematizado com fono no dialogo, para assim
+            entregar uma solução sob medida para seus probemas reais e digitais
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="gap-8 grid md:grid-cols-2 lg:grid-cols-4">
           {metodologia.map((etapa, index) => (
-            <div key={index} className="text-center group">
+            <div key={index} className="group text-center">
               <div className="relative mb-6">
-                <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-200">
-                  <etapa.icone className="h-10 w-10 text-white" />
+                <div className="flex justify-center items-center bg-primary mx-auto mb-4 rounded-full w-20 h-20 group-hover:scale-110 transition-transform duration-200">
+                  <etapa.icone className="w-10 h-10 text-primary-content" />
                 </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                <div className="-top-2 -right-2 absolute flex justify-center items-center bg-base-300 rounded-full w-8 h-8 font-bold text-sm text-base-content">
                   {etapa.numero}
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">
+              <h3 className="mb-3 font-bold text-base-content text-xl">
                 {etapa.titulo}
               </h3>
-              <p className="text-gray-300 mb-4">{etapa.descricao}</p>
+              <p className="mb-4 text-base-content">{etapa.descricao}</p>
               <div className="space-y-1">
                 {etapa.detalhes.map((detalhe, idx) => (
-                  <div key={idx} className="text-sm text-gray-400">
+                  <div key={idx} className="text-md text-base-content/60">
                     • {detalhe}
                   </div>
                 ))}

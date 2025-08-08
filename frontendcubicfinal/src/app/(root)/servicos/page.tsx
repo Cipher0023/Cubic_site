@@ -1,18 +1,13 @@
 import Link from "next/link";
 import {
-  ArrowLeft,
   ShoppingCart,
   Globe,
   Database,
   Check,
   Clock,
-  Users,
   Headphones,
-  BarChart3,
   Shield,
   Zap,
-  ArrowRight,
-  Star,
   Target,
   Lightbulb,
   MessageCircle,
@@ -20,7 +15,7 @@ import {
   Award,
   TrendingUp,
 } from "lucide-react";
-import ServicesHero from "@/components/Cubic/HeroSection/ServicesHero.tsx/ServicesHero";
+import ServicesHero from "@/components/Cubic/Serviços/ServicesHero.tsx/ServicesHero";
 import ServicoCard, {
   Servico,
 } from "@/components/Cubic/Serviços/Card/ServicoCard";
@@ -32,61 +27,61 @@ export default function ServicosPage() {
     {
       id: 1,
       icone: ShoppingCart,
-      titulo: "E-commerce Development",
-      subtitulo: "Complete online store solutions",
+      titulo: "Desenvolvimento de E-commerce",
+      subtitulo: "Soluções completas para loja online",
       descricao:
-        "Transform your business with a fully functional e-commerce platform. We handle everything from design to payment integration, giving you a professional online presence that drives sales.",
-      preco: "Starting at $2,500",
-      duracao: "4-8 weeks",
+        "Transforme seu negócio com uma plataforma de e-commerce completa. A gente cuida de tudo, do design à integração de pagamentos, pra você ter uma presença online profissional que realmente vende.",
+      preco: "A partir de R$ 12.500",
+      duracao: "4-8 semanas",
       beneficios: [
-        "Increase sales by up to 300%",
-        "24/7 automated sales system",
-        "Professional brand presence",
-        "Mobile-optimized shopping experience",
-        "Secure payment processing",
-        "Inventory management system",
+        "Aumente suas vendas em até 300%",
+        "Sistema de vendas automatizado 24/7",
+        "Marca mais profissional",
+        "Experiência de compra otimizada pro celular",
+        "Pagamentos seguros",
+        "Gestão de estoque fácil",
       ],
-      ideal_para: "Retail businesses, product manufacturers, distributors",
+      ideal_para: "Lojas, fabricantes, distribuidores",
       cor: "green",
     },
     {
       id: 2,
       icone: Globe,
-      titulo: "Landing Page Creation",
-      subtitulo: "High-converting promotional pages",
+      titulo: "Criação de Landing Page",
+      subtitulo: "Páginas promocionais que convertem",
       descricao:
-        "Get more leads and customers with strategically designed landing pages. Every element is crafted to guide visitors toward taking action, whether that's making a purchase or getting in touch.",
-      preco: "Starting at $800",
-      duracao: "1-3 weeks",
+        "Conquiste mais clientes com landing pages feitas pra converter. Cada detalhe é pensado pra levar o visitante a agir, seja comprando ou entrando em contato.",
+      preco: "A partir de R$ 4.000",
+      duracao: "1-3 semanas",
       beneficios: [
-        "Boost conversion rates by 150%",
-        "Generate qualified leads daily",
-        "Professional credibility",
-        "Fast loading performance",
-        "SEO optimized content",
-        "Mobile-first design",
+        "Aumente suas conversões em até 150%",
+        "Gere leads qualificados todo dia",
+        "Mais credibilidade pra sua marca",
+        "Carregamento rápido",
+        "Conteúdo otimizado pra SEO",
+        "Design focado no mobile",
       ],
-      ideal_para: "Service providers, consultants, product launches",
+      ideal_para: "Prestadores de serviço, consultores, lançamentos",
       cor: "blue",
     },
     {
       id: 3,
       icone: Database,
-      titulo: "Digital Infrastructure",
-      subtitulo: "Scalable backend solutions",
+      titulo: "Infraestrutura Digital",
+      subtitulo: "Back-end escalável de verdade",
       descricao:
-        "Build a solid foundation for your digital growth. We create robust, secure, and scalable infrastructure that grows with your business needs and handles increased traffic seamlessly.",
-      preco: "Starting at $1,500",
-      duracao: "2-6 weeks",
+        "Monte uma base sólida pro seu crescimento digital. A gente cria infraestrutura robusta, segura e pronta pra escalar junto com o seu negócio, sem dor de cabeça com picos de acesso.",
+      preco: "A partir de R$ 7.500",
+      duracao: "2-6 semanas",
       beneficios: [
-        "99.9% uptime guarantee",
-        "Automatic scaling capabilities",
-        "Enterprise-level security",
-        "Performance optimization",
-        "24/7 monitoring",
-        "Disaster recovery",
+        "Garantia de 99,9% de uptime",
+        "Escalabilidade automática",
+        "Segurança nível empresa",
+        "Otimização de performance",
+        "Monitoramento 24/7",
+        "Plano de recuperação de desastres",
       ],
-      ideal_para: "Growing businesses, startups, enterprise systems",
+      ideal_para: "Empresas em crescimento, startups, sistemas corporativos",
       cor: "purple",
     },
   ];
@@ -94,54 +89,54 @@ export default function ServicosPage() {
   const metodologia = [
     {
       numero: "01",
-      titulo: "Discovery",
+      titulo: "Descoberta",
       descricao:
-        "We dive deep into your business goals, target audience, and competitive landscape to create the perfect strategy.",
+        "A gente mergulha nos seus objetivos, público e concorrência pra bolar a estratégia perfeita.",
       icone: Target,
       detalhes: [
-        "Business analysis",
-        "Market research",
-        "Goal setting",
-        "Success metrics",
+        "Análise do negócio",
+        "Pesquisa de mercado",
+        "Definição de metas",
+        "Métricas de sucesso",
       ],
     },
     {
       numero: "02",
-      titulo: "Strategy",
+      titulo: "Estratégia",
       descricao:
-        "Based on our findings, we develop a comprehensive plan that aligns with your objectives and budget.",
+        "Com tudo em mãos, montamos um plano completo que cabe no seu bolso e nos seus objetivos.",
       icone: Lightbulb,
       detalhes: [
-        "Solution architecture",
-        "Timeline planning",
-        "Resource allocation",
-        "Risk assessment",
+        "Arquitetura da solução",
+        "Planejamento de prazos",
+        "Alocação de recursos",
+        "Avaliação de riscos",
       ],
     },
     {
       numero: "03",
-      titulo: "Execution",
+      titulo: "Execução",
       descricao:
-        "Our expert team brings your vision to life with regular updates and transparent communication throughout.",
+        "Nosso time coloca a mão na massa e te mantém por dentro de tudo, sem enrolação.",
       icone: Zap,
       detalhes: [
-        "Agile development",
-        "Regular check-ins",
-        "Quality assurance",
-        "Performance testing",
+        "Desenvolvimento ágil",
+        "Acompanhamento constante",
+        "Garantia de qualidade",
+        "Testes de performance",
       ],
     },
     {
       numero: "04",
-      titulo: "Growth",
+      titulo: "Crescimento",
       descricao:
-        "We don't just deliver and disappear. We provide ongoing support to ensure your continued success.",
+        "A gente não some depois da entrega. Seguimos juntos pra garantir seu sucesso.",
       icone: TrendingUp,
       detalhes: [
-        "Performance monitoring",
-        "Optimization",
-        "Technical support",
-        "Growth consulting",
+        "Monitoramento de performance",
+        "Otimização contínua",
+        "Suporte técnico",
+        "Consultoria pra crescer",
       ],
     },
   ];
@@ -149,44 +144,44 @@ export default function ServicosPage() {
   const garantias = [
     {
       icone: Shield,
-      titulo: "100% Satisfaction Guarantee",
+      titulo: "Satisfação 100% Garantida",
       descricao:
-        "If you're not completely satisfied, we'll work until you are or provide a full refund.",
+        "Se não ficar satisfeito, a gente ajusta até você ficar ou devolve seu dinheiro.",
     },
     {
       icone: Clock,
-      titulo: "On-Time Delivery",
+      titulo: "Entrega no Prazo",
       descricao:
-        "We respect your timeline and deliver projects on schedule, every time.",
+        "A gente respeita seu tempo e entrega tudo dentro do combinado, sempre.",
     },
     {
       icone: Headphones,
-      titulo: "Ongoing Support",
+      titulo: "Suporte Garantido",
       descricao:
-        "Get 3 months of free support and maintenance with every project.",
+        "Você ganha 3 meses de suporte e manutenção grátis em todo projeto.",
     },
     {
       icone: Award,
-      titulo: "Quality Assurance",
-      descricao: "Every project goes through rigorous testing before launch.",
+      titulo: "Qualidade Garantida",
+      descricao: "Todo projeto passa por testes pesados antes de ir pro ar.",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="bg-gray-900 min-h-screen">
       {/* Header da página */}
-      <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-gray-700">
+      <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-gray-700 border-b">
         <ServicesHero />
       </header>
 
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="mx-auto px-4 sm:px-6 lg:px-8 container">
         {/* Serviços principais */}
         <section id="services" className="py-20">
           <ServicoCard servicos={servicos} />
         </section>
 
         {/* Nossa Metodologia */}
-        <section className="py-20 bg-gradient-to-r from-gray-800 to-gray-700 rounded-3xl my-20 border border-gray-600">
+        <section className="bg-gradient-to-r from-gray-800 to-gray-700 my-20 py-20 border border-gray-600 rounded-3xl">
           <Process metodologia={metodologia} />
         </section>
 
@@ -197,44 +192,45 @@ export default function ServicosPage() {
 
         {/* CTA Final */}
         <section id="contact" className="py-20">
-          <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-3xl p-8 lg:p-16 text-center text-white">
-            <h2 className="text-4xl font-bold mb-6">
-              Ready to Transform Your Business?
+          <div className="bg-gradient-to-b from-info to-info/30 p-8 lg:p-16 rounded-3xl text-info-content text-center">
+            <h2 className="mb-6 font-bold text-4xl">
+              Bora transformar seu negócio?
             </h2>
-            <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-              Get a free consultation and detailed proposal. Well analyze your
-              needs and show you exactly how we can help you achieve your goals.
+            <p className="opacity-90 mx-auto mb-8 max-w-3xl text-2xl">
+              Peça uma consultoria gratuita e receba uma proposta detalhada. A
+              gente analisa sua necessidade e mostra exatamente como pode te
+              ajudar a bater suas metas.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex sm:flex-row flex-col justify-center gap-4 mb-8">
               <Link
                 href="/#contact"
-                className="bg-white text-green-600 hover:bg-gray-100 rounded-full px-8 py-4 text-lg font-medium transition-colors duration-200 inline-flex items-center gap-2"
+                className="inline-flex items-center gap-2 bg-info hover:bg-secondary px-8 py-4 rounded-full font-medium hover:text-info text-base-content text-lg transition-colors duration-200"
               >
-                <MessageCircle className="h-5 w-5" />
-                Start Free Consultation
+                <MessageCircle className="w-5 h-5" />
+                Quero consultoria grátis
               </Link>
               <Link
                 href="/#contact"
-                className="border-2 border-white text-white hover:bg-white hover:text-green-600 rounded-full px-8 py-4 text-lg font-medium transition-colors duration-200 inline-flex items-center gap-2 bg-transparent"
+                className="inline-flex items-center gap-2 bg-transparent hover:bg-white px-8 py-4 border-2 border-white rounded-full font-medium text-white hover:text-info text-lg transition-colors duration-200"
               >
-                <Calendar className="h-5 w-5" />
-                Schedule a Call
+                <Calendar className="w-5 h-5" />
+                Agendar uma call
               </Link>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-8 text-sm opacity-90">
+            <div className="flex flex-wrap justify-center gap-8 opacity-90 text-base-content text-lg">
               <div className="flex items-center">
-                <Check className="h-4 w-4 mr-2" />
-                No commitment required
+                <Check className="mr-2 w-4 h-4" />
+                Sem compromisso
               </div>
               <div className="flex items-center">
-                <Check className="h-4 w-4 mr-2" />
-                Response within 24 hours
+                <Check className="mr-2 w-4 h-4" />
+                Resposta em até 24h
               </div>
               <div className="flex items-center">
-                <Check className="h-4 w-4 mr-2" />
-                Custom solution proposal
+                <Check className="mr-2 w-4 h-4" />
+                Proposta sob medida
               </div>
             </div>
           </div>

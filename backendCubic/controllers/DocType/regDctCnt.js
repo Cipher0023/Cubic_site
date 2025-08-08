@@ -1,9 +1,7 @@
-import { PrismaClient } from "@prisma/client"; // Database ORM
 import dotenv from "dotenv";
 import { regDct } from "../../services/DocType/regDctSrv.js";
 
 dotenv.config();
-const prisma = new PrismaClient();
 
 export const regDctCnt = async (req, res) => {
   try {

@@ -1,4 +1,4 @@
-import prisma from "../../prisma/primaClient.js";
+import prisma from "../../prisma/prismaClient.js";
 
 export const fndApo = async (appointment_id) => {
   return await prisma.appointments.findUnique({

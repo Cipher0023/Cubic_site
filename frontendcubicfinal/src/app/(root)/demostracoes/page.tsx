@@ -1,17 +1,8 @@
 "use client";
-import Image from "next/image";
+
 import Link from "next/link";
-import {
-  ArrowLeft,
-  ExternalLink,
-  ShoppingCart,
-  Globe,
-  Check,
-  Star,
-  Users,
-  Calendar,
-} from "lucide-react";
-import Demonstracao from "@/components/Cubic/Demonstracoes/Demonstacao/Demonstacao";
+import { ShoppingCart, Globe } from "lucide-react";
+import Demonstracao from "@/components/Cubic/Demonstracoes/Demonstacao/Demonstracao";
 
 export default function ProdutosPage() {
   const projetos = [
@@ -121,7 +112,7 @@ export default function ProdutosPage() {
         ))}
 
         {/* Seção de contato */}
-        <div className="bg-gradient-to-r from-gray-800 to-gray-700 mt-20 p-8 lg:p-12 border border-gray-600 rounded-2xl text-center">
+        <div className="bg-gradient-to-r from-base-100 to-base-300 mt-20 p-8 lg:p-12 border border-base-300 rounded-2xl text-center">
           <h2 className="mb-4 font-bold text-white text-3xl">
             Interessado em um Projeto Similar?
           </h2>
@@ -133,13 +124,13 @@ export default function ProdutosPage() {
           <div className="flex sm:flex-row flex-col justify-center gap-4">
             <Link
               href="/#contact"
-              className="inline-block bg-green-600 hover:bg-green-700 px-8 py-4 rounded-full font-medium text-white text-lg transition-colors duration-200"
+              className="inline-block bg-accent hover:bg-green-700 px-8 py-4 rounded-full font-medium text-white text-lg transition-colors duration-200"
             >
               Solicitar Orçamento Gratuito
             </Link>
             <Link
               href="/"
-              className="inline-block bg-transparent hover:bg-green-600 px-8 py-4 border border-green-600 rounded-full font-medium text-green-400 hover:text-white text-lg transition-colors duration-200"
+              className="inline-block bg-transparent hover:bg-accent px-8 py-4 border border-green-600 rounded-full font-medium text-green-400 hover:text-white text-lg transition-colors duration-200"
             >
               Conhecer nossos serviços
             </Link>

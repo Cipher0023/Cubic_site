@@ -5,9 +5,9 @@ type Props = object;
 
 export default function Sobre({}: Props) {
   return (
-    <div className="flex flex-col justify-center items-center bg-base-100 py-10">
+    <div className="flex flex-col justify-center items-center bg-base-200 py-10">
       {" "}
-      <h1 className="mb-6 pt-10 font-bold text-accentr text-3xl sm:text-4xl">
+      <h1 className="mb-6 pt-10 font-bold text-accentr text-4xl sm:text-4xl">
         Sobre a Cubic
       </h1>
       <div className="w-3/5 text-gray-300 text-xl leading-relaxed">
