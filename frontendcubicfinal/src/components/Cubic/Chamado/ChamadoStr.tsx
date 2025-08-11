@@ -6,7 +6,7 @@ type Props = object;
 
 export default function ChamadoStr({}: Props) {
   return (
-    <div className="flex flex-col justify-center items-center bg-gradient-to-br from-base-200 via-base-100 to-base-200 p-20 pt-24 pb-16">
+    <div className="flex flex-col justify-center items-center bg-gradient-to-b from-base-200 via-base-100 to-base-200 p-20 pt-24 pb-16">
       <h2 className="mb-6 font-bold text-white text-4xl sm:text-5xl lg:text-6xl leading-tight">
         Autonomia digital{" "}
         <span className="text-primary"> para negócios reais</span>

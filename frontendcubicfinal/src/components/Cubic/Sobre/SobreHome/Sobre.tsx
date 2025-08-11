@@ -1,5 +1,5 @@
 import React from "react";
-import Valores from "@/components/Cubic/Sobre/Valores/Valores";
+import ValoresHome from "@/components/Cubic/Sobre/Valores/ValoresHome";
 import Proposito from "@/components/Cubic/Sobre/Proposito/Proposito";
 type Props = object;
 
@@ -17,7 +17,7 @@ export default function Sobre({}: Props) {
         para crescer com independência e segurança no mercado atual.
       </div>
       <Proposito />
-      <Valores />
+      <ValoresHome />
     </div>
   );
 }

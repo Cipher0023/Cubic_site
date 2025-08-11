@@ -1,63 +1,42 @@
-"use client";
 import React from "react";
-import { Zap, Shield, Gauge, Lightbulb, Heart, Users } from "lucide-react";
 
-type ValorItem = {
-  icon: React.ComponentType<{ className?: string }>;
-  title: string;
-  description: string;
+export type ValoresItem = {
+  icone: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  titulo: string;
+  descricao: string;
+  detalhes: string;
+};
+type Props = {
+  valores: ValoresItem[];
 };
 
-const valores: ValorItem[] = [
-  {
-    icon: Zap,
-    title: "Modernidade",
-    description: "Tecnologia e design de ponta.",
-  },
-  {
-    icon: Shield,
-    title: "Segurança",
-    description: "Segurança de ponta a todo momento.",
-  },
-  {
-    icon: Gauge,
-    title: "Velocidade",
-    description: "Entrega veloz sem comprometer a qualidade",
-  },
-  {
-    icon: Lightbulb,
-    title: "Inovação",
-    description: "Soluções criativas para desafios únicos do seu negócio",
-  },
-  {
-    icon: Heart,
-    title: "Honestidade",
-    description:
-      "Comunicação e preços transparentes, simplificando a tecnologia",
-  },
-  {
-    icon: Users,
-    title: "Parseiria",
-    description: "Seu sucesso é nosso sucesso.",
-  },
-];
-
-export default function Valores() {
+export default function Valores({ valores }: Props) {
   return (
-    <section className="px-4 py-12">
-      <h2 className="mb-8 font-bold text-3xl text-center">Nossos Valores</h2>
-      <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        {valores.map((item, idx) => (
+    <div className="px-8 lg:px-12">
+      <div className="mb-16 text-center">
+        <h2 className="mb-6 font-bold text-primary text-4xl">Nossos Valores</h2>
+        <p className="mx-auto max-w-3xl text-base-content text-xl">
+          Estes são os princícios na qual a Cubic foi fundada
+        </p>
+      </div>
+
+      <div className="gap-8 grid md:grid-cols-2 lg:grid-cols-3">
+        {valores.map((valor, index) => (
           <div
-            key={idx}
-            className="flex flex-col items-center gap-4 p-6 text-center"
+            key={index}
+            className="group bg-base-100 p-6 border hover:border-primary border-base-300 rounded-xl transition-colors duration-200"
           >
-            <item.icon className="bg-accent p-2 rounded-full w-16 h-16 text-accent-content" />
-            <h3 className="font-semibold text-xl">{item.title}</h3>
-            <p className="text-base-content/80">{item.description}</p>
+            <div className="flex justify-center items-center bg-accent mb-4 rounded-full w-12 h-12 group-hover:scale-110 transition-transform duration-200">
+              <valor.icone className="w-6 h-6 text-accent-content" />
+            </div>
+            <h3 className="mb-3 font-bold text-base-content text-xl">
+              {valor.titulo}
+            </h3>
+            <p className="mb-3 text-base-content">{valor.descricao}</p>
+            <p className="text-sm text-base-content/75">{valor.detalhes}</p>
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

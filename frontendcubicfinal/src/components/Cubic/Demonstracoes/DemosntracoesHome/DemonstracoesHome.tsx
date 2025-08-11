@@ -25,8 +25,8 @@ export default function ProjetosHome() {
   ];
 
   return (
-    <section className="bg-base-100 px-4 py-15">
-      <h2 className="mb-6 font-bold text-6xl text-center">
+    <section className="bg-base-200 px-4 py-15">
+      <h2 className="mb-6 font-bold text-accent text-6xl text-center">
         Veja nossas demonstrações!
       </h2>
       <p className="mx-auto mb-8 max-w-2xl text-2xl text-center">
