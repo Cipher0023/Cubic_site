@@ -15,11 +15,11 @@ export default function PricingCard({
   itemName,
 }: Props) {
   return (
-    <div className="relative group w-80 md:w-96">
+    <div className="group relative w-80 md:w-96">
       <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-20 group-hover:opacity-30 rounded-2xl transition-opacity duration-300 blur"></div>
-      <div className="bg-gradient-to-br from-base-300 to-base-100 shadow-lg hover:shadow-xl p-10 border border-base-300 rounded-2xl w-full h-full transition-shadow card relative">
+      <div className="relative bg-gradient-to-br from-base-300 to-base-100 shadow-lg hover:shadow-xl p-10 border border-base-300 rounded-2xl w-full h-full transition-shadow card">
         <div className="flex flex-col justify-between p-6 card-body">
-          <div className="mb-4 text-primary">{icon}</div>
+          <div className="mb-4 text-accent">{icon}</div>
           <div className="flex flex-col justify-between items-baseline mb-4">
             <h2 className="font-bold text-2xl">{title}</h2>
             <span className="text-base-content text-lg">{description}</span>
@@ -45,7 +45,7 @@ export default function PricingCard({
               </li>
             ))}
           </ul>
-          <button className="w-full btn btn-primary">Assinar</button>
+          <button className="w-full text-xl btn btn-primary">Assinar</button>
         </div>
       </div>
     </div>

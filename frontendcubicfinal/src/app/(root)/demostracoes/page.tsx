@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ShoppingCart, Globe } from "lucide-react";
-import Demonstracao from "@/components/Cubic/Demonstracoes/Demonstacao/Demonstracao";
+import Demonstracao from "@/components/Cubic/Demonstracoes/Demonstracao";
 
 export default function ProdutosPage() {
   const projetos = [
@@ -93,10 +93,10 @@ export default function ProdutosPage() {
       <header className="bg-gradient-to-r from-gray-800 to-gray-900 border-gray-700 border-b">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 py-8 container">
           <div className="max-w-3xl">
-            <h1 className="mb-4 font-bold text-white text-4xl sm:text-5xl">
+            <h1 className="mb-4 font-bold text-accent text-4xl sm:text-5xl">
               Nossos Produtos
             </h1>
-            <p className="text-gray-300 text-xl leading-relaxed">
+            <p className="text-base-content text-xl leading-relaxed">
               Conheça os dois projetos que desenvolvemos e mantemos atualmente.
               Cada um representa nossa expertise em diferentes áreas do
               desenvolvimento web.

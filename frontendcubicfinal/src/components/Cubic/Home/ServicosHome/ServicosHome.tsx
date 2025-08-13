@@ -11,22 +11,22 @@ type Service = {
   itemName: string[];
 };
 
-export default function Serviços() {
+export default function ServiçosHome() {
   const services: Service[] = [
     {
-      icon: <ShoppingCart className="w-8 h-8 text-primary" />,
+      icon: <ShoppingCart className="w-8 h-8" />,
       title: "Loja digital E-commerce",
       description: "Loja online completa para seu negócio",
       itemName: ["Loja virtual", "Carrinho integrado", "Pagamentos seguros"],
     },
     {
-      icon: <Globe className="w-8 h-8 text-primary" />,
+      icon: <Globe className="w-8 h-8" />,
       title: "Site personalizado Minha loja",
       description: "Sites institucionais responsivos",
       itemName: ["Até 10 páginas", "SEO básico", "Design customizável"],
     },
     {
-      icon: <Database className="w-8 h-8 text-primary" />,
+      icon: <Database className="w-8 h-8" />,
       title: "Performance",
       description: "Otimizações e análises de velocidade",
       itemName: [
@@ -42,10 +42,8 @@ export default function Serviços() {
       id="services"
       className="flex flex-col justify-center items-center gap-10 px-4 py-12"
     >
-      <h2 className="mb-6 font-bold text-primary text-3xl sm:text-4xl">
-        Nossos Serviços
-      </h2>
-      <p className="pb-5 w-3/5 text-gray-300 text-xl leading-relaxed">
+      <h2 className="mb-6 font-bold text-primary text-6xl">Nossos Serviços</h2>
+      <p className="pb-5 w-3/5 text-gray-300 text-2xl leading-relaxed">
         Soluções digitais completas, projetadas para transformar o seu negócio e
         oferecer a autonomia que você precisa para ter sucesso no ambiente
         online.
@@ -62,7 +60,7 @@ export default function Serviços() {
         ))}
       </div>
 
-      <Link href="/servicos" className="mt-12 w-1/4 btn btn-primary">
+      <Link href="/servicos" className="mt-12 w-1/4 text-xl btn btn-info">
         Saiba mais
       </Link>
     </section>

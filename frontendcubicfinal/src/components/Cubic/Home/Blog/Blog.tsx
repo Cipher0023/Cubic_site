@@ -31,7 +31,7 @@ export default function Blog() {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-base-200 via-base-100 to-base-200 p-20 px-4 py-12 pt-24 pb-16">
+    <section className="p-20 px-4 py-12 pt-24 pb-16">
       <h2 className="mb-4 font-semibold text-primary text-6xl text-center">
         Blog
       </h2>

@@ -8,8 +8,8 @@ export default function Proposito({}: Props) {
     <div className="flex flex-col justify-center items-center">
       <div className="flex flex-row gap-5 p-20">
         <div className="flex flex-col justify-center items-left gap-5 w-full">
-          <p className="font-semibold text-4xl">Nosso propósito</p>
-          <p className="w-3/4">
+          <p className="font-semibold text-primary text-4xl">Nosso propósito</p>
+          <p className="w-3/4 text-2xl">
             {" "}
             Acreditamos que todo negócio merece autonomia digital. Por isso,
             criamos soluções personalizadas que oferecem controle total sobre
@@ -17,10 +17,10 @@ export default function Proposito({}: Props) {
           </p>
           <div className="group relative">
             <div className="relative bg-gradient-to-br from-base-300 to-base-100 shadow-md p-10 border border-base-300 rounded-2xl">
-              <p className="font-semibold text-primary text-3xl">
+              <p className="font-semibold text-accent text-3xl">
                 Nosso Compromisso
               </p>
-              <p>
+              <p className="text-xl">
                 Apoio constante e uma parceria que evolui junto com o seu
                 negócio. Não somos apenas desenvolvedores – somos seus aliados
                 na transformação digital do seu negócio!

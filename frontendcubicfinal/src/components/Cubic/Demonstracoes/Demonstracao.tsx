@@ -28,9 +28,13 @@ type DemonstracaoProps = {
 
 export default function Demonstracao({ projeto, index }: DemonstracaoProps) {
   return (
-    <div className="flex flex-row gap-10 items-center">
+    <div className="flex flex-row items-center gap-10">
       {/* Imagem do projeto */}
-      <div className={`${index % 2 === 1 ? "lg:order-2" : ""} flex items-center justify-center`}>
+      <div
+        className={`${
+          index % 2 === 1 ? "lg:order-2" : ""
+        } flex items-center justify-center`}
+      >
         <div className="group relative">
           <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-20 group-hover:opacity-30 rounded-2xl transition-opacity duration-300 blur"></div>
           <div className="relative bg-base-100 shadow-xl border border-base-300 rounded-2xl overflow-hidden">

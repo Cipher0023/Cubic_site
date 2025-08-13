@@ -1,11 +1,11 @@
-import Serviços from "@/components/Cubic/Serviços/Serviços";
-import Sobre from "@/components/Cubic/Sobre/SobreHome/Sobre";
-import HeroSection from "@/components/Cubic/HeroSection/HeroSection";
-import ProjetosHome from "@/components/Cubic/Demonstracoes/DemosntracoesHome/DemonstracoesHome";
-import Blog from "@/components/Cubic/Blog/Blog";
-import Proposta from "@/components/Cubic/Proposta/Proposta";
-import ChamadoStr from "@/components/Cubic/Chamado/ChamadoStr";
-import ChamadoEnd from "@/components/Cubic/Chamado/ChamadoEnd";
+import ServiçosHome from "@/components/Cubic/Home/ServicosHome/ServicosHome";
+import Sobre from "@/components/Cubic/Home/SobreHome/Sobre";
+import HeroSection from "@/components/Cubic/Home/HeroSection/HeroSection";
+import ProjetosHome from "@/components/Cubic/Home/DemosntracoesHome/DemonstracoesHome";
+import Blog from "@/components/Cubic/Home/Blog/Blog";
+import Proposta from "@/components/Cubic/Home/Proposta/Proposta";
+import ChamadoStr from "@/components/Cubic/Home/Chamado/ChamadoStr";
+import ChamadoEnd from "@/components/Cubic/Home/Chamado/ChamadoEnd";
 //
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
 
         <Sobre />
 
-        <Serviços />
+        <ServiçosHome />
 
         <ProjetosHome />
 
