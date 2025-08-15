@@ -5,7 +5,7 @@ export function useThemeByRoute() {
   const pathname = usePathname();
   useEffect(() => {
     if (typeof window !== "undefined") {
-      if (pathname.startsWith("/prototipoRestaurante")) {
+      if (pathname.startsWith("/restaurante")) {
         document.documentElement.setAttribute("data-theme", "anderson");
       } else {
         document.documentElement.setAttribute("data-theme", "cubic");

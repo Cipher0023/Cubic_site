@@ -1,4 +1,3 @@
-"use client";
 
 import React from "react";
 import "./globals.css";
@@ -9,7 +8,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <ViewportProvider>{children}</ViewportProvider>
+      <body>
+        <ViewportProvider>{children}</ViewportProvider>
+      </body>
     </html>
   );
 }

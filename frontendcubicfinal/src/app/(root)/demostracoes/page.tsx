@@ -44,6 +44,7 @@ export default function ProdutosPage() {
         "Pagamentos seguros integrados",
         "Painel admin intuitivo",
       ],
+      link: "/restaurante",
     },
     {
       id: 2,
@@ -84,13 +85,14 @@ export default function ProdutosPage() {
         "100% responsivo",
         "SEO otimizado",
       ],
+      link: "/landingpage",
     },
   ];
 
   return (
-    <div className="bg-gray-900 min-h-screen">
+    <div className="bg-base-200 min-h-screen">
       {/* Header da página */}
-      <header className="bg-gradient-to-r from-gray-800 to-gray-900 border-gray-700 border-b">
+      <header className="bg-gradient-to-r from-bse-200 to-base-100 border-gray-700 border-b">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 py-8 container">
           <div className="max-w-3xl">
             <h1 className="mb-4 font-bold text-accent text-4xl sm:text-5xl">

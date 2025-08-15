@@ -19,6 +19,7 @@ type Projeto = {
   lancamento: string;
   clientes: string;
   resultados: string[];
+  link: string;
 };
 
 type DemonstracaoProps = {
@@ -112,10 +113,13 @@ export default function Demonstracao({ projeto, index }: DemonstracaoProps) {
 
           {/* Botões de ação */}
           <div className="flex sm:flex-row flex-col gap-4 pt-4 pb-4">
-            <button className="flex justify-center items-center gap-2 bg-accent hover:bg-accent/30 px-6 py-3 rounded-full font-medium hover:text-accent transition-colors duration-200 text-accent-content">
+            <Link
+              href={projeto.link}
+              className="flex justify-center items-center gap-2 bg-accent hover:bg-accent/30 px-6 py-3 rounded-full font-medium hover:text-accent transition-colors duration-200 text-accent-content"
+            >
               <ExternalLink className="" />
               Demonstração
-            </button>
+            </Link>
             <Link
               href="/#contact"
               className="bg-transparent hover:bg-accent/50 px-6 py-3 border border-accent rounded-full font-medium text-accent hover:text-accent text-center transition-colors duration-200"
