@@ -1,4 +1,4 @@
-import Inside_form from "@/components/restaurante/Login_form/Inside/Inside_form";
+import Inside_form from "@/components/Restaurante/frenteDeLoja/Login_form/Inside/Inside_form";
 import React from "react";
 
 type Props = object;

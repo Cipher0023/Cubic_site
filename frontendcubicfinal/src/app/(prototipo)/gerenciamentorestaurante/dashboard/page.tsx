@@ -1,44 +1,42 @@
-import Display2x1 from "@/components/restaurante/Dashboard_components/Data_display/Display2x1/Display2x1";
-import Display3x1 from "@/components/restaurante/Dashboard_components/Data_display/Display3x1/Display3x1";
-import Display_main from "@/components/restaurante/Dashboard_components/Data_display/Display_main/Display_main";
-import React from "react";
+"use client";
 
-type Props = object;
+import { useState } from "react";
 
-export default function page({}: Props) {
+export default function RestaurantDashboard() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
-    <div className="flex flex-col justify-start items-center bg-base-200 min-h-screen">
-      <h1 className="m-4 font-bold text-3xl text-center">
-        Área de gerenciamento
-      </h1>
-      <div className="flex flex-col gap-4 p-4 w-full">
-        {/*lista superior*/}
-        <div className="flex flex-row gap-4 bg-base-100 p-4 border-2 border-base-300 rounded-2xl w-full h-50">
-          <Display2x1 />
-          <Display2x1 />
-          <Display2x1 />
-          <Display2x1 />
+    <div className="bg-background min-h-screen">
+      <SidebarNav isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+
+      <DashboardHeader onMenuClick={() => setSidebarOpen(true)} />
+
+      <main className="space-y-8 px-6 py-8">
+        <div className="flex flex-col gap-2">
+          <h1 className="font-bold text-foreground text-3xl">
+            Dashboard do Restaurante
+          </h1>
+          <p className="text-muted-foreground">
+            Visão geral das operações do seu restaurante
+          </p>
         </div>
-      </div>
-      <div className="flex flex-row gap-4 p-4 w-full">
-        {/*display principal*/}
-        <Display_main />
-        <div className="flex flex-col justify-start items-start gap-4 bg-base-100 p-2 rounded-2xl w-1/3 h-full">
-          <Display3x1 />
-          <Display3x1 />
-          <Display3x1 />
-          <Display3x1 />
+
+        <StatsCards />
+
+        <div className="gap-8 grid grid-cols-1 lg:grid-cols-2">
+          <RevenueChart />
+          <ReservationsPanel />
         </div>
-      </div>
-      <div className="flex flex-col gap-4 p-4 w-full">
-        <div className="flex flex-row gap-4 bg-base-100 p-4 border-2 border-base-300 rounded-2xl w-full h-50">
-          {/*lista inferior*/}
-          <Display2x1 />
-          <Display2x1 />
-          <Display2x1 />
-          <Display2x1 />
+
+        <div className="gap-8 grid grid-cols-1 xl:grid-cols-3">
+          <div className="xl:col-span-2">
+            <OrdersTable />
+          </div>
+          <div>
+            <MenuItems />
+          </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 }

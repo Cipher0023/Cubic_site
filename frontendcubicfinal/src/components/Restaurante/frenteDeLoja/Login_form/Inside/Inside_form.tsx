@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import useUserStore from "../../../../store/useUserStore";
+import useUserStore from "../../../../../store/useUserStore";
 
 type Props = object;
 

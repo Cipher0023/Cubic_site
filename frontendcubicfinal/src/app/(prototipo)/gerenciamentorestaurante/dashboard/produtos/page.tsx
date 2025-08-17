@@ -1,8 +1,8 @@
 "use client";
-import Tab_products_internal from "@/components/restaurante/Dashboard_components/Tab_internal/Tab_products_internal/Tab_products_internal";
+import Tab_products_internal from "@/components/Restaurante/Dashboard_components/Tab_internal/Tab_products_internal/Tab_products_internal";
 import Link from "next/link";
 import React, { useState } from "react";
-import Categories_menu from "@/components/restaurante/Dashboard_components/Product/Categories_menu/Categories_menu";
+import Categories_menu from "@/components/Restaurante/Dashboard_components/Product/Categories_menu/Categories_menu";
 
 type Props = object;
 

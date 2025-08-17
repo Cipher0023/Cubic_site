@@ -2,13 +2,13 @@ import React from "react";
 import Image from "next/image";
 import Shopping_cart from "./Shopping_cart/Shopping_cart";
 import Searchbar from "./Serachbar/Searchbar";
-import Avatar from "../Avatar/Avatar";
+import Avatar from "../../../UI/Avatar/Avatar";
 
 type Props = object;
 
 function Navbar({}: Props) {
   return (
-    <div className="navbar bg-neutral yshadow-xl">
+    <div className="bg-neutral navbar yshadow-xl">
       <div className="navbar-start">
         <Image
           src="/logoClean.png"
@@ -21,7 +21,7 @@ function Navbar({}: Props) {
       <div className="navbar-center">
         <Searchbar />
       </div>
-      <div className="navbar-end gap-2">
+      <div className="gap-2 navbar-end">
         <Shopping_cart />
         <Avatar />
       </div>

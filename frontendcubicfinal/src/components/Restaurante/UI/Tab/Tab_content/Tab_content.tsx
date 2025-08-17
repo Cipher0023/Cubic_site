@@ -1,4 +1,4 @@
-import Card_small from "@/components/restaurante/Card/Card_small/Card_small";
+import Card_small from "@/components/Restaurante/frenteDeLoja/Card/Card_small/Card_small";
 import React from "react";
 
 type Props = object;

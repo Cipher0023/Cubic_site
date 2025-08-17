@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { merriweather } from "@/fonts/merriweather";
-import Navbar from "@/components/restaurante/Navbar/Navbar";
-import Dock from "@/components/restaurante/Dock/Dock";
+import Navbar from "@/components/Restaurante/frenteDeLoja/uiLoja/Navbar/Navbar";
+import Dock from "@/components/Restaurante/frenteDeLoja/uiLoja/Dock/Dock";
 import { useThemeByRoute } from "@/hooks/useThemeByRoute";
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
         <Navbar />
       </div>
       {children}
-      <div className="z-50 sticky bottom-0">
+      <div className="bottom-0 z-50 sticky">
         <Dock />
       </div>
     </div>
