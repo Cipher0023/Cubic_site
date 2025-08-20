@@ -12,7 +12,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="bg-base-100">
       <body className={merriweather.className}>
-        <div className="sticky top-0 z-50"></div>
+        <div className="top-0 z-50 sticky"></div>
         <AppHydrator>
           <UserHydrator>{children}</UserHydrator>
         </AppHydrator>

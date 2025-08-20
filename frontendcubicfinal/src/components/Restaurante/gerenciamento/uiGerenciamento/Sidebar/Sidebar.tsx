@@ -36,6 +36,22 @@ export default function Sidebar() {
               Produtos
             </Link>
           </li>
+          <li>
+            <Link
+              href="/gerenciamentorestaurante/dashboard/visitantes"
+              className="rounded-full overflow-hidden"
+            >
+              Visitantes
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/gerenciamentorestaurante/dashboard/vendas"
+              className="rounded-full overflow-hidden"
+            >
+              Vendas
+            </Link>
+          </li>
         </ul>
       </div>
     </div>

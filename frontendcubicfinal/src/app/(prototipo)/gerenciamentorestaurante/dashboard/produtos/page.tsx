@@ -1,35 +1,156 @@
 "use client";
-import Tab_products_internal from "@/components/Restaurante/Dashboard_components/Tab_internal/Tab_products_internal/Tab_products_internal";
-import Link from "next/link";
-import React, { useState } from "react";
-import Categories_menu from "@/components/Restaurante/Dashboard_components/Product/Categories_menu/Categories_menu";
 
-type Props = object;
+import { useEffect, useMemo, useState } from "react";
 
-function Page({}: Props) {
-  const [showModal, setShowModal] = useState(false);
+import { Overview } from "@/components/Restaurante/gerenciamento/produtos/Overview/Overview";
+import { ProductFilters } from "@/components/Restaurante/gerenciamento/produtos/ProductFilters/ProductFilters";
+import { ProductListTable } from "@/components/Restaurante/gerenciamento/produtos/ProductListTable/ProductListTable";
+import { AddProduct } from "@/components/Restaurante/gerenciamento/produtos/AddProduct/AddProduct";
+import { ManageCategories } from "@/components/Restaurante/gerenciamento/produtos/ManageCategories/ManageCategories";
+import { useProductStore } from "@/store/usePrdStore";
+import usePrcStore from "@/store/usePrcStore";
+
+export default function MyProductsPage() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [categoryFilter, setCategoryFilter] = useState("all");
+  const [isAddProductOpen, setIsAddProductOpen] = useState(false);
+  const [isManageCategoriesOpen, setIsManageCategoriesOpen] = useState(false);
+  const [categories, setCategories] = useState([
+    {
+      id: 1,
+      name: "Eletrônicos",
+      description: "Dispositivos eletrônicos em geral",
+      color: "#3B82F6",
+    },
+    {
+      id: 2,
+      name: "Computadores",
+      description: "Laptops, desktops e acessórios",
+      color: "#10B981",
+    },
+    {
+      id: 3,
+      name: "Áudio",
+      description: "Fones, caixas de som e equipamentos de áudio",
+      color: "#F59E0B",
+    },
+    {
+      id: 4,
+      name: "Tablets",
+      description: "Tablets e acessórios",
+      color: "#EF4444",
+    },
+    {
+      id: 5,
+      name: "Wearables",
+      description: "Relógios inteligentes e dispositivos vestíveis",
+      color: "#8B5CF6",
+    },
+    {
+      id: 6,
+      name: "Acessórios",
+      description: "Acessórios diversos para dispositivos",
+      color: "#6B7280",
+    },
+  ]);
+
+  const { products, loading, error, fetchProducts, resolveCategoryNames } = useProductStore();
+  const fetchCategories = usePrcStore((s) => s.fetchCategories);
+  const prcList = usePrcStore((s) => s.list);
+
+  useEffect(() => {
+    // Carrega categorias e produtos na primeira renderização
+    fetchCategories();
+    fetchProducts();
+  }, [fetchCategories, fetchProducts]);
+
+  useEffect(() => {
+    // Sempre que as categorias forem atualizadas, re-hidrata os nomes das categorias dos produtos
+    if (prcList.length > 0) {
+      resolveCategoryNames();
+    }
+  }, [prcList, resolveCategoryNames]);
+
+  const filteredProducts = useMemo(() => {
+    return products.filter((product) => {
+      const matchesSearch = product.name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+      const matchesStatus =
+        statusFilter === "all" || product.status === statusFilter;
+      const matchesCategory =
+        categoryFilter === "all" || product.category === categoryFilter;
+      return matchesSearch && matchesStatus && matchesCategory;
+    });
+  }, [products, searchTerm, statusFilter, categoryFilter]);
+
+  const totalProducts = filteredProducts.length;
+  const activeProducts = filteredProducts.filter((p) => p.status === "active").length;
+  const totalSales = filteredProducts.reduce((sum, p) => sum + p.sales, 0);
+  const totalRevenue = filteredProducts.reduce((sum, p) => sum + p.sales * p.price, 0);
 
   return (
-    <div className="flex flex-col justify-start items-center bg-base-200 min-h-screen">
-      <h1 className="m-4 font-bold text-3xl text-center">
-        Gerenciamento de Produtos
-      </h1>
-      <div className="flex flex-row gap-2">
-        <Link
-          href="/dashboard/produtos/adicionar"
-          className="flex justify-center items-center bg-base-100 rounded-2xl w-100 h-10 flec-col"
-        >
-          Adicionar produto
-        </Link>
-        <button onClick={() => setShowModal(true)}>Categoria de produto</button>
+    <div className="bg-gray-50 pt-20 pb-20 min-h-screen">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        {/* Header */}
+        <div className="mb-8">
+          <h1 className="mb-2 font-bold text-gray-900 text-3xl">
+            Meus Produtos
+          </h1>
+          <p className="text-gray-600">
+            Gerencie seus produtos e acompanhe o desempenho das vendas
+          </p>
+        </div>
+
+        <Overview
+          totalProducts={totalProducts}
+          activeProducts={activeProducts}
+          totalSales={totalSales}
+          totalRevenue={totalRevenue}
+        />
+
+        <div className="m-6">
+          <div className="flex justify-end gap-2 m-4">
+            <ManageCategories
+              isOpen={isManageCategoriesOpen}
+              setIsOpen={setIsManageCategoriesOpen}
+              categories={categories}
+              setCategories={setCategories}
+            />
+            <AddProduct
+              isOpen={isAddProductOpen}
+              setIsOpen={setIsAddProductOpen}
+            />
+          </div>
+
+          <ProductFilters
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            statusFilter={statusFilter}
+            setStatusFilter={setStatusFilter}
+            categoryFilter={categoryFilter}
+            setCategoryFilter={setCategoryFilter}
+            categories={categories}
+          />
+        </div>
+
+        {error && (
+          <div className="mb-4 p-3 rounded bg-red-50 text-red-700 text-sm">
+            {error}
+          </div>
+        )}
+
+        <ProductListTable
+          products={filteredProducts}
+          isAddProductOpen={isAddProductOpen}
+          setIsAddProductOpen={setIsAddProductOpen}
+        />
+
+        {loading && (
+          <div className="mt-4 text-gray-500 text-sm">Carregando produtos...</div>
+        )}
       </div>
-      {/* name of each tab group should be unique */}
-      <div className="flex flex-col p-10 w-full">
-        <Tab_products_internal />
-      </div>
-      {showModal && <Categories_menu onClose={() => setShowModal(false)} />}
     </div>
   );
 }
-
-export default Page;

@@ -1,55 +1,49 @@
-import React from "react";
-import { Home } from "lucide-react";
-import { Search } from "lucide-react";
-import { ReceiptText } from "lucide-react";
-import { Store } from "lucide-react";
+"use client";
+
 import Link from "next/link";
-type Props = object;
+import { usePathname } from "next/navigation";
+import { Home, ShoppingBag, Search, Info, User } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-function Dock({}: Props) {
+const dockItems = [
+  { id: "home", label: "Home", icon: Home, href: "/restaurante" },
+  { id: "orders", label: "Pedidos", icon: ShoppingBag, href: "/restaurante/pedidos" },
+  { id: "search", label: "Busca", icon: Search, href: "/restaurante/busca" },
+  { id: "about", label: "Sobre nós", icon: Info, href: "/restaurante/sobre" },
+  { id: "profile", label: "Perfil", icon: User, href: "/restaurante/perfil" },
+];
+
+export default function BottomDock() {
+  const pathname = usePathname();
+
   return (
-    <div className="dock dock-xl">
-      <button className="flex justify-center items-center">
-        <Link
-          className="flex flex-col justify-center items-center"
-          href="/restaurante"
-        >
-          <Home />
-          <span className="justify-center items-center dock-label">Home</span>
-        </Link>
-      </button>
+    <div className="right-0 bottom-0 left-0 z-50 fixed bg-white px-4 py-2 border-gray-200 border-t">
+      <div className="flex justify-around items-center mx-auto max-w-md">
+        {dockItems.map((item) => {
+          const Icon = item.icon;
+          const href = item.href;
+          const isActive = pathname === href || pathname.startsWith(href + "/");
 
-      <button className="flex justify-center items-center dock-active">
-        <Link
-          className="flex flex-col justify-center items-center"
-          href="/restaurante/busca"
-        >
-          <Search />
-          <span className="dock-label">Buscar</span>
-        </Link>
-      </button>
-
-      <button className="flex justify-center items-center">
-        <Link
-          className="flex flex-col justify-center items-center"
-          href="/restaurante/pedidos"
-        >
-          <ReceiptText />
-          <span className="dock-label">Pedidos</span>
-        </Link>
-      </button>
-
-      <button className="flex justify-center items-center">
-        <Link
-          className="flex flex-col justify-center items-center"
-          href="/restaurante/sobre"
-        >
-          <Store />
-          <span className="justify-center dock-label">Sobre nós</span>
-        </Link>
-      </button>
+          return (
+            <Button
+              key={item.id}
+              asChild
+              variant="ghost"
+              size="sm"
+              className={`flex flex-col items-center gap-1 h-auto py-2 px-3 ${
+                isActive
+                  ? "text-accent-content bg-accent"
+                  : "text-base-300 hover:text-base-100"
+              }`}
+            >
+              <Link href={href}>
+                <Icon size={20} />
+                <span className="font-medium text-xs">{item.label}</span>
+              </Link>
+            </Button>
+          );
+        })}
+      </div>
     </div>
   );
 }
-
-export default Dock;

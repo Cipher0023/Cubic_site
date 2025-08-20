@@ -1,5 +1,5 @@
 import React from "react";
-import Product_table from "@/components/Restaurante/Dashboard_components/Product/Product_table/Product_table";
+import Product_table from "../../../old/Product_table/Product_table";
 
 function Tab_products_internal() {
   return (

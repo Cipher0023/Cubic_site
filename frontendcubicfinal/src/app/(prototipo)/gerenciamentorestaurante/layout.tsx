@@ -1,6 +1,6 @@
 import React from "react";
 import { merriweather } from "@/fonts/merriweather";
-import Navbar_internal from "@/components/Restaurante/Dashboard_components/Navbar_internal/Navbar_internal";
+import Navbar_internal from "@/components/Restaurante/gerenciamento/uiGerenciamento/Navbar_internal/Navbar_internal";
 
 export default function RootLayout({
   children,

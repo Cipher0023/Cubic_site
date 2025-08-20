@@ -1,7 +1,8 @@
-
 import React from "react";
 import "./globals.css";
 import { ViewportProvider } from "@/context/ViewportContext";
+import { AppHydrator } from "@/components/Geral/App_hydrator/App_hydrator";
+import { UserHydrator } from "@/components/Geral/Hydrators/UserHydrator";
 
 export default function RootLayout({
   children,
@@ -9,7 +10,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
-        <ViewportProvider>{children}</ViewportProvider>
+        <ViewportProvider>
+          {" "}
+          <AppHydrator>
+            <UserHydrator>{children}</UserHydrator>
+          </AppHydrator>
+        </ViewportProvider>
       </body>
     </html>
   );

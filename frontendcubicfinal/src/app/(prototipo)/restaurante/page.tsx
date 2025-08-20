@@ -1,10 +1,10 @@
 "use client";
-import Card from "@/components/Restaurante/frenteDeLoja/Card/Card";
 import Carousel from "@/components/Restaurante/frenteDeLoja/Home/Carousel/Carousel";
 import Footer from "@/components/Restaurante/UI/Footer/Footer";
 import HeroShot from "@/components/Restaurante/frenteDeLoja/Home/HeroShot/HeroShot";
 import { merriweather } from "@/fonts/merriweather";
-import Tab from "@/components/Restaurante/UI/Tab/Tab";
+import Populares from "@/components/Restaurante/frenteDeLoja/Home/Populares/Populares";
+import Produtos from "@/components/Restaurante/frenteDeLoja/Home/Produtos/Produtos";
 
 export default function Home() {
   const slides = [
@@ -38,19 +38,10 @@ export default function Home() {
           </div>
         </div>
         <h1 className="flex flex-col justify-center items-center bg-primary p-4 w-full">
-          <a
-            className={`text-5xl text-base-100 font-regular ${merriweather.className}`}
-          >
-            Pratos populares
-          </a>
-          <div className="flex flex-wrap justify-center items-end-safe gap-4 m-4 mb-4">
-            <Card />
-            <Card />
-            <Card />
-          </div>
+          <Populares />
         </h1>
-        <div className="flex flex-col bg-base-200 w-full">
-          <Tab />
+        <div className="flex flex-col bg-base-200 p-20 w-full">
+          <Produtos />
         </div>
       </main>
       <footer>
