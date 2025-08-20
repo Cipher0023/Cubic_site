@@ -16,48 +16,21 @@ export default function MyProductsPage() {
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [isAddProductOpen, setIsAddProductOpen] = useState(false);
   const [isManageCategoriesOpen, setIsManageCategoriesOpen] = useState(false);
-  const [categories, setCategories] = useState([
-    {
-      id: 1,
-      name: "Eletrônicos",
-      description: "Dispositivos eletrônicos em geral",
-      color: "#3B82F6",
-    },
-    {
-      id: 2,
-      name: "Computadores",
-      description: "Laptops, desktops e acessórios",
-      color: "#10B981",
-    },
-    {
-      id: 3,
-      name: "Áudio",
-      description: "Fones, caixas de som e equipamentos de áudio",
-      color: "#F59E0B",
-    },
-    {
-      id: 4,
-      name: "Tablets",
-      description: "Tablets e acessórios",
-      color: "#EF4444",
-    },
-    {
-      id: 5,
-      name: "Wearables",
-      description: "Relógios inteligentes e dispositivos vestíveis",
-      color: "#8B5CF6",
-    },
-    {
-      id: 6,
-      name: "Acessórios",
-      description: "Acessórios diversos para dispositivos",
-      color: "#6B7280",
-    },
-  ]);
 
-  const { products, loading, error, fetchProducts, resolveCategoryNames } = useProductStore();
+  const { products, loading, error, fetchProducts, resolveCategoryNames } =
+    useProductStore();
   const fetchCategories = usePrcStore((s) => s.fetchCategories);
   const prcList = usePrcStore((s) => s.list);
+  const categories = useMemo(
+    () =>
+      prcList.map((c, idx) => ({
+        id: idx + 1,
+        name: c.name,
+        description: c.description,
+        color: "#3B82F6",
+      })),
+    [prcList]
+  );
 
   useEffect(() => {
     // Carrega categorias e produtos na primeira renderização
@@ -86,9 +59,14 @@ export default function MyProductsPage() {
   }, [products, searchTerm, statusFilter, categoryFilter]);
 
   const totalProducts = filteredProducts.length;
-  const activeProducts = filteredProducts.filter((p) => p.status === "active").length;
+  const activeProducts = filteredProducts.filter(
+    (p) => p.status === "active"
+  ).length;
   const totalSales = filteredProducts.reduce((sum, p) => sum + p.sales, 0);
-  const totalRevenue = filteredProducts.reduce((sum, p) => sum + p.sales * p.price, 0);
+  const totalRevenue = filteredProducts.reduce(
+    (sum, p) => sum + p.sales * p.price,
+    0
+  );
 
   return (
     <div className="bg-gray-50 pt-20 pb-20 min-h-screen">
@@ -116,7 +94,7 @@ export default function MyProductsPage() {
               isOpen={isManageCategoriesOpen}
               setIsOpen={setIsManageCategoriesOpen}
               categories={categories}
-              setCategories={setCategories}
+              setCategories={(c) => {}}
             />
             <AddProduct
               isOpen={isAddProductOpen}
@@ -136,7 +114,7 @@ export default function MyProductsPage() {
         </div>
 
         {error && (
-          <div className="mb-4 p-3 rounded bg-red-50 text-red-700 text-sm">
+          <div className="bg-red-50 mb-4 p-3 rounded text-red-700 text-sm">
             {error}
           </div>
         )}
@@ -148,7 +126,9 @@ export default function MyProductsPage() {
         />
 
         {loading && (
-          <div className="mt-4 text-gray-500 text-sm">Carregando produtos...</div>
+          <div className="mt-4 text-gray-500 text-sm">
+            Carregando produtos...
+          </div>
         )}
       </div>
     </div>

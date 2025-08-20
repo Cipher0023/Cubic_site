@@ -23,6 +23,7 @@ import { Plus } from "lucide-react";
 import useUserStore from "@/store/useUserStore";
 import usePrcStore from "@/store/usePrcStore";
 import useCpgStore from "@/store/useCpgStore";
+import { CldUploadButton } from "next-cloudinary";
 
 interface AddProductProps {
   isOpen: boolean;
@@ -44,6 +45,10 @@ export function AddProduct({ isOpen, setIsOpen }: AddProductProps) {
   });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [uploadedPhotos, setUploadedPhotos] = useState<
+    { apiId: string; cloudId: string; url: string }[]
+  >([]);
+  const [mainApiId, setMainApiId] = useState<string>("");
 
   const added_by = useUserStore((s) => s.user?.id || "");
   const prcList = usePrcStore((s) => s.list);
@@ -57,6 +62,13 @@ export function AddProduct({ isOpen, setIsOpen }: AddProductProps) {
       fetchCampaigns();
     }
   }, [isOpen, fetchCategories, fetchCampaigns]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setUploadedPhotos([]);
+      setMainApiId("");
+    }
+  }, [isOpen]);
 
   const formatPrice = (p: string) => {
     if (!p) return "";
@@ -105,7 +117,9 @@ export function AddProduct({ isOpen, setIsOpen }: AddProductProps) {
 
       if (!res.ok) {
         const text = await res.text().catch(() => "");
-        throw new Error(text || `Falha ao cadastrar produto (HTTP ${res.status})`);
+        throw new Error(
+          text || `Falha ao cadastrar produto (HTTP ${res.status})`
+        );
       }
 
       setIsOpen(false);
@@ -130,18 +144,27 @@ export function AddProduct({ isOpen, setIsOpen }: AddProductProps) {
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog modal={false} open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button className="flex-1 sm:flex-none">
           <Plus className="mr-2 w-4 h-4" />
           Adicionar Produto
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px]">
+      <DialogContent
+        className="grid grid-rows-[auto,1fr,auto] overflow-hidden"
+        style={{
+          width: "75vw",
+          height: "75vh",
+          maxWidth: "75vw",
+          maxHeight: "75vh",
+        }}
+        onInteractOutside={(e) => e.preventDefault()}
+      >
         <DialogHeader>
           <DialogTitle>Adicionar Novo Produto</DialogTitle>
         </DialogHeader>
-        <div className="gap-4 grid py-4">
+        <div className="gap-4 grid py-4 pr-1 min-h-0 overflow-y-auto">
           <div className="gap-2 grid">
             <Label htmlFor="name">Nome do Produto</Label>
             <Input
@@ -153,47 +176,50 @@ export function AddProduct({ isOpen, setIsOpen }: AddProductProps) {
               }
             />
           </div>
-
-          <div className="gap-2 grid">
-            <Label htmlFor="category">Categoria</Label>
-            <Select
-              value={newProduct.categoryId}
-              onValueChange={(value) =>
-                setNewProduct({ ...newProduct, categoryId: value })
-              }
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Selecione uma categoria" />
-              </SelectTrigger>
-              <SelectContent>
-                {prcList.map((cat) => (
-                  <SelectItem key={cat.product_category_id} value={cat.product_category_id}>
-                    {cat.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div className="gap-2 grid">
-            <Label htmlFor="campaign">Campanha</Label>
-            <Select
-              value={newProduct.campaignId}
-              onValueChange={(value) =>
-                setNewProduct({ ...newProduct, campaignId: value })
-              }
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Selecione uma campanha (opcional)" />
-              </SelectTrigger>
-              <SelectContent>
-                {cpgList.map((cpg) => (
-                  <SelectItem key={cpg.campaign_id} value={cpg.campaign_id}>
-                    {cpg.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+          <div className="flex flex-row gap-2">
+            <div className="gap-2 grid">
+              <Label htmlFor="category">Categoria</Label>
+              <Select
+                value={newProduct.categoryId}
+                onValueChange={(value) =>
+                  setNewProduct({ ...newProduct, categoryId: value })
+                }
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Selecione uma categoria" />
+                </SelectTrigger>
+                <SelectContent>
+                  {prcList.map((cat) => (
+                    <SelectItem
+                      key={cat.product_category_id}
+                      value={cat.product_category_id}
+                    >
+                      {cat.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="gap-2 grid">
+              <Label htmlFor="campaign">Campanha</Label>
+              <Select
+                value={newProduct.campaignId}
+                onValueChange={(value) =>
+                  setNewProduct({ ...newProduct, campaignId: value })
+                }
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Selecione uma campanha (opcional)" />
+                </SelectTrigger>
+                <SelectContent>
+                  {cpgList.map((cpg) => (
+                    <SelectItem key={cpg.campaign_id} value={cpg.campaign_id}>
+                      {cpg.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
           <div className="gap-4 grid grid-cols-2">
@@ -250,44 +276,146 @@ export function AddProduct({ isOpen, setIsOpen }: AddProductProps) {
           </div>
 
           <div className="gap-2 grid">
-            <Label htmlFor="main_photo_id">Main Photo ID</Label>
-            <Input
-              id="main_photo_id"
-              placeholder="ID da imagem principal"
-              value={newProduct.main_photo_id}
-              onChange={(e) =>
-                setNewProduct({ ...newProduct, main_photo_id: e.target.value })
-              }
-            />
-          </div>
+            <Label htmlFor="main_photo_id">Fotos do produto</Label>
+            <CldUploadButton
+              className="items-center bg-accent rounded-full w-1/2 font-bold text-2xl text-center text-accent-content"
+              uploadPreset="CubicSite"
+              options={{ sources: ["local", "url", "camera"], multiple: true }}
+              onSuccess={async (results: any) => {
+                try {
+                  const info = (results as any)?.info || {};
+                  const secureUrl = info.secure_url || info.url || "";
+                  const publicId = info.public_id || "";
 
-          <div className="gap-2 grid">
-            <Label htmlFor="photos_ids">Photos IDs</Label>
-            <Input
-              id="photos_ids"
-              placeholder="IDs adicionais de imagens (separados por vírgula)"
-              value={newProduct.photos_ids}
-              onChange={(e) =>
-                setNewProduct({ ...newProduct, photos_ids: e.target.value })
-              }
-            />
-          </div>
+                  if (secureUrl && publicId) {
+                    // será tratado após o cadastro na API
+                  }
 
-          <div className="gap-2 grid">
-            <Label htmlFor="image">URL da Imagem</Label>
-            <Input
-              id="image"
-              placeholder="https://exemplo.com/imagem.jpg"
-              value={newProduct.image}
-              onChange={(e) =>
-                setNewProduct({ ...newProduct, image: e.target.value })
-              }
-            />
+                  if (secureUrl) {
+                    try {
+                      const res = await fetch(
+                        "https://localhost:3002/private/regPht",
+                        {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          credentials: "include",
+                          body: JSON.stringify({
+                            source: secureUrl,
+                            added_by,
+                            description: "imagem",
+                          }),
+                        }
+                      );
+
+                      if (!res.ok) {
+                        const text = await res.text().catch(() => "");
+                        throw new Error(
+                          text || `Erro ao registrar foto (HTTP ${res.status})`
+                        );
+                      }
+
+                      const data = await res.json().catch(() => null as any);
+                      const apiId =
+                        (data && (data.photo_id || data.id || data.pht_id)) ||
+                        "";
+                      if (!apiId) {
+                        console.warn(
+                          "Registro de foto não retornou ID válido.",
+                          data
+                        );
+                        return;
+                      }
+
+                      setUploadedPhotos((prev) => {
+                        const next = [
+                          ...prev,
+                          { apiId, cloudId: publicId, url: secureUrl },
+                        ];
+
+                        const currentMain = mainApiId || apiId;
+                        const mainPhoto = next.find(
+                          (p) => p.apiId === currentMain
+                        );
+                        const othersIds = next
+                          .filter((p) => p.apiId !== currentMain)
+                          .map((p) => p.apiId)
+                          .join(",");
+
+                        setNewProduct((prevProduct) => ({
+                          ...prevProduct,
+                          main_photo_id: currentMain,
+                          image: mainPhoto?.url || prevProduct.image,
+                          photos_ids: othersIds,
+                        }));
+
+                        if (!mainApiId) setMainApiId(apiId);
+                        return next;
+                      });
+                    } catch (e) {
+                      console.error("Erro ao registrar foto:", e);
+                    }
+                  }
+                } catch (err) {
+                  console.error("Erro ao processar upload:", err);
+                  setError("Falha ao obter dados do upload da imagem.");
+                }
+              }}
+            >
+              Upload da imagem
+            </CldUploadButton>
+            {uploadedPhotos.length > 0 && (
+              <div className="mt-3">
+                <p className="mb-2 text-muted-foreground text-sm">
+                  Imagens enviadas (clique para definir a principal)
+                </p>
+                <div className="gap-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6">
+                  {uploadedPhotos.map((photo) => {
+                    const mainId = mainApiId || newProduct.main_photo_id;
+                    const isMain = mainId === photo.apiId;
+                    return (
+                      <button
+                        type="button"
+                        key={photo.apiId}
+                        onClick={() => {
+                          const others = uploadedPhotos
+                            .filter((p) => p.apiId !== photo.apiId)
+                            .map((p) => p.apiId)
+                            .join(",");
+                          setMainApiId(photo.apiId);
+                          setNewProduct((prev) => ({
+                            ...prev,
+                            main_photo_id: photo.apiId,
+                            image: photo.url,
+                            photos_ids: others,
+                          }));
+                        }}
+                        className={`relative border rounded-md overflow-hidden aspect-square ${
+                          isMain
+                            ? "ring-2 ring-accent border-accent"
+                            : "border-muted"
+                        }`}
+                      >
+                        <img
+                          src={photo.url}
+                          alt="Imagem enviada"
+                          className="w-full h-full object-cover"
+                        />
+                        {isMain && (
+                          <span className="top-1 left-1 absolute bg-accent px-1 py-0.5 rounded text-[10px] text-accent-content">
+                            Principal
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
         <div className="flex justify-end gap-3">
-          <div className="flex-1 text-sm text-red-600">{error}</div>
+          <div className="flex-1 text-red-600 text-sm">{error}</div>
           <Button variant="outline" onClick={() => setIsOpen(false)}>
             Cancelar
           </Button>
