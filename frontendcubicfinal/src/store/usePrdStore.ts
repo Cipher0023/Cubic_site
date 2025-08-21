@@ -2,6 +2,7 @@
 
 import { create } from "zustand";
 import usePrcStore from "@/store/usePrcStore";
+import usePhtStore from "@/store/usePhtStore";
 
 export interface Product {
   id: string;
@@ -16,6 +17,9 @@ export interface Product {
   sales: number;
   views: number;
   image: string;
+  // Fotos
+  main_photo_id?: string;
+  photos_ids?: string[];
 }
 
 interface ProductsState {
@@ -55,6 +59,7 @@ export interface ApiProduct {
   image?: string;
   imagem?: string;
   main_photo_id?: string;
+  photos_ids?: string[] | string;
 }
 
 // Normalizador do formato de resposta da API
@@ -97,6 +102,23 @@ function mapApiProduct(item: ApiProduct): Product {
     item?.category_name ??
     (categoryId || "Sem categoria");
 
+  // Fotos: main_photo_id e photos_ids
+  const mainPhotoId = item?.main_photo_id?.toString?.();
+  const rawPhotosIds = (item as any)?.photos_ids;
+  const photos_ids: string[] = Array.isArray(rawPhotosIds)
+    ? rawPhotosIds.map((v: unknown) => (v as any)?.toString?.()).filter(Boolean)
+    : typeof rawPhotosIds === "string"
+    ? rawPhotosIds.split(",").map((s: string) => s.trim()).filter(Boolean)
+    : [];
+
+  // Resolve imagem a partir da main_photo_id se disponível no store de fotos
+  const phtList = usePhtStore.getState().list;
+  const mainPhoto = mainPhotoId
+    ? phtList.find((p) => p.photo_id?.toString?.() === mainPhotoId)
+    : undefined;
+  const image =
+    mainPhoto?.source ?? item?.image ?? item?.imagem ?? "/placeholder.svg";
+
   return {
     id,
     name: item?.name ?? item?.prd_nome ?? item?.nome ?? "Sem nome",
@@ -107,12 +129,13 @@ function mapApiProduct(item: ApiProduct): Product {
     status: item?.status ?? statusInferido,
     sales: Number(item?.selling_numbers ?? item?.sales ?? item?.vendas ?? 0),
     views: Number(item?.views ?? 0),
-    // Se houver uma URL para a main_photo_id, adapte aqui. Mantendo placeholder por enquanto.
-    image: item?.image ?? item?.imagem ?? "/placeholder.svg",
+    image,
+    main_photo_id: mainPhotoId,
+    photos_ids,
   };
 }
 
-export const useProductStore = create<ProductsState>((set, get) => ({
+export const usePrdStore = create<ProductsState>((set, get) => ({
   products: [],
   loading: false,
   error: null,

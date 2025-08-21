@@ -7,7 +7,8 @@ import { ProductFilters } from "@/components/Restaurante/gerenciamento/produtos/
 import { ProductListTable } from "@/components/Restaurante/gerenciamento/produtos/ProductListTable/ProductListTable";
 import { AddProduct } from "@/components/Restaurante/gerenciamento/produtos/AddProduct/AddProduct";
 import { ManageCategories } from "@/components/Restaurante/gerenciamento/produtos/ManageCategories/ManageCategories";
-import { useProductStore } from "@/store/usePrdStore";
+import { usePrdStore } from "@/store/usePrdStore";
+import usePhtStore from "@/store/usePhtStore";
 import usePrcStore from "@/store/usePrcStore";
 
 export default function MyProductsPage() {
@@ -18,9 +19,11 @@ export default function MyProductsPage() {
   const [isManageCategoriesOpen, setIsManageCategoriesOpen] = useState(false);
 
   const { products, loading, error, fetchProducts, resolveCategoryNames } =
-    useProductStore();
+    usePrdStore();
   const fetchCategories = usePrcStore((s) => s.fetchCategories);
   const prcList = usePrcStore((s) => s.list);
+  const fetchPhotos = usePhtStore((s) => s.fetchPhotos);
+  const phtList = usePhtStore((s) => s.list);
   const categories = useMemo(
     () =>
       prcList.map((c, idx) => ({
@@ -33,10 +36,11 @@ export default function MyProductsPage() {
   );
 
   useEffect(() => {
-    // Carrega categorias e produtos na primeira renderização
+    // Carrega categorias, produtos e fotos na primeira renderização
     fetchCategories();
     fetchProducts();
-  }, [fetchCategories, fetchProducts]);
+    fetchPhotos();
+  }, [fetchCategories, fetchProducts, fetchPhotos]);
 
   useEffect(() => {
     // Sempre que as categorias forem atualizadas, re-hidrata os nomes das categorias dos produtos
